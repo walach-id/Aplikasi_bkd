@@ -19,6 +19,22 @@
                 <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
             </div>
 
+            <!-- NIK -->
+            <div class="mt-4">
+                <x-label for="nik" :value="__('NIK')" />
+
+                <x-input id="nik" class="block mt-1 w-full" type="text" name="nik" :value="old('nik')" required autofocus />
+            </div>
+
+            <!-- Jenis Dosen -->
+            <div class="mt-4">
+                <x-label for="jenis" value="{{ __('Jenis Dosen:') }}" />
+                <select name="jenis" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    <option value="1">NIDN</option>
+                    <option value="2">Non-NIDN</option>
+                </select>
+            </div>
+
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />
