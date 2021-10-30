@@ -19,7 +19,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <!-- Page Heading -->
-                <a href="#" class="btn btn-primary mb-4">Tambah Data Baru</a>
+                <a href="{{ url('/pengajaran/add') }}" class="btn btn-primary mb-4">Tambah Data Baru</a>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">

@@ -42,3 +42,4 @@ Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
 
 // Pengajaran BKD
 Route::get('/pengajaran', [PengajaranController::class, 'index']);
+Route::get('/pengajaran/add', [PengajaranController::class, 'formAddPengajaran']);
