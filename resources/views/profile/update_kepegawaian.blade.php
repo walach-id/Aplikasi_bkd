@@ -22,7 +22,8 @@
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Ubah data di bawah ini</h1>
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                    <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+              -->
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-lg-5">
@@ -40,16 +41,16 @@
                                         @foreach($profil as $item)
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Program Studi</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" value="{{ $item->program_studi }}">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" value="{{ $item->program_studi }}" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">No.HP Aktif</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="nohp" value="{{ $item->nohp }}">
+                                            <input type="text" class="form-control" id="exampleInputEmail1" name="nohp" value="{{ $item->nohp }}" required minlength="11">
                                         </div>
 
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email Aktif</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ $item->email }}">
+                                            <input type="email" class="form-control" id="exampleInputEmail1" name="email" value="{{ $item->email }}" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Update Data</button>
                                         @endforeach

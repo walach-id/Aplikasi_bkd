@@ -23,8 +23,6 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">Lengkapi Data Pribadi</h1>
 
-
-                    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                 </div>
 
                 <div class="row">
@@ -61,12 +59,12 @@
 
                     <div class="col-xl-4 col-lg-5">
                         <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
+
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Profil</h6>
 
                             </div>
-                            <!-- Card Body -->
+
                             <div class="card-body">
                                 <div class="pb-2">
 
@@ -111,12 +109,12 @@
 
                     <div class="col-xl-4 col-lg-5">
                         <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
+
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Kependudukan</h6>
 
                             </div>
-                            <!-- Card Body -->
+
                             <div class="card-body">
                                 <div class="pb-2">
                                     <div class="form-group">
@@ -140,12 +138,12 @@
 
                     <div class="col-xl-4 col-lg-5">
                         <div class="card shadow mb-4">
-                            <!-- Card Header - Dropdown -->
+
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Kepegawaian</h6>
 
                             </div>
-                            <!-- Card Body -->
+
                             <div class="card-body">
                                 <div class="pb-2">
                                     <div class="form-group">
@@ -161,18 +159,17 @@
                                         <label for="exampleInputEmail1">Email Aktif</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" name="email" required>
                                     </div>
-                                    <a type="submit" class="btn btn-primary">Save Profil</button>
-                                        </form>
+                                    <button type="submit" class="btn btn-primary">Save Profil</button>
+                                    </form>
 
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
             <!-- /.container-fluid -->
-
         </div>
         @include('partials.footer')

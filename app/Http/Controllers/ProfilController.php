@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Auth;
 class ProfilController extends Controller
 {
     // Menampilkan data pribadi dosen ber-NIDN atau non-NIDN
-    public function index($id)
+    public function index()
     {
         $profil = new Profil();
 
-        $get_profil = $profil::where('user_profile', $id)->get();
+        $get_profil = $profil::where('user_profile', Auth::user()->id)->get();
 
         return view('profile.data_pribadi', [
             'profil' => $get_profil,
@@ -96,7 +96,7 @@ class ProfilController extends Controller
             $profil->save();
 
             toast("Profil kamu berhasil dilengkapi", 'success');
-            return redirect('/dashboard/' . Auth::user()->id);
+            return redirect('/dashboard');
         }
     }
 
@@ -108,7 +108,7 @@ class ProfilController extends Controller
             $profil = Profil::find($id);
             $profil->delete();
             toast("Profil kamu berhasil dihapus", 'success');
-            return redirect('/dashboard/' . Auth::user()->id);
+            return redirect('/dashboard');
         } else {
             dd('File does not exists.');
         }
@@ -175,10 +175,10 @@ class ProfilController extends Controller
             'profil' => $get_profil,
         ]);
     }
-    public function processUpdateKepegawaian(Request $request, $id)
+    public function processUpdateKepegawaian(Request $request)
     {
         $profil = new Profil();
-        $profil::where('user_profile', $id)
+        $profil::where('user_profile', Auth::user()->id)
             ->update([
                 'program_studi' => $request->prodi,
                 'nohp' => $request->nohp,
@@ -186,6 +186,86 @@ class ProfilController extends Controller
             ]);
 
         toast("Data Kepegawaian kamu berhasil diupdate", 'success');
-        return redirect('/dashboard/' . Auth::user()->id);
+        return redirect('/dashboard');
+    }
+
+    public function formUbahKependudukan($id)
+    {
+        $profil = new Profil();
+
+        $get_profil = $profil::where('user_profile', $id)->get();
+
+        return view('profile.update_kependudukan', [
+            'profil' => $get_profil,
+        ]);
+    }
+
+    public function processUpdateKependudukan(Request $request)
+    {
+        $profil = new Profil();
+        $profil::where('user_profile', Auth::user()->id)
+            ->update([
+                'nik' => $request->nik,
+                'npwp' => $request->npwp,
+                'kewarganegaraan' => $request->warganegara
+            ]);
+
+        toast("Data Kependudukan kamu berhasil diupdate", 'success');
+        return redirect('/dashboard');
+    }
+
+    public function formUbahProfil($id)
+    {
+        $profil = new Profil();
+
+        $get_profil = $profil::where('user_profile', $id)->get();
+
+        return view('profile.update_profil', [
+            'profil' => $get_profil,
+        ]);
+    }
+
+    public function processUpdateProfil(Request $request)
+    {
+        $profil = new Profil();
+        $pengenal = $request->jenispengenal;
+
+        if ($pengenal == "NIDN") {
+
+            $profil::where('user_profile', Auth::user()->id)
+                ->update([
+                    'nidn' => $request->idpengenal,
+                    'nidk' => "",
+                    'nup' => "",
+                    'nama' => $request->nama,
+                    'jenkel' => $request->jenkel,
+                    'tanggal_lahir' => $request->tanggallahir,
+                    'tempat_lahir' => $request->tempatlahir,
+                ]);
+        } elseif ($pengenal == "NIDK") {
+            $profil::where('user_profile', Auth::user()->id)
+                ->update([
+                    'nidk' => $request->idpengenal,
+                    'nidn' => "",
+                    'nup' => "",
+                    'nama' => $request->nama,
+                    'jenkel' => $request->jenkel,
+                    'tanggal_lahir' => $request->tanggallahir,
+                    'tempat_lahir' => $request->tempatlahir,
+                ]);
+        } elseif ($pengenal == "NUP") {
+            $profil::where('user_profile', Auth::user()->id)
+                ->update([
+                    'nup' => $request->idpengenal,
+                    'nidk' => "",
+                    'nidn' => "",
+                    'nama' => $request->nama,
+                    'jenkel' => $request->jenkel,
+                    'tanggal_lahir' => $request->tanggallahir,
+                    'tempat_lahir' => $request->tempatlahir,
+                ]);
+        }
+        toast("Data Kependudukan kamu berhasil diupdate", 'success');
+        return redirect('/dashboard');
     }
 }
