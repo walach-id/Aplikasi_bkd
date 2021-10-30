@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
-
+use App\Http\Controllers\PengajaranController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,3 +38,7 @@ Route::post('/update/kependudukan', [ProfilController::class, 'processUpdateKepe
 
 Route::get('/change/profil/{id}', [ProfilController::class, 'formUbahProfil']);
 Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
+
+
+// Pengajaran BKD
+Route::get('/pengajaran', [PengajaranController::class, 'index']);
