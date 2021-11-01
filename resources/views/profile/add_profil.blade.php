@@ -148,7 +148,11 @@
                                 <div class="pb-2">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Program Studi</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" required>
+                                        <select class="form-control" name="prodi" id="sel1" required>
+                                            @foreach ($prodi as $item)
+                                            <option value="{{ $item->program_studi }}">{{ $item->program_studi }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">No.HP Aktif</label>
