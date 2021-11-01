@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profil;
+use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\File;
 use Alert;
 use Illuminate\Support\Facades\Validator;
@@ -26,8 +27,9 @@ class ProfilController extends Controller
     // Menampilkan data pribadi dosen ber-NIDN atau non-NIDN
     public function formAddProfil()
     {
-
-        return view('profile.add_profil');
+        return view('profile.add_profil', [
+            'prodi' => ProgramStudi::get(),
+        ]);
     }
 
     public function saveAddProfil(Request $request)
@@ -173,6 +175,7 @@ class ProfilController extends Controller
 
         return view('profile.update_kepegawaian', [
             'profil' => $get_profil,
+            'prodi' => ProgramStudi::get(),
         ]);
     }
     public function processUpdateKepegawaian(Request $request)

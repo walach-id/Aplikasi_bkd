@@ -41,7 +41,11 @@
                                         @foreach($profil as $item)
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Program Studi</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" value="{{ $item->program_studi }}" required>
+                                            <select class="form-control" name="prodi" id="sel1" required>
+                                                @foreach ($prodi as $data)
+                                                <option value="{{ $data->program_studi }}" {{$item->program_studi == $data->program_studi  ? 'selected' : ''}}>{{ $data->program_studi }}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">No.HP Aktif</label>
