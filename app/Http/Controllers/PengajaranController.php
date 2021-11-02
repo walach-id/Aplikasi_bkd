@@ -8,6 +8,7 @@ use App\Models\Pengajaran;
 use App\Models\MataKuliah;
 use App\Models\ProgramStudi;
 use App\Models\User;
+use App\Models\Profil;
 use Alert;
 
 
@@ -15,31 +16,61 @@ class PengajaranController extends Controller
 {
     public function index()
     {
+        if (Auth::user()->jenis == 1) {
+            $pengajaran = new Pengajaran();
+            $AmbilData = $pengajaran::where('user_id', Auth::user()->id)->orWhere('wewenang_dosen_id', Auth::user()->id)->get();
 
-        $pengajaran = new Pengajaran();
-        $AmbilData = $pengajaran::where('user_id', Auth::user()->id)->get();
-        foreach ($AmbilData as $data) {
-            $matkul = $data->matkul_id;
-            $id_prodi = $data->prodi_id;
+            if (!$AmbilData->isEmpty()) {
+                foreach ($AmbilData as $data) {
+                    $matkul = $data->matkul_id;
+                    $id_prodi = $data->prodi_id;
+                    //$getMatkul = MataKuliah::select('nama_mk')->where('kode_mk', $matkul)->where('thn_akademik', '20211')->where('id_prodi', '13101')->first();
+                }
+
+                $getProgramStudi = ProgramStudi::where('id_prodi', $id_prodi)->get();
+                return view('pengajaran.dashboard_nidn', [
+                    'pengajaran' => $AmbilData,
+                    'prodi' => $getProgramStudi,
+                ]);
+            } else {
+                return view('pengajaran.dashboard_empty');
+            }
+        } else {
+            $pengajaran = new Pengajaran();
+            $AmbilData = $pengajaran::where('user_id', Auth::user()->id)->orWhere('wewenang_dosen_id', Auth::user()->id)->get();
+
+            if (!$AmbilData->isEmpty()) {
+                foreach ($AmbilData as $data) {
+                    $matkul = $data->matkul_id;
+                    $id_prodi = $data->prodi_id;
+                    //$getMatkul = MataKuliah::select('nama_mk')->where('kode_mk', $matkul)->where('thn_akademik', '20211')->where('id_prodi', '13101')->first();
+                }
+                $getProgramStudi = ProgramStudi::where('id_prodi', $id_prodi)->get();
+                return view('pengajaran.dashboard', [
+                    'pengajaran' => $AmbilData,
+                    'prodi' => $getProgramStudi,
+                ]);
+            } else {
+                return view('pengajaran.dashboard_empty');
+            }
         }
-
-        $getMatkul = MataKuliah::select('nama_mk')->where('kode_mk', $matkul)->get();
-        $getProgramStudi = ProgramStudi::where('id_prodi', '13101')->get();
-
-        return view('pengajaran.dashboard', [
-            'pengajaran' => $AmbilData,
-            'matkul' => $getMatkul,
-            'prodi' => $getProgramStudi,
-        ]);
     }
 
     public function formAddPengajaran()
     {
         $matkul = new MataKuliah();
         $dosen = new User();
+        $getProgramStudi = Profil::where('user_profile', Auth::user()->id)->get();
+        foreach ($getProgramStudi as $data) {
+            $prodi = $data->program_studi;
+        }
         //Ambil seluruh data matkul
-        $listMatkul = $matkul::select('*')->where('thn_akademik', '>=', now()->year . '1')->where('id_prodi', '=', 13211)->OrderBy('nama_mk', 'ASC')->get();
-        $listDosen = $dosen::select("*")->where('jenis', '=', 1)->OrderBy('name', 'ASC')->get();
+        $listMatkul = $matkul::select('*')->where('thn_akademik', '>=', now()->year . '1')
+            ->where('id_prodi', '=', $prodi)
+            ->OrderBy('nama_mk', 'ASC')->get();
+        $listDosen = $dosen::select("*")->where('jenis', '=', 1)
+            ->where('id', 'not like', Auth::user()->id)
+            ->OrderBy('name', 'ASC')->get();
 
 
         return view('pengajaran.add_pengajaran', [
@@ -54,11 +85,15 @@ class PengajaranController extends Controller
             Alert::warning('Peringatan', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
             return redirect()->back();
         } else {
+            $getProgramStudi = Profil::where('user_profile', Auth::user()->id)->get();
+            foreach ($getProgramStudi as $data) {
+                $prodi = $data->program_studi;
+            }
             $pengajaran = new Pengajaran();
             $pengajaran->id = null;
             $pengajaran->user_id = Auth::user()->id;
             $pengajaran->matkul_id = $request->matkul;
-            $pengajaran->prodi_id = '130101';
+            $pengajaran->prodi_id = $prodi;
             $pengajaran->jenis_kegiatan = $request->matkul;
             $pengajaran->bukti_penugasan = $request->buktipenugasan;
             $pengajaran->sks = $request->jumsks;

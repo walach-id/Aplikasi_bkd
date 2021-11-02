@@ -49,27 +49,9 @@
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    @forelse($pengajaran as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->matkul_id }}</td>
-                                        @foreach($prodi as $dataProdi)
-                                        <td>{{ $dataProdi->program_studi }}</td>
-                                        @endforeach
-                                        <td>{{ $item->sks }}</td>
-
-                                        <td>{{ $item->jumlah_pertemuan }}</td>
-                                        <td><a href="{{ url('/bkd/detail/'.$item->id) }}" class="btn btn-primary mb-4">Detail</a></td>
-
-
-
+                                        <td>DATA BELUM ADA</td>
                                     </tr>
-                                    @empty
-
-                                    @endforelse
-
-
-
                                 </tbody>
                             </table>
                         </div>

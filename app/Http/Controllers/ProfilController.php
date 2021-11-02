@@ -21,6 +21,7 @@ class ProfilController extends Controller
 
         return view('profile.data_pribadi', [
             'profil' => $get_profil,
+
         ]);
     }
 
