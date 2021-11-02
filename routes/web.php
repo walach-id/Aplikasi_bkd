@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contoh', function () {
+    return view('pengajaran.detail_pengajaran');
+});
+
 // Route::get('/dashboard/{id}', function () {
 //     return view('profile.data_pribadi');
 // });

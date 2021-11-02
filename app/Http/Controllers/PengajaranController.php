@@ -112,6 +112,25 @@ class PengajaranController extends Controller
 
     public function detailBKD($id)
     {
-        dd($id);
+        $pengajaran = Pengajaran::where('id', $id)->first();
+        $get_profil = Pengajaran::where('id', $id)->first();
+
+        if ($get_profil->user_id == Auth::user()->id) {
+            $pengajaran = Pengajaran::join('data_mk', 'data_mk.kode_mk', '=', 'pengajarans.matkul_id')
+                ->join('data_program_studi', 'data_program_studi.id_prodi', '=', 'pengajarans.prodi_id')
+                ->join('users', 'users.id', '=', 'pengajarans.wewenang_dosen_id')
+                ->where('pengajarans.id', $id)
+                ->first(['data_mk.kode_mk', 'data_mk.nama_mk', 'data_program_studi.id_prodi', 'data_program_studi.program_studi', 'users.id', 'users.name', 'pengajarans.*']);
+        } else {
+            $pengajaran = Pengajaran::join('data_mk', 'data_mk.kode_mk', '=', 'pengajarans.matkul_id')
+                ->join('data_program_studi', 'data_program_studi.id_prodi', '=', 'pengajarans.prodi_id')
+                ->join('users', 'users.id', '=', 'pengajarans.user_id')
+                ->where('pengajarans.id', $id)
+                ->first(['data_mk.kode_mk', 'data_mk.nama_mk', 'data_program_studi.id_prodi', 'data_program_studi.program_studi', 'users.id', 'users.name', 'pengajarans.*']);
+        }
+
+        return view('pengajaran.detail_pengajaran', [
+            'pengajaran' => $pengajaran,
+        ]);
     }
 }
