@@ -1,66 +1,41 @@
-@include('partials.app')
-
-<div id="wrapper">
-
-    <!-- Sidebar -->
-    @include('partials.side_bar')
-    <!-- End Of Side Bar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-        <!-- Main Content -->
-        <div id="content">
-
-            <!-- Topbar -->
-            @include('partials.topbar')
-            <!-- End of Topbar -->
-
-            <!-- Begin Page Content -->
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <a href="{{ url('/bkd/form') }}" class="btn btn-primary mb-4">Tambah Data Baru</a>
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Tabel Pengajaran Dosen</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Mata Kuliah</th>
-                                        <th>Program Studi</th>
-                                        <th>SKS</th>
-                                        <th>Jumlah Pertemuan</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Mata Kuliah</th>
-                                        <th>Program Studi</th>
-                                        <th>SKS</th>
-                                        <th>Jumlah Pertemuan</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </tfoot>
-                                <tbody>
-                                    <tr>
-                                        <td>DATA BELUM ADA</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+<x-app-layout>
+    <!-- Page Heading -->
+    <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
+    <!-- DataTales Example -->
+    <div class="mb-4 shadow card">
+        <div class="py-3 card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Pengajaran Dosen</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mata Kuliah</th>
+                            <th>Program Studi</th>
+                            <th>SKS</th>
+                            <th>Jumlah Pertemuan</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Mata Kuliah</th>
+                            <th>Program Studi</th>
+                            <th>SKS</th>
+                            <th>Jumlah Pertemuan</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>DATA BELUM ADA</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <!-- /.container-fluid -->
-
         </div>
     </div>
-</div>
-@include('partials.footer')
+</x-app-layout>
