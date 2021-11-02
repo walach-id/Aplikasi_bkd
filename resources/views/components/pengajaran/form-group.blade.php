@@ -1,4 +1,4 @@
  <div class="form-group">
-     <label for="exampleInputEmail1">BUKTI PENUGASAN</label>
-     <input type="text" class="form-control" id="exampleInputEmail1" name="tempatlahir" required>
+     <label for="{{ $name }}">{{ $label }}</label>
+     <input type="text" class="form-control" id="{{ $name }}" name="tempatlahir" required>
  </div>

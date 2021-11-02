@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use App\Models\Pengajaran;
-use App\Models\MataKuliah;
-use App\Models\ProgramStudi;
+use Alert;
 use App\Models\User;
 use App\Models\Profil;
-use Alert;
+use App\Models\MataKuliah;
+use App\Models\Pengajaran;
+use App\Models\ProgramStudi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class PengajaranController extends Controller

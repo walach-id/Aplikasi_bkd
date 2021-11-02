@@ -11,10 +11,10 @@
             <div class="mb-4 shadow card">
                 <div class="card-body">
                     <div class="pb-2">
-                        <x-pengajaran.form-group-options />
+                        {{-- <x-pengajaran.form-group-options />
                         <x-pengajaran.form-group />
                         <x-pengajaran.form-group />
-                        <x-pengajaran.form-group />
+                        <x-pengajaran.form-group /> --}}
                     </div>
                 </div>
             </div>
