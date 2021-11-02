@@ -44,4 +44,4 @@ Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
 Route::get('/bkd', [PengajaranController::class, 'index']);
 Route::get('/bkd/form', [PengajaranController::class, 'formAddPengajaran']);
 Route::post('/bkd', [PengajaranController::class, 'storePengajaran']);
-Route::post('/bkd/detail/{id}', [PengajaranController::class, 'detailBKD']);
+Route::get('/bkd/detail/{id}', [PengajaranController::class, 'detailBKD']);

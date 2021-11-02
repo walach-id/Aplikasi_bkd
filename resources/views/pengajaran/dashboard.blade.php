@@ -57,12 +57,13 @@
                                         <td>{{ $data->nama_mk }}</td>
                                         @endforeach
 
-                                        @foreach($prodi as $data)
-                                        <td>{{ $data->program_studi }}</td>
+                                        @foreach($prodi as $dataProdi)
+                                        <td>{{ $dataProdi->program_studi }}</td>
                                         @endforeach
                                         <td>{{ $item->sks }}</td>
+
                                         <td>{{ $item->jumlah_pertemuan }}</td>
-                                        <td><a href="{{ url('/bkd/form') }}" class="btn btn-primary mb-4">Detail</a></td>
+                                        <td><a href="{{ url('/bkd/detail/'.$item->id) }}" class="btn btn-primary mb-4">Detail</a></td>
                                     </tr>
                                     @empty
 

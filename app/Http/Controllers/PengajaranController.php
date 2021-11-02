@@ -22,8 +22,10 @@ class PengajaranController extends Controller
             $matkul = $data->matkul_id;
             $id_prodi = $data->prodi_id;
         }
+
         $getMatkul = MataKuliah::select('nama_mk')->where('kode_mk', $matkul)->get();
-        $getProgramStudi = ProgramStudi::select('program_studi')->where('id_prodi', $id_prodi)->get();
+        $getProgramStudi = ProgramStudi::where('id_prodi', '13101')->get();
+
         return view('pengajaran.dashboard', [
             'pengajaran' => $AmbilData,
             'matkul' => $getMatkul,
