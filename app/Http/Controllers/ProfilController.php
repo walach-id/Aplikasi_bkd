@@ -54,16 +54,20 @@ class ProfilController extends Controller
             // Foto Profil
             $foto = Request()->foto;
 
-            $path = public_path() . '/foto/profil/' . '/' . $request->nama;
+            $path = public_path() . '/foto/profil/' . $request->nama;
             if (!File::exists($path)) {
                 File::makeDirectory($path, 0777, true, false);
             }
             $namaFile = rand() . '_' . $request->nama . '.' . $foto->extension();
-            $foto->move(public_path('assets/images/foto/profil/' . '/' . $request->nama),  $namaFile);
+            $foto->move(public_path('assets/images/foto/profil/' . $request->nama),  $namaFile);
 
             $pengenal = $request->jenispengenal;
 
             $profil->id = null;
+
+            $profil->nidn = "";
+            $profil->nidk = "";
+            $profil->nup = "";
 
             if ($pengenal == "NIDN") {
                 $profil->nidn = $request->idpengenal;

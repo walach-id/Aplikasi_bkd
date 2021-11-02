@@ -3,11 +3,11 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center">
-          <div class="sidebar-brand-text mx-3">SIBLING STIKIM </div>
+          <div class="mx-3 sidebar-brand-text">SIBLING STIKIM </div>
       </a>
 
       <!-- Divider -->
-      <hr class="sidebar-divider my-0">
+      <hr class="my-0 sidebar-divider">
 
       <!-- Nav Item - Dashboard -->
       <!-- <li class="nav-item active">
@@ -26,12 +26,13 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+              aria-controls="collapseTwo">
               <i class="fas fa-fw fa-cog"></i>
               <span>Profil</span>
           </a>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
+              <div class="py-2 bg-white rounded collapse-inner">
                   <a class="collapse-item" href="buttons.html">Data Pribadi</a>
               </div>
           </div>
@@ -39,11 +40,13 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+              aria-expanded="true" aria-controls="collapseUtilities">
               <i class="fas fa-fw fa-wrench"></i>
               <span>Pelaks.Pendidikan</span>
           </a>
-          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+              data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <a class="collapse-item" href="{{ url('/bkd') }}">Pengajaran</a>
               </div>
@@ -65,7 +68,7 @@
               <span>Pages</span>
           </a>
           <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
+              <div class="py-2 bg-white rounded collapse-inner">
                   <h6 class="collapse-header">Login Screens:</h6>
                   <a class="collapse-item" href="login.html">Login</a>
                   <a class="collapse-item" href="register.html">Register</a>
@@ -97,13 +100,13 @@
 
       <!-- Sidebar Toggler (Sidebar) -->
       <!-- <div class="text-center d-none d-md-inline">
-          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+          <button class="border-0 rounded-circle" id="sidebarToggle"></button>
       </div> -->
 
       <!-- Sidebar Message -->
       <!-- <div class="sidebar-card d-none d-lg-flex">
-          <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-          <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+          <img class="mb-2 sidebar-card-illustration" src="img/undraw_rocket.svg" alt="...">
+          <p class="mb-2 text-center"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
           <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
       </div> -->
 

@@ -25,20 +25,24 @@ Route::get('/', function () {
 require __DIR__ . '/auth.php';
 
 Route::get('/dashboard', [ProfilController::class, 'index'])->middleware(['auth'])->name('dashboard');
-Route::get('/add/profil', [ProfilController::class, 'formAddProfil']);
-Route::post('/save/profil', [ProfilController::class, 'saveAddProfil']);
-Route::get('/delete/profil/{id}/{nama}/{foto}', [ProfilController::class, 'deleteProfil']);
-Route::post('/change/photo/profile/{id}', [ProfilController::class, 'changePhotoProfile']);
 
-Route::get('/change/kepegawaian/profil/{id}', [ProfilController::class, 'formUbahKepegawaian']);
-Route::post('/update/kepegawaian', [ProfilController::class, 'processUpdateKepegawaian']);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/add/profil', [ProfilController::class, 'formAddProfil']);
+    Route::post('/save/profil', [ProfilController::class, 'saveAddProfil']);
+    Route::get('/delete/profil/{id}/{nama}/{foto}', [ProfilController::class, 'deleteProfil']);
+    Route::post('/change/photo/profile/{id}', [ProfilController::class, 'changePhotoProfile']);
 
-Route::get('/change/kependudukan/profil/{id}', [ProfilController::class, 'formUbahKependudukan']);
-Route::post('/update/kependudukan', [ProfilController::class, 'processUpdateKependudukan']);
+    Route::get('/change/kepegawaian/profil/{id}', [ProfilController::class, 'formUbahKepegawaian']);
+    Route::post('/update/kepegawaian', [ProfilController::class, 'processUpdateKepegawaian']);
 
-Route::get('/change/profil/{id}', [ProfilController::class, 'formUbahProfil']);
-Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
+    Route::get('/change/kependudukan/profil/{id}', [ProfilController::class, 'formUbahKependudukan']);
+    Route::post('/update/kependudukan', [ProfilController::class, 'processUpdateKependudukan']);
 
+    Route::get('/change/profil/{id}', [ProfilController::class, 'formUbahProfil']);
+    Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
+    Route::get('/pengajaran', [PengajaranController::class, 'index']);
+    Route::get('/pengajaran/add', [PengajaranController::class, 'formAddPengajaran']);
+});
 
 // Pengajaran BKD
 Route::get('/bkd', [PengajaranController::class, 'index']);
