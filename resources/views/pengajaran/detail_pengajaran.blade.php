@@ -52,7 +52,7 @@
                      </div>
                      <div class="form-group">
                          <label for="exampleInputEmail1">JUMLAH WEWENANG YANG DIBERIKAN</label>
-                         <input type="text" class="form-control" id="exampleInputEmail1" name="tempatlahir" required value="{{ $pengajaran->jumlah_wewenang }} SKS">
+                         <input type="text" class="form-control" id="exampleInputEmail1" name="tempatlahir" required value="{{ $pengajaran->jumlah_wewenang }} Pertemuan">
                      </div>
                  </div>
              </div>

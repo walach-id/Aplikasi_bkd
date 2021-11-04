@@ -16,6 +16,12 @@
                             <th>Program Studi</th>
                             <th>SKS</th>
                             <th>Jumlah Pertemuan</th>
+                            @if ($pengajaran[0]->user_id != Auth::user()->id)
+                            <th>Diberikan oleh</th>
+                            @else
+                            <th>Memberikan oleh</th>
+                            @endif
+                            <th>banyak nya wewenang</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -26,24 +32,27 @@
                             <th>Program Studi</th>
                             <th>SKS</th>
                             <th>Jumlah Pertemuan</th>
+                            <th>diberikan oleh/memberikan ke</th>
+                            <th>banyak nya wewenang</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         @forelse($pengajaran as $item)
-                            <tr>
-                                <td>{{ $item->id }}</td>
-                                <td>{{ $item->matkul_id }}</td>
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->matkul }}</td>
 
-                                <td>{{ $item->prodi_id }}</td>
+                            <td>{{ $item->prodi }}</td>
 
-                                <td>{{ $item->sks }}</td>
+                            <td>{{ $item->sks }}</td>
 
-                                <td>{{ $item->jumlah_pertemuan }}</td>
-                                <td><a href="{{ url('/bkd/detail/' . $item->id) }}"
-                                        class="mb-4 btn btn-primary">Detail</a>
-                                </td>
-                            </tr>
+                            <td>{{ $item->jumlah_pertemuan }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->jumlah_wewenang }}</td>
+                            <td><a href="{{ url('/bkd/detail/' . $item->id) }}" class="mb-4 btn btn-primary">Detail</a>
+                            </td>
+                        </tr>
                         @empty
 
                         @endforelse

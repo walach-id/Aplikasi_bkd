@@ -73,14 +73,22 @@ class ProfilController extends Controller
                 $profil->nidn = $request->idpengenal;
                 $profil->nidk = "";
                 $profil->nup = "";
+                $profil->nip = "";
             } elseif ($pengenal == "NIDK") {
                 $profil->nidk = $request->idpengenal;
                 $profil->nidn = "";
                 $profil->nup = "";
+                $profil->nip = "";
             } elseif ($pengenal == "NUP") {
                 $profil->nup = $request->idpengenal;
                 $profil->nidn = "";
                 $profil->nidk = "";
+                $profil->nip = "";
+            } elseif ($pengenal == "NIP") {
+                $profil->nip = $request->idpengenal;
+                $profil->nidn = "";
+                $profil->nidk = "";
+                $profil->nup = "";
             }
 
             $profil->foto = $namaFile;
@@ -151,7 +159,8 @@ class ProfilController extends Controller
             // Hapus foto
             if (File::exists(public_path('assets/images/foto/profil/' . $nama . '/' . $fotoLama))) {
                 File::delete(public_path('assets/images/foto/profil/' . $nama . '/' . $fotoLama));
-                $profil = Profil::find($id);
+                $profil = Profil::where('user_profile', $id)->get();
+
                 $profil->delete();
             }
 
@@ -168,7 +177,7 @@ class ProfilController extends Controller
                 ->update(['foto' => $namaFile]);
 
             toast("Foto profil kamu berhasil diupdate", 'success');
-            return redirect('/dashboard/' . Auth::user()->id);
+            return redirect('/dashboard');
         }
     }
 
@@ -245,6 +254,7 @@ class ProfilController extends Controller
                     'nidn' => $request->idpengenal,
                     'nidk' => "",
                     'nup' => "",
+                    'nip' => "",
                     'nama' => $request->nama,
                     'jenkel' => $request->jenkel,
                     'tanggal_lahir' => $request->tanggallahir,
@@ -256,6 +266,7 @@ class ProfilController extends Controller
                     'nidk' => $request->idpengenal,
                     'nidn' => "",
                     'nup' => "",
+                    'nip' => "",
                     'nama' => $request->nama,
                     'jenkel' => $request->jenkel,
                     'tanggal_lahir' => $request->tanggallahir,
@@ -267,6 +278,19 @@ class ProfilController extends Controller
                     'nup' => $request->idpengenal,
                     'nidk' => "",
                     'nidn' => "",
+                    'nip' => "",
+                    'nama' => $request->nama,
+                    'jenkel' => $request->jenkel,
+                    'tanggal_lahir' => $request->tanggallahir,
+                    'tempat_lahir' => $request->tempatlahir,
+                ]);
+        } elseif ($pengenal == "NIP") {
+            $profil::where('user_profile', Auth::user()->id)
+                ->update([
+                    'nup' => "",
+                    'nidk' => "",
+                    'nidn' => "",
+                    'nip' => $request->idpengenal,
                     'nama' => $request->nama,
                     'jenkel' => $request->jenkel,
                     'tanggal_lahir' => $request->tanggallahir,

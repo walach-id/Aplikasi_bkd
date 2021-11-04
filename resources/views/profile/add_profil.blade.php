@@ -53,6 +53,8 @@
                                 <option value="NIDN">NIDN</option>
                                 <option value="NIDK">NIDK</option>
                                 <option value="NUP">NUP</option>
+                                <option value="NIP">NIP</option>
+
                             </select>
                         </div>
                         <input type="text" class="form-control" id="exampleInputEmail1" name="idpengenal" placeholder="Ketik ID (Sesuai Pilihan di atas) Disini" required>

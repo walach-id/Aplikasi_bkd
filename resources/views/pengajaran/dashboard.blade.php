@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Page Heading -->
-    <a href="{{ url('/pengajaran/add') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
+    <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
     <!-- DataTales Example -->
     <div class="mb-4 shadow card">
         <div class="py-3 card-header">
@@ -11,37 +11,44 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>ID</th>
+                            <th>Mata Kuliah</th>
+                            <th>Program Studi</th>
+                            <th>SKS</th>
+                            <th>Jumlah Pertemuan</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>ID</th>
+                            <th>Mata Kuliah</th>
+                            <th>Program Studi</th>
+                            <th>SKS</th>
+                            <th>Jumlah Pertemuan Total</th>
+                            <th>Actions</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @forelse($pengajaran as $item)
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->matkul }}</td>
+
+                            <td>{{ $item->prodi }}</td>
+
+                            <td>{{ $item->sks }}</td>
+
+                            <td>{{ $item->jumlah_pertemuan }}</td>
+                            <td><a href="{{ url('/bkd/detail/' . $item->id) }}" class="mb-4 btn btn-primary">Detail</a>
+                            </td>
                         </tr>
+                        @empty
+
+                        @endforelse
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <!-- /.container-fluid -->
 </x-app-layout>

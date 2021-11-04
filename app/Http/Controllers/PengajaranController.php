@@ -18,8 +18,15 @@ class PengajaranController extends Controller
     {
         if (Auth::user()->jenis == 1) {
             $pengajaran = new Pengajaran();
-            $AmbilData = $pengajaran::where('user_id', Auth::user()->id)->orWhere('wewenang_dosen_id', Auth::user()->id)->get();
-
+            if ($pengajaran->user_id != Auth::user()->id) {
+                $AmbilData = $pengajaran::join('users', 'users.id', '=', 'pengajarans.wewenang_dosen_id')
+                    ->where('user_id', Auth::user()->id)->orWhere('wewenang_dosen_id', Auth::user()->id)
+                    ->get(['users.id', 'users.name', 'pengajarans.*']);
+            } else {
+                $AmbilData = $pengajaran::join('users', 'users.id', '=', 'pengajarans.user_id')
+                    ->where('user_id', Auth::user()->id)->orWhere('wewenang_dosen_id', Auth::user()->id)
+                    ->get(['users.id', 'users.name', 'pengajarans.*']);
+            }
             if (!$AmbilData->isEmpty()) {
                 foreach ($AmbilData as $data) {
                     $matkul = $data->matkul_id;
@@ -56,6 +63,8 @@ class PengajaranController extends Controller
         }
     }
 
+
+
     public function formAddPengajaran()
     {
         $matkul = new MataKuliah();
@@ -89,11 +98,26 @@ class PengajaranController extends Controller
             foreach ($getProgramStudi as $data) {
                 $prodi = $data->program_studi;
             }
+
+            $getNamaProdi = ProgramStudi::where('id_prodi', $prodi)->get();
+            foreach ($getNamaProdi as $data) {
+                $namaprodi = $data->program_studi;
+            }
+
+            $getKodeMatkul = MataKuliah::where('nama_mk', $request->matkul)->where('id_prodi', $prodi)->get();
+            foreach ($getKodeMatkul as $data) {
+                $kodemk = $data->kode_mk;
+            }
+
             $pengajaran = new Pengajaran();
             $pengajaran->id = null;
             $pengajaran->user_id = Auth::user()->id;
-            $pengajaran->matkul_id = $request->matkul;
+            $pengajaran->matkul = $request->matkul;
+            $pengajaran->matkul_id = $kodemk;
+
             $pengajaran->prodi_id = $prodi;
+            $pengajaran->prodi = $namaprodi;
+
             $pengajaran->jenis_kegiatan = $request->matkul;
             $pengajaran->bukti_penugasan = $request->buktipenugasan;
             $pengajaran->sks = $request->jumsks;

@@ -62,6 +62,10 @@
                                 @elseif($item->nup)
                                 <label for="exampleInputEmail1">NUP</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" name="nup" readonly value="{{ $item->nup }}">
+                                @elseif($item->nip)
+                                <label for="exampleInputEmail1">NIP</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name="nup" readonly value="{{ $item->nip }}">
+
                                 @endif
 
                             </div>
