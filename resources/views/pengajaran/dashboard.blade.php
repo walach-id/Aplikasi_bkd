@@ -1,6 +1,9 @@
 <x-app-layout>
     <!-- Page Heading -->
-    <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
+    
+        <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
+        <a href="/pengajaran/cetak" class="float-right mb-4 btn btn-primary">Cetak Laporan Pengajaran</a>
+    
     <!-- DataTales Example -->
     <div class="mb-4 shadow card">
         <div class="py-3 card-header">
@@ -16,6 +19,8 @@
                             <th>Program Studi</th>
                             <th>SKS</th>
                             <th>Jumlah Pertemuan</th>
+                            <th>Diberikan oleh</th>
+                            <th>banyak nya wewenang</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -25,7 +30,9 @@
                             <th>Mata Kuliah</th>
                             <th>Program Studi</th>
                             <th>SKS</th>
-                            <th>Jumlah Pertemuan Total</th>
+                            <th>Jumlah Pertemuan</th>
+                            <th>diberikan oleh/memberikan ke</th>
+                            <th>banyak nya wewenang</th>
                             <th>Actions</th>
                         </tr>
                     </tfoot>
@@ -40,6 +47,8 @@
                             <td>{{ $item->sks }}</td>
 
                             <td>{{ $item->jumlah_pertemuan }}</td>
+                            <td>{{ $item->name }}</td>
+                            <td>{{ $item->jumlah_wewenang }}</td>
                             <td><a href="{{ url('/bkd/detail/' . $item->id) }}" class="mb-4 btn btn-primary">Detail</a>
                             </td>
                         </tr>

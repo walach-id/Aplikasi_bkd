@@ -17,7 +17,9 @@ class ProfilController extends Controller
     {
         $profil = new Profil();
 
-        $get_profil = $profil::where('user_profile', Auth::user()->id)->get();
+        $get_profil = $profil::join('data_program_studi', 'data_program_studi.id_prodi', '=', 'profils.program_studi_id')
+            ->where('user_profile', Auth::user()->id)
+            ->get(['data_program_studi.id_prodi', 'data_program_studi.program_studi', 'profils.*']);
 
         return view('profile.data_pribadi', [
             'profil' => $get_profil,
@@ -101,7 +103,7 @@ class ProfilController extends Controller
             $profil->nik = $request->nik;
             $profil->npwp = $request->npwp;
             $profil->kewarganegaraan = $request->warganegara;
-            $profil->program_studi = $request->prodi;
+            $profil->program_studi_id = $request->prodi;
 
             $profil->nohp = $request->nohp;
             $profil->email = $request->email;
@@ -197,7 +199,9 @@ class ProfilController extends Controller
         $profil = new Profil();
         $profil::where('user_profile', Auth::user()->id)
             ->update([
-                'program_studi' => $request->prodi,
+                'program_studi_id' => $request->prodi,
+                'jabatan' => $request->jabatan,
+                'dosen_type' => $request->dosen_type,
                 'nohp' => $request->nohp,
                 'email' => $request->email
             ]);

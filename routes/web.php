@@ -46,6 +46,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/update/profil', [ProfilController::class, 'processUpdateProfil']);
     Route::get('/pengajaran', [PengajaranController::class, 'index']);
     Route::get('/pengajaran/add', [PengajaranController::class, 'formAddPengajaran']);
+    Route::get('/pengajaran/cetak', [PengajaranController::class, 'cetakPDF']);
 });
 
 // Pengajaran BKD

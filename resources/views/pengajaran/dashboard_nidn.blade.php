@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Page Heading -->
-    <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Data Baru</a>
+    <a href="{{ url('/bkd/form') }}" class="mb-4 btn btn-primary">Tambah Datsa Baru</a>
     <!-- DataTales Example -->
     <div class="mb-4 shadow card">
         <div class="py-3 card-header">

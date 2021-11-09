@@ -19,10 +19,10 @@ class CreatePengajaransTable extends Migration
             $table->string('matkul_id');
             $table->string('prodi_id');
             $table->string('jenis_kegiatan');
-            $table->string('bukti_penugasan');
+
             $table->string('sks');
             $table->string('masa_penugasan');
-            $table->string('bukti_dokumen');
+
 
             $table->string('jumlah_pertemuan');
             $table->string('wewenang_dosen_id');

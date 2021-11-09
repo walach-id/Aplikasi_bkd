@@ -28,13 +28,13 @@ class CreateProfilsTable extends Migration
             $table->date('tanggal_lahir');
             $table->string('kewarganegaraan')->default("Indonesia");
 
-            $table->string('program_studi');
+            $table->string('program_studi_id');
             $table->string('nohp');
             $table->string('email');
             $table->string('status_isi');
-
-
-
+            $table->string('jabatan');
+            $table->string('dosen_type');
+            $table->string('user_profile');
 
             $table->timestamps();
         });

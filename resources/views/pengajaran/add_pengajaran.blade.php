@@ -20,10 +20,10 @@
                                      @endforelse
                                  </select>
                              </div>
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                                  <label for="exampleInputEmail1">BUKTI PENUGASAN</label>
                                  <input type="text" class="form-control" id="exampleInputEmail1" name="buktipenugasan" required>
-                             </div>
+                             </div> --}}
                              <div class="form-group">
                                  <label for="exampleInputEmail1">JUM.SKS</label>
                                  <input type="text" class="form-control" id="exampleInputEmail1" name="jumsks" required>
@@ -40,10 +40,10 @@
                  <div class="card shadow mb-4">
                      <div class="card-body">
                          <div class="pb-2">
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                                  <label for="exampleInputEmail1">BUKTI DOKUMEN</label>
                                  <input type="text" class="form-control" id="exampleInputEmail1" name="buktidokumen" required>
-                             </div>
+                             </div> --}}
                              <div class="form-group">
                                  <label for="exampleInputEmail1">JUM.PERTEMUAN</label>
                                  <input type="text" class="form-control" id="exampleInputEmail1" name="jumpertemuan" required>

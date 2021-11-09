@@ -140,6 +140,14 @@
                             <input type="text" class="form-control" id="exampleInputEmail1" name="nama" readonly value="{{ $item->program_studi }}">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Jabatan</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="nama" readonly value="{{ $item->jabatan }}" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Type Dosen</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" name="nama" readonly value="{{ $item->dosen_type }}" >
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">No.HP Aktif</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" name="jenkel" readonly value="{{ $item->nohp }}">
                         </div>
