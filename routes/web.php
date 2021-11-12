@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PengajaranController;
+use App\Http\Controllers\PpengajaranController;
+use App\Imports\PengajaranImport;
+use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contoh', function () {
-    return view('pengajaran.detail_pengajaran');
+//pddikti
+Route::get('/pddikti/form', [PpengajaranController::class, 'formAddPpengajaran']);
+Route::post('/pddikti/form/add', [PpengajaranController::class, 'storePpengajaran']);
+Route::post('/pddikti/form/import', function () {
+    Excel::import(new PengajaranImport, request()->file('file'));
+    return back();
 });
+Route::get('/pddikti/data', [PpengajaranController::class, 'index']);
+Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengajaran']);
 
 // Route::get('/dashboard/{id}', function () {
 //     return view('profile.data_pribadi');
