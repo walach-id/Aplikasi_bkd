@@ -15,14 +15,13 @@ class CreatePengajaransTable extends Migration
     {
         Schema::create('pengajarans', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->string('matkul_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('matkul_id')->constrained();
             $table->string('prodi_id');
             $table->string('jenis_kegiatan');
 
             $table->string('sks');
             $table->string('masa_penugasan');
-
 
             $table->string('jumlah_pertemuan');
             $table->string('wewenang_dosen_id');

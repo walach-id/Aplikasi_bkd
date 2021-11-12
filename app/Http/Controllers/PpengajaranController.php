@@ -25,12 +25,12 @@ class PpengajaranController extends Controller
             $prodi = $data->program_studi_id;
         }
         //Ambil seluruh data matkul
-        $listMatkul = $matkul::select('*')
+        $listMatkul = MataKuliah::select('*')
             ->where('thn_akademik', '>=', now()->year . '1')
             ->where('id_prodi', '=', $prodi)
             ->OrderBy('nama_mk', 'ASC')->get();
 
-        $listDosen = $dosen::select("*")->where('jenis', '=', 1)
+        $listDosen = User::select("*")->where('jenis', '=', 1)
             ->where('id', 'not like', Auth::user()->id)
             ->OrderBy('name', 'ASC')->get();
 

@@ -1,0 +1,12 @@
+
+
+// insert query result to another table
+INSERT INTO temp_data(id_prodi,kode_mk,nama_mk,jml_sks,semester,prasyarat,flag1,flag2,flag3)
+    SELECT DISTINCT id_prodi,kode_mk,nama_mk,jml_sks,semester,prasyarat,flag1,flag2,flag3
+    FROM data_mk;
+
+//count duplicate
+SELECT title, site_id, location, id, count( * )
+FROM jobs
+GROUP BY site_id, company, title, location
+HAVING count( * ) >1
