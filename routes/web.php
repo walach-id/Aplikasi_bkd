@@ -6,6 +6,7 @@ use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PpengajaranController;
 use App\Imports\PengajaranImport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Livewire\Supplier\Ppengajaran;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,10 @@ use Maatwebsite\Excel\Facades\Excel;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/pddikti', function () {
+    return view('pddikti.add_pengajaran_pddikti');
 });
 
 //pddikti
