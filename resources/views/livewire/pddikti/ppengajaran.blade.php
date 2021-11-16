@@ -1,6 +1,6 @@
 <div>
     <div class="row">
-            
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <div class="col-xl-4 col-lg-5">
             <form>
                 @csrf
@@ -12,7 +12,7 @@
                         <div class="form-group">
                             <label for="exampleInputEmail1">PRODI</label>
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" required> --}}
-                            <select class="form-control" wire:model="prodi" name="prodi" id="sel1" required>
+                            <select class="form-control" wire:model="prodi" wire:change="change" name="prodi" id="sel1" required>
                                 <option value="" ></option>
                                 @forelse($data_prodi as $item)
                                 <option value="{{ $item->id_prodi }}">{{ $item->program_studi }}</option>
@@ -26,7 +26,7 @@
                             <label for="exampleInputEmail1">Tahun Ajaran</label>
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                             <select class="form-control" wire:model="tahun_ajaran" id="sel1">
-                                <option value=""></option>
+                                <option value="" ></option>
                                 <option value="2021">2021</option>
                                 <option value="2020">2020</option>
                                 <option value="2019">2019</option>
@@ -78,16 +78,31 @@
                             <label for="exampleInputEmail1">JUM. KELAS</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelas" name="jumkelas" required>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="exampleInputEmail1">NAMA DOSEN</label>
                             
-                            <select class="theSelect form-control" wire:model="dosen" id="sel1" required>
+                            <select class="theSelect form-control" wire:model="dosen" required>
                                 <option value=""></option>
-                                @foreach ($data_dosen as $data)
+                                @foreach ($listDosen as $data)
                                     <option value="{{$data->no_registrasi}}">{{$data->nama}}</option>
                                 @endforeach
                             </select>
                             
+                        </div> --}}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">NAMA DOSEN</label>
+
+                        <x-lwa::autocomplete class="form-control"
+                        name="user-name"
+                        wire:model-text="namaDosen"
+                        wire:model-id="idDosen"
+                        wire:model-results="listDosen"
+                        :options="[
+                        'text'=> 'nama',
+                        'id' => 'no_registrasi',
+                        'allow-new'=> 'false',
+                    ]"
+                         />
                         </div>
                         <button wire:submit.prevent="storePpengajaran" type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
                         {{-- <div class="form-group">
@@ -138,7 +153,4 @@
         </div>
     
     </div>
-    <script>
-		$(".theSelect").select2();
-	</script>
 </div>
