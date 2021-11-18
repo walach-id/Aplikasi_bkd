@@ -18,31 +18,33 @@ use Illuminate\Http\Request;
 class Ppengajaran extends Component
 {
 
-    public $dosen, $matkul, $prodi, $sks, $jumkelas, $tahun_ajaran, $sms, $rasio, $listDosen;
-    public $namaDosen, $idDosen;
+    public $matkul, $prodi, $sks, $jumkelas, $tahun_ajaran, $sms, $rasio;
+    public $no_induk, $bio_dosen1, $no_induk1, $bio_dosen, $listDosen, $listDosen1;
+    public $namaDosen, $idDosen, $namaDosen1, $idDosen1;
 
     protected $rules = [
         'listDosen.*.no_registrasi' => '',
         'listDosen.*.nama' => '',
 
-        'dosen.no_registrasi' => '',
-        'dosen.nama' => '',
+        'listDosen1.*.no_registrasi' => '',
+        'listDosen1.*.nama' => '',
     ];
 
 
     public function mount()
     {
         $this->getDosen();
-    }
-
-    public function updatedIdDosen()
-    {
-        $this->dosen = DosenNidn::where('no_registrasi', '=', $this->idDosen)->first();
+        $this->getDosen1();
     }
 
     public function updatedNamaDosen()
     {
         $this->getDosen();
+    }
+
+    public function updatedNamaDosen1()
+    {
+        $this->getDosen1();
     }
 
     public function getDosen()
@@ -60,11 +62,25 @@ class Ppengajaran extends Component
         }
     }
 
+    public function getDosen1()
+    {
+        if (!empty($this->namaDosen1) || $this->namaDosen1 !== null) {
+            $this->listDosen1 = DosenNidn::query()
+                ->when($this->namaDosen1, function ($query, $name) {
+                    return $query->where('nama', 'LIKE', '%' . $name . '%');
+                })
+                ->orderBy('nama')
+                ->limit(10)
+                ->get();
+        } else {
+            $this->listDosen1 = [];
+        }
+    }
+
     public function render()
     {
 
         $data_prodi = ProgramStudi::get();
-
 
         //Ambil seluruh data matkul
         $tahun_akademik = $this->tahun_ajaran . $this->sms;
@@ -81,6 +97,31 @@ class Ppengajaran extends Component
             ->where('thn_akademik', '=', $tahun_akademik)
             ->where('kode_mk', '=', $this->matkul)
             ->first();
+
+        // dosen utama
+        $biodata_dosen = DosenNidn::where('no_registrasi', '=', $this->idDosen)
+            ->first();
+
+        if ($biodata_dosen == null || $biodata_dosen == "") {
+            $this->bio_dosen = "-";
+            $this->no_induk = "-";
+        } else {
+            $this->bio_dosen = $biodata_dosen->jabfung;
+            $this->no_induk = $biodata_dosen->no_registrasi;
+        }
+
+        // dosen yang dialihkan
+        $biodata_dosen1 = DosenNidn::where('no_registrasi', '=', $this->idDosen1)
+            ->first();
+
+        if ($biodata_dosen1 == null || $biodata_dosen1 == "") {
+            $this->bio_dosen1 = "-";
+            $this->no_induk1 = "-";
+        } else {
+            $this->bio_dosen1 = $biodata_dosen1->jabfung;
+            $this->no_induk1 = $biodata_dosen1->no_registrasi;
+        }
+
 
         if ($this->matkul == "" || $this->prodi == "" || ($this->tahun_ajaran == "" && $this->sms == "")) {
             $this->sks = "";

@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">SKS</label>
-                            <input type="text" class="form-control" wire:model="sks" name="sks" required>
+                            <input type="text" class="form-control" wire:model="sks" name="sks" readonly required>
                            
                         </div>
                         <div class="form-group">
@@ -89,20 +89,34 @@
                             </select>
                             
                         </div> --}}
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">NAMA DOSEN</label>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">NAMA DOSEN</label>
 
-                        <x-lwa::autocomplete class="form-control"
-                        name="user-name"
-                        wire:model-text="namaDosen"
-                        wire:model-id="idDosen"
-                        wire:model-results="listDosen"
-                        :options="[
-                        'text'=> 'nama',
-                        'id' => 'no_registrasi',
-                        'allow-new'=> 'false',
-                    ]"
-                         />
+                            <x-lwa::autocomplete class="form-control"
+                            name="user-name"
+                            wire:model-text="namaDosen"
+                            wire:model-id="idDosen"
+                            wire:model-results="listDosen"
+                            :options="[
+                            'text'=> 'nama',
+                            'id' => 'no_registrasi',
+                            'allow-new'=> 'false',
+                        ]"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">No induk</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                           <div>
+                                <label for="">{{ $this->no_induk }}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Jabatan Fungsional</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                           <div>
+                                <label for="">{{ $this->bio_dosen }}</label>
+                            </div>
                         </div>
                         <button wire:submit.prevent="storePpengajaran" type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
                         {{-- <div class="form-group">
@@ -132,7 +146,51 @@
             </div>
         </form>
         </div>
-    
+        <div class="col-xl-4 col-lg-5">
+            <form action="{{ url('/pddikti/form/import') }}" method="post" enctype="multipart/form-data">
+                @csrf
+            <div class="card shadow mb-4">
+                <div class="py-3 card-header">
+                    <h6 class="m-0 font-weight-bold text-primary">Pengalihan Beban Kerja Pengajaran</h6>
+                </div>
+                <div class="card-body">
+                    <div class="pb-2">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">NAMA DOSEN</label>
+
+                            <x-lwa::autocomplete class="form-control"
+                            name="user-name"
+                            wire:model-text="namaDosen1"
+                            wire:model-id="idDosen1"
+                            wire:model-results="listDosen1"
+                            :options="[
+                            'text'=> 'nama',
+                            'id' => 'no_registrasi',
+                            'allow-new'=> 'false',
+                        ]"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">No induk</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                           <div>
+                                <label for="">{{ $this->no_induk1 }}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Jabatan Fungsional</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                           <div>
+                                <label for="">{{ $this->bio_dosen1 }}</label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Import Excel</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
     
         <div class="col-xl-4 col-lg-5">
             <form action="{{ url('/pddikti/form/import') }}" method="post" enctype="multipart/form-data">
@@ -149,7 +207,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+            </form>
         </div>
     
     </div>
