@@ -6,7 +6,7 @@ use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PpengajaranController;
 use App\Imports\PengajaranImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Livewire\Supplier\Ppengajaran;
+use App\Http\Livewire\Pddikti\Ppengajaran;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

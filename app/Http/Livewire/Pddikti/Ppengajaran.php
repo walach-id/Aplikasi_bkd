@@ -8,7 +8,7 @@ use App\Models\Profil;
 use App\Models\MataKuliah;
 use App\Models\Krs;
 use App\Models\DosenNidn;
-use App\Models\Pddiktipengajaran;
+use App\Models\PddiktiPengajaran;
 use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\Auth;
 use App\Imports\PengajaranImport;
@@ -170,21 +170,16 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
-        $panggil_nama = User::where('nik', $this->dosen)
-            ->first();
-        // dd($panggil_nama->name);
-        dd($this->matkul);
-        $pengajaran = new Ppengajaran();
-        $pengajaran->id = null;
-        $pengajaran->nik = $this->dosen;
-        $pengajaran->nama_dosen = $panggil_nama->name;
-        $pengajaran->matkul_id = $this->matkul;
-        $pengajaran->prodi_id = $this->prodi;
-        $pengajaran->sks = $this->sks;
-        $pengajaran->semester = $this->semester;
-        $pengajaran->jum_kelas = $this->jumkelas;
+        PddiktiPengajaran::create([
+            'nik' => $this->idDosen,
+            'nama_dosen' => $this->namaDosen,
+            'matkul_id' => $this->matkul,
+            'prodi_id' => $this->prodi,
+            'sks' => $this->sks * $this->jumkelas,
+            'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+            'jum_kelas' => $this->jumkelas,
+        ]);
 
-        $pengajaran->save();
 
         // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
         // return redirect('/pddikti/data');

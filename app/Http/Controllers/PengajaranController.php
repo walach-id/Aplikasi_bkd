@@ -200,7 +200,7 @@ class PengajaranController extends Controller
             'dosen' => Profil::where('user_profile', '=', Auth::user()->id)->first(),
         ];
 
-        $pdf = PDF::loadview('pengajaran.laporan_pengajaran', $data)->setPaper('a4', 'potrait');;
+        $pdf = PDF::loadview('pengajaran.laporan_tugas', $data)->setPaper('a4', 'landscape');;
         return $pdf->stream();
     }
 }

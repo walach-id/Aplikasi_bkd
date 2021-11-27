@@ -2,8 +2,8 @@
     <div class="row">
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <div class="col-xl-4 col-lg-5">
-            <form>
-                @csrf
+            <form wire:submit.prevent="storePpengajaran" action="">
+                
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="pb-2">
@@ -118,7 +118,7 @@
                                 <label for="">{{ $this->bio_dosen }}</label>
                             </div>
                         </div>
-                        <button wire:submit.prevent="storePpengajaran" type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
+                        <button type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
                         {{-- <div class="form-group">
                             <label for="exampleInputEmail1">JENIS KEGIATAN / MATA KULIAH</label>
                             <select class="form-control" name="matkul" id="sel1" required>
@@ -147,7 +147,7 @@
         </form>
         </div>
         <div class="col-xl-4 col-lg-5">
-            <form action="{{ url('/pddikti/form/import') }}" method="post" enctype="multipart/form-data">
+            <form action="">
                 @csrf
             <div class="card shadow mb-4">
                 <div class="py-3 card-header">

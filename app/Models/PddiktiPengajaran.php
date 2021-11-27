@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ppengajaran extends Model
+class PddiktiPengajaran extends Model
 {
     use HasFactory;
     protected $table = 'pengajaran_pddikti';
@@ -15,6 +15,7 @@ class Ppengajaran extends Model
         'prodi_id',
         'matkul_id',
         'sks',
+        'akademik_tahun',
         'semester',
         'jum_kelas',
     ];
