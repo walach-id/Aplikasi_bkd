@@ -39,8 +39,8 @@
                             <label for="exampleInputEmail1">Semester Tahun Ajaran</label>
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                            <div>
-                                <input class="mr-1" type="radio" wire:model="sms" id="" value="2"><label for="">Genap</label>
-                                <input class="mr-1" type="radio" wire:model="sms" id="" value="1"><label for="">Ganjil</label>
+                                <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="2"><label for="">Genap</label>
+                                <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="1"><label for="">Ganjil</label>
                             </div>
                         </div>
 

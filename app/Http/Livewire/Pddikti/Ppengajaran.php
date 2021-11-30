@@ -145,9 +145,6 @@ class Ppengajaran extends Component
 
     public function change()
     {
-
-        $this->tahun_ajaran = "";
-        $this->sms = "";
         $this->matkul = "";
     }
 
