@@ -14,15 +14,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Imports\PengajaranImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use Alert;
 
-use RealRashid\SweetAlert\Facades\Alert;
-
-class Ppengajaran extends Component
+class UpdateBebanSks extends Component
 {
-
     public $matkul, $prodi, $sks, $jumkelas, $tahun_ajaran, $sms, $rasio;
     public $no_induk, $bio_dosen1, $no_induk1, $bio_dosen, $listDosen, $listDosen1;
-    public $namaDosen, $idDosen = '1', $namaDosen1, $idDosen1;
+    public $namaDosen, $idDosen, $namaDosen1, $idDosen1;
 
     protected $rules = [
         'listDosen.*.no_registrasi' => '',
@@ -137,7 +135,7 @@ class Ppengajaran extends Component
             $this->jumkelas = ceil($banyak_mahasiswa / $this->rasio);
         }
 
-        return view('livewire.pddikti.ppengajaran', [
+        return view('livewire.pddikti.update-beban-sks', [
             'data_matkul' => $listMatkul,
             'data_prodi' => $data_prodi,
             'mahasiswa' => $banyak_mahasiswa,

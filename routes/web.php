@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PddiktiController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PengajaranController;
@@ -25,6 +26,19 @@ Route::get('/', function () {
 Route::get('/pddikti', function () {
     return view('pddikti.add_pengajaran_pddikti');
 });
+
+Route::get('/pddikti/dosen', function () {
+    return view('pddikti.data_dosen_pddikti');
+});
+// Route::get('/pddikti/dosen/detail/{id}/alihkan', function () {
+//     return view('pddikti.update_pengajaran_pddikti');
+// });
+
+Route::get('/pddikti/dosen/detail/{id}/alihkan', [PddiktiController::class, 'edit']);
+Route::post('/pddikti/dosen/detail/{id}/alihkan/add', [PddiktiController::class, 'store']);
+
+
+Route::get('/pddikti/dosen/detail/{id}', [PddiktiController::class, 'index']);
 
 //pddikti
 Route::get('/pddikti/form', [PpengajaranController::class, 'formAddPpengajaran']);
