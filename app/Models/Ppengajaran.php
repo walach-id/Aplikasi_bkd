@@ -9,13 +9,4 @@ class Ppengajaran extends Model
 {
     use HasFactory;
     protected $table = 'pengajaran_pddikti';
-    protected $fillable = [
-        'nik',
-        'nama_dosen',
-        'prodi_id',
-        'matkul_id',
-        'sks',
-        'semester',
-        'jum_kelas',
-    ];
 }

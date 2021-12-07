@@ -59,7 +59,7 @@
         <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item" href="{{ url('/pddikti') }}">Pengajaran</a>
-                <a class="collapse-item" href="#">Dosen</a>
+                <a class="collapse-item" href="{{ url('/pddikti/dosen') }}">Dosen</a>
             </div>
         </div>
     </li>

@@ -20,9 +20,9 @@ use RealRashid\SweetAlert\Facades\Alert;
 class Ppengajaran extends Component
 {
 
-    public $matkul, $prodi, $sks, $jumkelas, $tahun_ajaran, $sms, $rasio;
+    public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio;
     public $no_induk, $bio_dosen1, $no_induk1, $bio_dosen, $listDosen, $listDosen1;
-    public $namaDosen, $idDosen = '1', $namaDosen1, $idDosen1;
+    public $namaDosen, $idDosen, $namaDosen1, $idDosen1;
 
     protected $rules = [
         'listDosen.*.no_registrasi' => '',
@@ -86,16 +86,16 @@ class Ppengajaran extends Component
 
         //Ambil seluruh data matkul
         $tahun_akademik = $this->tahun_ajaran . $this->sms;
-        $listMatkul = MataKuliah::where('id_prodi', '=', $this->prodi)
+        $listMatkul = MataKuliah::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('thn_akademik', '=', $tahun_akademik)
             ->OrderBy('nama_mk', 'ASC')->get();
 
-        $banyak_mahasiswa = krs::where('id_prodi', '=', $this->prodi)
+        $banyak_mahasiswa = krs::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('kode_mk', '=', $this->matkul)
             ->where('thn_akademik', '=', $tahun_akademik)
             ->count();
 
-        $select_sks = MataKuliah::where('id_prodi', '=', $this->prodi)
+        $select_sks = MataKuliah::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('thn_akademik', '=', $tahun_akademik)
             ->where('kode_mk', '=', $this->matkul)
             ->first();
@@ -125,7 +125,7 @@ class Ppengajaran extends Component
         }
 
 
-        if ($this->matkul == "" || $this->prodi == "" || ($this->tahun_ajaran == "" && $this->sms == "")) {
+        if ($this->matkul == "" || ($this->tahun_ajaran == "" && $this->sms == "")) {
             $this->sks = "";
         } else {
             $this->sks = $select_sks->jml_sks;
@@ -165,28 +165,31 @@ class Ppengajaran extends Component
         $this->matkul = "";
         $this->sks = "";
         $this->jumkelas = "";
+        $this->jumkelasp = "";
     }
 
     public function storePpengajaran()
     {
-        if (($this->sks * $this->jumkelas) >= 6) {
-            Alert::warning('Peringatan', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
+        if (($this->sks * $this->jumkelas) >= 16) {
+            Alert::warning('Peringatan', 'Jumlah tugas diberikan melebihi batas');
             return back();
         } else {
+
             PddiktiPengajaran::create([
                 'nik' => $this->idDosen,
                 'nama_dosen' => $this->namaDosen,
                 'matkul_id' => $this->matkul,
-                'prodi_id' => $this->prodi,
+                'prodi_id' => Auth::user()->prodi_id,
                 'sks' => $this->sks * $this->jumkelas,
                 'akademik_tahun' => $this->tahun_ajaran . $this->sms,
                 'jum_kelas' => $this->jumkelas,
+                'kelas_penyesuaian' => $this->jumkelasp
             ]);
-
+            // dd($this->jumkelasp);
             // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
             // return redirect('/pddikti/data');
             Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
-            return back();
+            return redirect('/pddikti/dosen');
         }
     }
 }

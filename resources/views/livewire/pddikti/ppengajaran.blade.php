@@ -1,26 +1,13 @@
 <div>
     <div class="row">
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <div class="col-xl-4 col-lg-5">
+        <div class="col-xl col-lg">
             <form wire:submit.prevent="storePpengajaran" action="">
                 
             <div class="card shadow mb-4">
                 <div class="card-body">
                     <div class="pb-2">
                         
-         
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">PRODI</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="prodi" required> --}}
-                            <select class="form-control" wire:model="prodi" wire:change="change" name="prodi" id="sel1" required>
-                                <option value="" ></option>
-                                @forelse($data_prodi as $item)
-                                <option value="{{ $item->id_prodi }}">{{ $item->program_studi }}</option>
-                                @empty
-                                <option disabled selected> DATA MATA KULIAH TIDAK DI TEMUKAN</option>
-                                @endforelse
-                            </select>
-                        </div>
                         
                         <div class="form-group">
                             <label for="exampleInputEmail1">Tahun Ajaran</label>
@@ -31,7 +18,6 @@
                                 <option value="2020">2020</option>
                                 <option value="2019">2019</option>
                                 <option value="2018">2018</option>
-                            
                             </select>
                         </div>
 
@@ -39,7 +25,7 @@
                             <label for="exampleInputEmail1">Semester Tahun Ajaran</label>
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                            <div>
-                                <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="2"><label for="">Genap</label>
+                                <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="2"><label class="mr-3" for="">Genap</label>
                                 <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="1"><label for="">Ganjil</label>
                             </div>
                         </div>
@@ -71,12 +57,23 @@
                            
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">RASIO</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="rasio" required>
+                            <label for="exampleInputEmail1">Rasio</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                            <select class="form-control" wire:model="rasio" id="sel1">
+                                <option value="" ></option>
+                                <option value="30">30</option>
+                                <option value="35">35</option>
+                                <option value="40">40</option>
+                                <option value="45">45</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">JUM. KELAS</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelas" name="jumkelas" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">JUM. KELAS PENYESUAIAN</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelasp" name="jumkelasp" required>
                         </div>
                         {{-- <div class="form-group">
                             <label for="exampleInputEmail1">NAMA DOSEN</label>
@@ -146,69 +143,7 @@
             </div>
         </form>
         </div>
-        <div class="col-xl-4 col-lg-5">
-            <form action="">
-                @csrf
-            <div class="card shadow mb-4">
-                <div class="py-3 card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Pengalihan Beban Kerja Pengajaran</h6>
-                </div>
-                <div class="card-body">
-                    <div class="pb-2">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">NAMA DOSEN</label>
-
-                            <x-lwa::autocomplete class="form-control"
-                            name="user-name"
-                            wire:model-text="namaDosen1"
-                            wire:model-id="idDosen1"
-                            wire:model-results="listDosen1"
-                            :options="[
-                            'text'=> 'nama',
-                            'id' => 'no_registrasi',
-                            'allow-new'=> 'false',
-                        ]"
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">No induk</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                           <div>
-                                <label for="">{{ $this->no_induk1 }}</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Jabatan Fungsional</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                           <div>
-                                <label for="">{{ $this->bio_dosen1 }}</label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Import Excel</button>
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
-    
-        <div class="col-xl-4 col-lg-5">
-            <form action="{{ url('/pddikti/form/import') }}" method="post" enctype="multipart/form-data">
-                @csrf
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="pb-2">
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Import data excel pengajaran</label>
-                            <input type="file" class="form-control" id="exampleInputEmail1" name="file" required>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary">Import Excel</button>
-                    </div>
-                </div>
-            </div>
-            </form>
-        </div>
+        
     
     </div>
 </div>

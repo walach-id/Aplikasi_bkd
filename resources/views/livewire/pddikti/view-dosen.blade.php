@@ -22,7 +22,7 @@
                             <tr>
                                 <td>{{ $item->nik }}</td>
                                 <td>{{ $item->nama_dosen }}</td>
-                                @if($item->sum >= 6)
+                                @if($item->sum >= 16)
                                 <td>{{ $item->sum }} <span class="bg-red-500 py-1 px-2 ml-1 text-white rounded-full">Lebih batas minimum</span></td>
                                 
                                 @else

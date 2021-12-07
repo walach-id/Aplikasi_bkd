@@ -15,7 +15,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
+                            <tr class="bg-success text-white">
                                 <th>ID Dosen</th>
                                 <th>Nama Dosen</th>
                                 <th>Program Studi</th>
@@ -32,8 +32,9 @@
                                 <td>{{ $item->nama_dosen }}</td>
                                 <td>{{ $item->program_studi }}</td>
                                 <td>{{ $item->nama_mk }}</td>
-                                <td>{{ $item->sks }}</td>
-                                <td>{{ $item->jum_kelas }}</td>
+                                <td>{{ $finalSksMk[$item->matkul_id] }}</td>
+                                {{-- <td>{{ $item->sks }}</td> --}}
+                                <td>{{ $finalKelasMk[$item->matkul_id] }}</td>
                                 <td><a href="{{ url('/pddikti/dosen/detail/'.$item->id.'/alihkan') }}" class="mb-4 btn btn-primary">alihkan beban SKS</a></td>
                             </tr>
                             @empty
@@ -53,7 +54,7 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
+                            <tr class="bg-danger text-white">
                                 <th>ID Dosen</th>
                                 <th>Nama Dosen</th>
                                 <th>Program Studi</th>

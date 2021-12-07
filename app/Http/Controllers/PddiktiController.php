@@ -27,6 +27,7 @@ class PddiktiController extends Controller
             ->join('data_program_studi', 'data_program_studi.id_prodi', '=', 'pengajaran_pddikti.prodi_id')
             // ->where('akademik_tahun', '=', 'thn_akademik')
             ->where('pengajaran_pddikti.nik', '=', $id)
+            ->where('prodi_id', '=', Auth::user()->prodi_id)
             ->whereColumn('akademik_tahun', '=', 'thn_akademik')
             ->get();
 
@@ -36,28 +37,61 @@ class PddiktiController extends Controller
             // ->where('akademik_tahun', '=', 'thn_akademik')
             ->where('alih_ajar_pddikti.dosen_alih', '=', $id)
             ->whereColumn('akademik_tahun', '=', 'thn_akademik')
+            ->where('prodi_id', '=', Auth::user()->prodi_id)
             ->get();
 
+        // mulai itung sks
+        $jumSksDosen = [];
+        $jumSksDosenAlih = [];
+        $jumKelasDosen = [];
+        $jumKelasDosenAlih = [];
+
         foreach ($detail_dosen as $item) {
-            $sks_pengajaran = $item->sks;
+            $new_array = array($item->matkul_id => $item->sks);
+            $jumSksDosen = array_merge($jumSksDosen, $new_array);
+            $new_array1 = array($item->matkul_id => $item->jum_kelas);
+            $jumKelasDosen = array_merge($jumKelasDosen, $new_array1);
         }
 
         foreach ($alih_ajar as $data) {
-            $sks_alih = $data->sks;
+
+            if (!array_key_exists($data->matkul_id, $jumSksDosenAlih)) {
+                $jumSksDosenAlih = array_merge($jumSksDosenAlih, array($data->matkul_id => 0));
+            }
+            $jumSksDosenAlih[$data->matkul_id] += $data->sks;
+
+            if (!array_key_exists($data->matkul_id, $jumKelasDosenAlih)) {
+                $jumKelasDosenAlih = array_merge($jumKelasDosenAlih, array($data->matkul_id => 0));
+            }
+            $jumKelasDosenAlih[$data->matkul_id] += $data->jum_kelas;
         }
 
-        // dd([
-        //     "sks_pengajaran" => $sks_pengajaran,
-        //     "sks_alih" => $sks_alih,
-        //     "sisa" => $sks_pengajaran - $sks_alih
-        // ]);
+        $finalSksMk = $jumSksDosen;
+        $finalKelasMk = $jumKelasDosen;
 
+        foreach ($jumSksDosen as $key => $data) {
+            if (array_key_exists($key, $jumSksDosenAlih)) {
+                $finalSksMk[$key] -= $jumSksDosenAlih[$key];
+            }
+        }
 
+        foreach ($jumKelasDosen as $key => $data) {
+            if (array_key_exists($key, $jumKelasDosenAlih)) {
+                $finalKelasMk[$key] -= $jumKelasDosenAlih[$key];
+            }
+        }
 
+        //selesai itung sks
 
         return view('pddikti.detail_dosen_pddikti', [
             'detail_dosen' => $detail_dosen,
             'alih_ajar' => $alih_ajar,
+            'jumSksDosen' => $jumSksDosen,
+            'jumSksDosenAlih' => $jumSksDosenAlih,
+            'finalSksMk' => $finalSksMk,
+            'jumKelasDosen' => $jumKelasDosen,
+            'jumKelasDosenAlih' => $jumKelasDosenAlih,
+            'finalKelasMk' => $finalKelasMk,
         ]);
     }
 

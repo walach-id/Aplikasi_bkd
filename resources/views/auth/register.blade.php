@@ -28,10 +28,11 @@
 
             <!-- Jenis Dosen -->
             <div class="mt-4">
-                <x-label for="jenis" value="{{ __('Jenis Dosen:') }}" />
-                <select name="jenis" x-model="role_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
-                    <option value="1">NIDN</option>
-                    <option value="2">Non-NIDN</option>
+                <x-label for="jenis" value="{{ __('Program Studi:') }}" />
+                <select name="prodi" x-model="prodi" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                    @foreach ($prodi as $item)
+                    <option value="{{ $item->id_prodi }}">{{ $item->program_studi }}</option>
+                    @endforeach
                 </select>
             </div>
 
