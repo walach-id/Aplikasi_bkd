@@ -49,6 +49,8 @@ Route::post('/pddikti/form/import', function () {
 });
 Route::get('/pddikti/data', [PpengajaranController::class, 'index']);
 Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengajaran']);
+Route::get('/pddikti/pengajaran/cetak', [PpengajaranController::class, 'cetakpddikti']);
+Route::get('/pddikti/pengajaran/cetak/{id}', [PddiktiController::class, 'cetakDetailPddikti']);
 
 // Route::get('/dashboard/{id}', function () {
 //     return view('profile.data_pribadi');

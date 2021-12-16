@@ -8,10 +8,12 @@ use App\Models\Profil;
 use App\Models\MataKuliah;
 use App\Models\Ppengajaran;
 use App\Models\ProgramStudi;
+use App\Models\PddiktiPengajaran;
 use Illuminate\Support\Facades\Auth;
 use App\Imports\PengajaranImport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use PDF;
 
 class PpengajaranController extends Controller
 {
@@ -114,5 +116,30 @@ class PpengajaranController extends Controller
         return view('pddikti.dosen_pengajaran_pddikti', [
             'pengajaran' => $pengajaran,
         ]);
+    }
+
+    public function cetakpddikti()
+    {
+        $AmbilData = PddiktiPengajaran::groupBy('nik')
+            ->groupBy('nama_dosen')
+            ->selectRaw('sum(sks) as sum, nik, nama_dosen')
+            ->where('prodi_id', '=', Auth::user()->prodi_id)
+            ->get();
+
+        // $nik = $AmbilData->nik;
+        // dd($nik);
+
+        // $users = Pengajaran::groupBy('user_id')
+        //     ->groupBy('matkul')
+        //     ->get();
+
+        $data = [
+            // 'total' => $AmbilData1,
+            'pengajaran' => $AmbilData,
+            // 'dosen' => DosenNidn::where('no_registrasi', '=', $nik)->first(),
+        ];
+
+        $pdf = PDF::loadview('pddikti.laporan_pengajaran', $data)->setPaper('a4', 'landscape');;
+        return $pdf->stream();
     }
 }

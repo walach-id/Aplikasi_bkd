@@ -1,31 +1,38 @@
-<x-app-layout>
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Detail Data Pengajaran Dosen</h1>
-        {{-- @foreach($detail_dosen as $item)
-            <a href="{{ url('/pddikti/pengajaran/cetak') }}" class="btn btn-primary">Cetak Laporan</a>
-        @endforeach --}}
-    </div>
-    
+<html>
+
+<head>
+    <title>
+        Laporan Pengajaran
+    </title>
+</head>
+
+<body>
+    <h1>IDENTITAS</h1>
+
+    <br>
+    <hr>
+
+
+
     <div>
-    
+
         <!-- DataTales Example -->
-        <div class="mb-4 shadow card">
-            <div class="py-3 card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Tabel Pengajaran Dosen</h6>
+        <div>
+            <div>
+                <h6>Tabel Pengajaran Dosen</h6>
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <div>
+                <div>
+                    <table width="100%" cellspacing="0">
                         <thead>
-                            <tr class="bg-success text-white">
+                            <tr>
                                 <th>ID Dosen</th>
                                 <th>Nama Dosen</th>
                                 <th>Program Studi</th>
                                 <th>Mata Kuliah</th>
                                 <th>sks</th>
                                 <th>Kelas yang Di ajar</th>
-                                <th>action</th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -36,28 +43,27 @@
                                 <td>{{ $item->program_studi }}</td>
                                 <td>{{ $item->nama_mk }}</td>
                                 <td>{{ $finalSksMk[$item->matkul_id] }}</td>
-                                {{-- <td>{{ $item->sks }}</td> --}}
                                 <td>{{ $finalKelasMk[$item->matkul_id] }}</td>
-                                <td><a href="{{ url('/pddikti/dosen/detail/'.$item->id.'/alihkan') }}" class="mb-4 btn btn-primary">alihkan beban SKS</a></td>
+
                             </tr>
                             @empty
-    
+
                             @endforelse
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    
-        <div class="mb-4 shadow card">
-            <div class="py-3 card-header">
-                <h6 class="m-0 font-weight-bold text-primary">Tabel Alih Pengajaran Dosen</h6>
+
+        <div>
+            <div>
+                <h6>Tabel Alih Pengajaran Dosen</h6>
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <div>
+                <div>
+                    <table width="100%" cellspacing="0">
                         <thead>
-                            <tr class="bg-danger text-white">
+                            <tr>
                                 <th>ID Dosen</th>
                                 <th>Nama Dosen</th>
                                 <th>Program Studi</th>
@@ -77,14 +83,14 @@
                                 <td>{{ $data->jum_kelas }}</td>
                             </tr>
                             @empty
-    
+
                             @endforelse
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-</div>
+    </div>
+</body>
 
-    
-</x-app-layout>
+</html>

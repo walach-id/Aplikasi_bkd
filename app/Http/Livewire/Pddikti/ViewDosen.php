@@ -10,6 +10,7 @@ use App\Models\PddiktiPengajaran;
 use App\Models\ProgramStudi;
 use App\Models\AlihAjarPddikti;
 use Illuminate\Support\Facades\Auth;
+use Barryvdh\DomPDF\PDF;
 
 class ViewDosen extends Component
 {
