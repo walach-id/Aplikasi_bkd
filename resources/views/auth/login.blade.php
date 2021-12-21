@@ -17,9 +17,9 @@
 
             <!-- NIK -->
             <div>
-                <x-label for="nik" :value="__('NIK')" />
+                <x-label for="prodi_id" :value="__('Kode Prodi')" />
 
-                <x-input id="nik" class="block w-full mt-1" type="text" name="nik" :value="old('nik')" required
+                <x-input id="prodi_id" class="block w-full mt-1" type="text" name="prodi_id" :value="old('prodi_id')" required
                     autofocus />
             </div>
 

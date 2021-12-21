@@ -11,6 +11,7 @@ use App\Models\Krs;
 use App\Models\DosenNidn;
 use App\Models\PddiktiPengajaran;
 use App\Models\AlihAjarPddikti;
+use App\Models\Ppengajaran;
 use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -39,6 +40,8 @@ class PddiktiController extends Controller
             ->whereColumn('akademik_tahun', '=', 'thn_akademik')
             ->where('prodi_id', '=', Auth::user()->prodi_id)
             ->get();
+
+        $ambil_nik = Ppengajaran::where('nik', '=', $id)->first();
 
         // mulai itung sks
         $jumSksDosen = [];
@@ -92,6 +95,7 @@ class PddiktiController extends Controller
             'jumKelasDosen' => $jumKelasDosen,
             'jumKelasDosenAlih' => $jumKelasDosenAlih,
             'finalKelasMk' => $finalKelasMk,
+            'cnik' => $ambil_nik,
         ]);
     }
 
@@ -144,6 +148,7 @@ class PddiktiController extends Controller
             ->whereColumn('akademik_tahun', '=', 'thn_akademik')
             ->where('prodi_id', '=', Auth::user()->prodi_id)
             ->get();
+
 
         // mulai itung sks
         $jumSksDosen = [];

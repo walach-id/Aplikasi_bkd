@@ -29,7 +29,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'nik' => ['required', 'string'],
+            'prodi_id' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
     }
@@ -45,11 +45,11 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt($this->only('nik', 'password'), $this->boolean('remember'))) {
+        if (!Auth::attempt($this->only('prodi_id', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'nik' => __('auth.failed'),
+                'prodi_id' => __('auth.failed'),
             ]);
         }
 
