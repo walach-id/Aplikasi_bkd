@@ -18,6 +18,8 @@ class PddiktiPengajaran extends Model
         'akademik_tahun',
         'semester',
         'jum_kelas',
-        'kelas_penyesuaian'
+        'kelas_penyesuaian',
+        'sks_penyesuaian',
+        'tipe_mengajar'
     ];
 }

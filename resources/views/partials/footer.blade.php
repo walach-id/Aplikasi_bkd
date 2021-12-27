@@ -20,8 +20,7 @@
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -40,12 +39,10 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+   
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
     <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 

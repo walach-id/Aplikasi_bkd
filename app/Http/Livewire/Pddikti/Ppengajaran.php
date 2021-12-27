@@ -22,7 +22,7 @@ class Ppengajaran extends Component
 
     public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio;
     public $no_induk, $bio_dosen1, $no_induk1, $bio_dosen, $listDosen, $listDosen1;
-    public $namaDosen, $idDosen, $namaDosen1, $idDosen1;
+    public $namaDosen, $idDosen, $namaDosen1, $idDosen1, $sks_penyesuaian, $tipe_mengajar;
 
     protected $rules = [
         'listDosen.*.no_registrasi' => '',
@@ -89,6 +89,13 @@ class Ppengajaran extends Component
         $listMatkul = MataKuliah::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('thn_akademik', '=', $tahun_akademik)
             ->OrderBy('nama_mk', 'ASC')->get();
+
+        //$this->sks_penyesuaian = $this->sks * $this->jumkelasp;
+        if ($this->sks == null || $this->jumkelasp == null) {
+            $this->sks_penyesuaian = 0;
+        } else {
+            $this->sks_penyesuaian = $this->sks * $this->jumkelasp;
+        }
 
         $banyak_mahasiswa = krs::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('kode_mk', '=', $this->matkul)
@@ -175,6 +182,7 @@ class Ppengajaran extends Component
             return back();
         } else {
 
+
             PddiktiPengajaran::create([
                 'nik' => $this->idDosen,
                 'nama_dosen' => $this->namaDosen,
@@ -183,7 +191,9 @@ class Ppengajaran extends Component
                 'sks' => $this->sks * $this->jumkelas,
                 'akademik_tahun' => $this->tahun_ajaran . $this->sms,
                 'jum_kelas' => $this->jumkelas,
-                'kelas_penyesuaian' => $this->jumkelasp
+                'kelas_penyesuaian' => $this->jumkelasp,
+                'sks_penyesuaian' => $this->sks_penyesuaian,
+                'tipe_mengajar' => $this->tipe_mengajar,
             ]);
             // dd($this->jumkelasp);
             // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
