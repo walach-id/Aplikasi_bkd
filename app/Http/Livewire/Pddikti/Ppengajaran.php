@@ -22,7 +22,7 @@ class Ppengajaran extends Component
 
     public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio;
     public $no_induk, $bio_dosen1, $no_induk1, $bio_dosen, $listDosen, $listDosen1;
-    public $namaDosen, $idDosen, $namaDosen1, $idDosen1;
+    public $namaDosen, $idDosen, $namaDosen1, $idDosen1, $matkul_jenis;
 
     protected $rules = [
         'listDosen.*.no_registrasi' => '',

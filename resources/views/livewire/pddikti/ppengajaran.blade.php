@@ -1,6 +1,13 @@
 <div>
     <div class="row">
-        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+        
+         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        
+     
+      
         <div class="col-xl col-lg">
             <form wire:submit.prevent="storePpengajaran" action="">
                 
@@ -71,51 +78,70 @@
                             <label for="exampleInputEmail1">JUM. KELAS</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelas" name="jumkelas" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="exampleInputEmail1">JUM. KELAS PENYESUAIAN</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelasp" name="jumkelasp" required>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="exampleInputEmail1">NAMA DOSEN</label>
-                            
-                            <select class="theSelect form-control" wire:model="dosen" required>
-                                <option value=""></option>
-                                @foreach ($listDosen as $data)
-                                    <option value="{{$data->no_registrasi}}">{{$data->nama}}</option>
-                                @endforeach
-                            </select>
-                            
-                        </div> --}}
+                        
                         <div class="form-group">
-                            <label for="exampleInputEmail1">NAMA DOSEN</label>
+                            <label for="exampleInputEmail1">Jenis Mata Kuliah</label>
+                                {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                            <div>
+                                <input class="mr-1" type="radio" name="j_matkul" wire:model="matkul_jenis" id="" value="2"><label class="mr-3" for="">Kelompok</label>
+                                <input class="mr-1" type="radio" name="j_matkul" wire:model="matkul_jenis" id="" value="3"><label for="">Individu</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="exampleInputEmail1">Dosen PJ</label>
+    
+                                <x-lwa::autocomplete class="form-control"
+                                name="user-name"
+                                wire:model-text="namaDosen"
+                                wire:model-id="idDosen"
+                                wire:model-results="listDosen"
+                                :options="[
+                                'text'=> 'nama',
+                                'id' => 'no_registrasi',
+                                'allow-new'=> 'false',
+                            ]"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">No induk</label>
+                                {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                               <div>
+                                    <label for="">{{ $this->no_induk }}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Jabatan Fungsional</label>
+                                {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                               <div>
+                                    <label for="">{{ $this->bio_dosen }}</label>
+                                </div>
+                            </div>
+                        </div>
+                      
 
-                            <x-lwa::autocomplete class="form-control"
-                            name="user-name"
-                            wire:model-text="namaDosen"
-                            wire:model-id="idDosen"
-                            wire:model-results="listDosen"
-                            :options="[
-                            'text'=> 'nama',
-                            'id' => 'no_registrasi',
-                            'allow-new'=> 'false',
-                        ]"
-                            />
-                        </div>
+                        @if($matkul_jenis == 2)
+                            
+                        
+                        <script>
+                           $(document).ready(function() {
+                               $('.js-example-basic-multiple').select2();
+                           });
+                       </script>
+                            <select class="form-control js-example-basic-multiple" name="states[]" multiple="multiple">
+                                <option value="AL">Alabama</option>
+                                   
+                                <option value="WY">Wyoming</option>
+                            </select>
+                           
+                        @endif
                         <div class="form-group">
-                            <label for="exampleInputEmail1">No induk</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                           <div>
-                                <label for="">{{ $this->no_induk }}</label>
-                            </div>
+                            <button type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Jabatan Fungsional</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                           <div>
-                                <label for="">{{ $this->bio_dosen }}</label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save Data</button> <button type="submit" wire:submit.prevent="clearForm" class="btn btn-primary">Clear</button>
                         {{-- <div class="form-group">
                             <label for="exampleInputEmail1">JENIS KEGIATAN / MATA KULIAH</label>
                             <select class="form-control" name="matkul" id="sel1" required>
@@ -147,3 +173,5 @@
     
     </div>
 </div>
+
+
