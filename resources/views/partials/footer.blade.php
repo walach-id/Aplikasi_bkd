@@ -38,8 +38,8 @@
         </div>
     </div>
 
+
     <!-- Bootstrap core JavaScript-->
-   
     <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Core plugin JavaScript-->
     <script src="{{ asset('assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script>

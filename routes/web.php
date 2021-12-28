@@ -7,7 +7,6 @@ use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PpengajaranController;
 use App\Imports\PengajaranImport;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Http\Livewire\Pddikti\Ppengajaran;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,13 +18,15 @@ use App\Http\Livewire\Pddikti\Ppengajaran;
 |
 */
 
+require __DIR__ . '/auth.php';
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pddikti', function () {
-    return view('pddikti.add_pengajaran_pddikti');
-});
+Route::get('/pddikti/dosen/json', [PddiktiController::class, 'dataAjax']);
+
+Route::get('/pddikti', [PddiktiController::class, 'tampilFormTambah']);
 
 Route::get('/pddikti/dosen', function () {
     return view('pddikti.data_dosen_pddikti');
@@ -34,9 +35,9 @@ Route::get('/pddikti/dosen', function () {
 //     return view('pddikti.update_pengajaran_pddikti');
 // });
 
+
 Route::get('/pddikti/dosen/detail/{id}/alihkan', [PddiktiController::class, 'edit']);
 Route::post('/pddikti/dosen/detail/{id}/alihkan/add', [PddiktiController::class, 'store']);
-
 
 Route::get('/pddikti/dosen/detail/{id}', [PddiktiController::class, 'index']);
 
@@ -49,12 +50,12 @@ Route::post('/pddikti/form/import', function () {
 });
 Route::get('/pddikti/data', [PpengajaranController::class, 'index']);
 Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengajaran']);
+Route::get('/pddikti/pengajaran/cetak', [PpengajaranController::class, 'cetakpddikti']);
+Route::get('/pddikti/pengajaran/cetak/{id}', [PddiktiController::class, 'cetakDetailPddikti']);
 
 // Route::get('/dashboard/{id}', function () {
 //     return view('profile.data_pribadi');
 // });
-
-require __DIR__ . '/auth.php';
 
 Route::get('/dashboard', [ProfilController::class, 'index'])->middleware(['auth'])->name('dashboard');
 
@@ -79,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Pengajaran BKD
 Route::get('/bkd', [PengajaranController::class, 'index']);
-Route::get('/bkd/form', [PengajaranController::class, 'formAddPengajaran']);
 Route::post('/bkd', [PengajaranController::class, 'storePengajaran']);
+
+Route::get('/bkd/form', [PengajaranController::class, 'formAddPengajaran']);
 Route::get('/bkd/detail/{id}', [PengajaranController::class, 'detailBKD']);

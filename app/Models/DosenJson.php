@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DosenNidn extends Model
+class DosenJson extends Model
 {
     use HasFactory;
-
     protected $primaryKey = 'kode_dosen';
     protected $table = 'data_dosen';
 }

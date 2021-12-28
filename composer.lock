@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf11b19f34494d08980d323d41cf06ad",
+    "content-hash": "4aa3a075a97cd1d0533398fd2b0c1752",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1152,20 +1152,21 @@
         },
         {
             "name": "joshhanley/livewire-autocomplete",
-            "version": "v0.1.4",
+            "version": "v0.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshhanley/livewire-autocomplete.git",
-                "reference": "2fffb49b9769896a81a089b8d310eb77fdffe61c"
+                "reference": "c94cfd2afd51adbfbb4a35d107fa291683369c74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshhanley/livewire-autocomplete/zipball/2fffb49b9769896a81a089b8d310eb77fdffe61c",
-                "reference": "2fffb49b9769896a81a089b8d310eb77fdffe61c",
+                "url": "https://api.github.com/repos/joshhanley/livewire-autocomplete/zipball/c94cfd2afd51adbfbb4a35d107fa291683369c74",
+                "reference": "c94cfd2afd51adbfbb4a35d107fa291683369c74",
                 "shasum": ""
             },
             "require": {
-                "livewire/livewire": "^2.3.6",
+                "laravel/framework": "^8.0|dev-master",
+                "livewire/livewire": "^2.3.6|dev-master",
                 "php": "^7.4|^8.0"
             },
             "require-dev": {
@@ -1197,9 +1198,9 @@
             ],
             "description": "An autocomplete dropdown for Livewire",
             "support": {
-                "source": "https://github.com/joshhanley/livewire-autocomplete/tree/v0.1.4"
+                "source": "https://github.com/joshhanley/livewire-autocomplete/tree/v0.1.6"
             },
-            "time": "2021-07-23T06:29:55+00:00"
+            "time": "2021-12-01T09:57:20+00:00"
         },
         {
             "name": "laravel/framework",
@@ -1909,16 +1910,16 @@
         },
         {
             "name": "livewire/livewire",
-            "version": "v2.7.2",
+            "version": "v2.8.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/livewire/livewire.git",
-                "reference": "991e5bd8a48e450d23cd55336964f916e92a6464"
+                "reference": "f6b1726d1068a5b7315f03dc4e58d5763b928374"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/livewire/livewire/zipball/991e5bd8a48e450d23cd55336964f916e92a6464",
-                "reference": "991e5bd8a48e450d23cd55336964f916e92a6464",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/f6b1726d1068a5b7315f03dc4e58d5763b928374",
+                "reference": "f6b1726d1068a5b7315f03dc4e58d5763b928374",
                 "shasum": ""
             },
             "require": {
@@ -1969,15 +1970,15 @@
             "description": "A front-end framework for Laravel.",
             "support": {
                 "issues": "https://github.com/livewire/livewire/issues",
-                "source": "https://github.com/livewire/livewire/tree/v2.7.2"
+                "source": "https://github.com/livewire/livewire/tree/v2.8.2"
             },
             "funding": [
                 {
-                    "url": "https://github.com/calebporzio",
+                    "url": "https://github.com/livewire",
                     "type": "github"
                 }
             ],
-            "time": "2021-10-20T02:27:35+00:00"
+            "time": "2021-12-10T19:37:40+00:00"
         },
         {
             "name": "maatwebsite/excel",

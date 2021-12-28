@@ -9,8 +9,11 @@ use App\Models\Profil;
 use App\Models\MataKuliah;
 use App\Models\Krs;
 use App\Models\DosenNidn;
+use App\Models\DosenJson;
+
 use App\Models\PddiktiPengajaran;
 use App\Models\AlihAjarPddikti;
+use App\Models\Ppengajaran;
 use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\Auth;
 use PDF;
@@ -20,6 +23,24 @@ use Illuminate\Support\Facades\DB as FacadesDB;
 
 class PddiktiController extends Controller
 {
+
+    public function dataAjax(Request $request)
+    {
+        $data = [];
+        if ($request->has('q')) {
+            $search = $request->q;
+            $data = DosenJson::select("kode_dosen", "nama_dosen")
+                ->where('nama_dosen', 'LIKE', "%$search%")
+                ->get();
+        }
+        return response()->json($data);
+    }
+
+    public function tampilFormTambah()
+    {
+        return view('pddikti.add_pengajaran_pddikti');
+    }
+
     public function index($id)
     {
         $detail_dosen = FacadesDB::table('pengajaran_pddikti')
@@ -39,6 +60,8 @@ class PddiktiController extends Controller
             ->whereColumn('akademik_tahun', '=', 'thn_akademik')
             ->where('prodi_id', '=', Auth::user()->prodi_id)
             ->get();
+
+        $ambil_nik = Ppengajaran::where('nik', '=', $id)->first();
 
         // mulai itung sks
         $jumSksDosen = [];
@@ -92,6 +115,7 @@ class PddiktiController extends Controller
             'jumKelasDosen' => $jumKelasDosen,
             'jumKelasDosenAlih' => $jumKelasDosenAlih,
             'finalKelasMk' => $finalKelasMk,
+            'cnik' => $ambil_nik,
         ]);
     }
 
@@ -123,5 +147,82 @@ class PddiktiController extends Controller
         // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
         // return redirect('/pddikti/data');
         return back();
+    }
+
+    public function cetakDetailPddikti($id)
+    {
+        $detail_dosen = FacadesDB::table('pengajaran_pddikti')
+            ->join('data_mk', 'data_mk.kode_mk', '=', 'pengajaran_pddikti.matkul_id')
+            ->join('data_program_studi', 'data_program_studi.id_prodi', '=', 'pengajaran_pddikti.prodi_id')
+            // ->where('akademik_tahun', '=', 'thn_akademik')
+            ->where('pengajaran_pddikti.nik', '=', $id)
+            ->where('prodi_id', '=', Auth::user()->prodi_id)
+            ->whereColumn('akademik_tahun', '=', 'thn_akademik')
+            ->get();
+
+        $alih_ajar = FacadesDB::table('alih_ajar_pddikti')
+            ->join('data_mk', 'data_mk.kode_mk', '=', 'alih_ajar_pddikti.matkul_id')
+            ->join('data_program_studi', 'data_program_studi.id_prodi', '=', 'alih_ajar_pddikti.prodi_id')
+            // ->where('akademik_tahun', '=', 'thn_akademik')
+            ->where('alih_ajar_pddikti.dosen_alih', '=', $id)
+            ->whereColumn('akademik_tahun', '=', 'thn_akademik')
+            ->where('prodi_id', '=', Auth::user()->prodi_id)
+            ->get();
+
+
+        // mulai itung sks
+        $jumSksDosen = [];
+        $jumSksDosenAlih = [];
+        $jumKelasDosen = [];
+        $jumKelasDosenAlih = [];
+
+        foreach ($detail_dosen as $item) {
+            $new_array = array($item->matkul_id => $item->sks);
+            $jumSksDosen = array_merge($jumSksDosen, $new_array);
+            $new_array1 = array($item->matkul_id => $item->jum_kelas);
+            $jumKelasDosen = array_merge($jumKelasDosen, $new_array1);
+        }
+
+        foreach ($alih_ajar as $data) {
+
+            if (!array_key_exists($data->matkul_id, $jumSksDosenAlih)) {
+                $jumSksDosenAlih = array_merge($jumSksDosenAlih, array($data->matkul_id => 0));
+            }
+            $jumSksDosenAlih[$data->matkul_id] += $data->sks;
+
+            if (!array_key_exists($data->matkul_id, $jumKelasDosenAlih)) {
+                $jumKelasDosenAlih = array_merge($jumKelasDosenAlih, array($data->matkul_id => 0));
+            }
+            $jumKelasDosenAlih[$data->matkul_id] += $data->jum_kelas;
+        }
+
+        $finalSksMk = $jumSksDosen;
+        $finalKelasMk = $jumKelasDosen;
+
+        foreach ($jumSksDosen as $key => $data) {
+            if (array_key_exists($key, $jumSksDosenAlih)) {
+                $finalSksMk[$key] -= $jumSksDosenAlih[$key];
+            }
+        }
+
+        foreach ($jumKelasDosen as $key => $data) {
+            if (array_key_exists($key, $jumKelasDosenAlih)) {
+                $finalKelasMk[$key] -= $jumKelasDosenAlih[$key];
+            }
+        }
+
+        $data = [
+            'detail_dosen' => $detail_dosen,
+            'alih_ajar' => $alih_ajar,
+            'jumSksDosen' => $jumSksDosen,
+            'jumSksDosenAlih' => $jumSksDosenAlih,
+            'finalSksMk' => $finalSksMk,
+            'jumKelasDosen' => $jumKelasDosen,
+            'jumKelasDosenAlih' => $jumKelasDosenAlih,
+            'finalKelasMk' => $finalKelasMk,
+        ];
+
+        $pdf = PDF::loadview('pddikti.laporan_detail_pengajaran', $data)->setPaper('a4', 'landscape');;
+        return $pdf->stream();
     }
 }

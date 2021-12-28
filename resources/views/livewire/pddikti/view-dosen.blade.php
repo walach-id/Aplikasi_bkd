@@ -2,8 +2,9 @@
     
         <!-- DataTales Example -->
         <div class="mb-4 shadow card">
-            <div class="py-3 card-header">
+            <div class="py-3 card-header flex justify-between">
                 <h6 class="m-0 font-weight-bold text-primary">Tabel Pengajaran Dosen</h6>
+                <a href="{{ url('/pddikti/pengajaran/cetak') }}" class="btn btn-primary">Cetak Laporan</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
