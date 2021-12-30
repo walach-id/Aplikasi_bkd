@@ -1,15 +1,10 @@
 <div>
     <div class="row">
-
-
         <div class="col-xl col-lg">
             <form wire:submit.prevent="storePpengajaran" action="">
-
                 <div class="card shadow mb-4">
                     <div class="card-body">
                         <div class="pb-2">
-
-
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tahun Ajaran</label>
                                 {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
@@ -68,20 +63,20 @@
 
                         <div class="form-group">
                             <label for="exampleInputEmail1">JUM. KELAS PENYESUAIAN</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelasp" name="jumkelasp" required>
+                            <input type="text" class="form-control" id="exampleInputEmail1" wire:model="jumkelasp" name="jumkelasp" value="0">
                         </div>
+
+                        <hr style="color: black; border-top: 1px solid red;">
 
                         <div class="form-group">
                             <label for="">Pilih Dosen | Untuk Keperluan Pelaporan PDDIKTI</label><br>
                             <label style="color:red; font-weight:bold;" for="">Jika dipilih berkelompok, dosen ini akan menjadi PJ</label>
-                            <x-lwa::autocomplete class="form-control" name="user-name" wire:model-text="namaDosen" wire:model-id="idDosen" wire:model-results="listDosen" :options="[
+                            <x-lwa::autocomplete class="form-control" name="listDosen" wire:model-text="namaDosen" wire:model-id="idDosen" wire:model-results="listDosen" :options="[
                                 'text'=> 'nama_dosen',
                                 'id'=> 'kode_dosen',
                                 'allow-new'=> 'false',
                             ]" />
                         </div>
-
-
                         <div class="form-group">
                             <label for="exampleInputEmail1">Jenis Pengajaran Mata Kuliah</label>
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
@@ -92,54 +87,79 @@
                             </div>
                         </div>
 
-
-                        <!-- <div class="form-group">
-                            <label for="exampleInputEmail1">No induk</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                            <div>
-                                <label for="">{{ $this->no_induk }}</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Jabatan Fungsional</label>
-                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                            <div>
-                                <label for="">{{ $this->bio_dosen }}</label>
-                            </div>
-                        </div> -->
-
-
                         @if($matkul_jenis == 1)
-
-                        <script>
-                            $(document).ready(function() {
-                                $('.dosenAnggota').select2({
-                                    placeholder: 'Ketik nama dosen',
-                                    ajax: {
-                                        url: '/pddikti/dosen/json',
-                                        dataType: 'json',
-                                        delay: 250,
-                                        processResults: function(data) {
-                                            return {
-                                                results: $.map(data, function(item) {
-                                                    return {
-                                                        text: item.nama_dosen,
-                                                        id: item.kode_dosen
-                                                    }
-                                                })
-                                            };
-                                        },
-                                        cache: true
-                                    }
-                                });
-                            })
-                        </script>
                         <div class="form-group">
-                            <label for="">Pilih Dosen Anggota | Untuk Keperluan Pelaporan PDDIKTI</label>
-                            <select name="tag_list[]" class="form-control dosenAnggota" multiple="" tabindex="-1" aria-hidden="true"></select>
+                            <label for="">Dosen Anggota</label><br>
+                            <x-lwa::autocomplete class="form-control" name="listDosenAnggota" wire:model-text="namaDosenAnggota" wire:model-id="idDosenAnggota" wire:model-results="listDosenAnggota" :options="[
+                                'text'=> 'nama_dosen',
+                                'id'=> 'kode_dosen',
+                                'allow-new'=> 'false',
+                            ]" />
+                        </div>
+                        <div class="flex">
+                            @foreach ($listDosenAnggotaTerpilih as $idDosenAnggota => $namaDosenAnggota)
+                            <p>{{ $namaDosenAnggota }}</p>
+                            <button wire:click="removeFromMulti({{$idDosenAnggota}})" class="btn btn-danger">Hapus</button>
+                            @endforeach
                         </div>
 
                         @else
+                        @endif
+                        <hr style="border-top: 1px solid red;">
+                        <div class="form-group mt-8">
+                            <label for="exampleInputEmail1">Untuk Keperluan Honor ? Apakah data dosen di samakan dengan atas</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                            <div>
+                                <!-- wire:model="matkul_jenis" -->
+                                <input wire:model="jenis_dosen_honor" class="mr-1" type="radio" name="dosen_honor" id="" value="1"><label class="mr-3" for="">Samakan</label>
+                                <input wire:model="jenis_dosen_honor" class="mr-1" type="radio" name="dosen_honor" id="" value="2"><label for="">Bedakan</label>
+                            </div>
+                        </div>
+
+                        @if($jenis_dosen_honor == 1)
+
+                        @elseif($jenis_dosen_honor == 2)
+                        <div class="form-group">
+                            <label for="">Pilih Dosen | Untuk Keperluan Honor (Internal STIKIM)</label><br>
+                            <label style="color:red; font-weight:bold;" for="">Jika dipilih berkelompok, dosen ini akan menjadi PJ</label>
+                            <x-lwa::autocomplete class="form-control" name="listDosenHonor" wire:model-text="namaDosenHonor" wire:model-id="idDosenHonor" wire:model-results="listDosenHonor" :options="[
+                                'text'=> 'nama_dosen',
+                                'id'=> 'kode_dosen',
+                                'allow-new'=> 'false',
+                            ]" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Jenis Pengajaran Mata Kuliah</label>
+                            {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
+                            <div>
+                                <!-- wire:model="matkul_jenis" -->
+                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="1"><label class="mr-3" for="">Kelompok</label>
+                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="2"><label for="">Individu</label>
+                            </div>
+                        </div>
+
+                        @if($matkul_jenis_honor == 1)
+                        <div class="form-group">
+                            <label for="">Dosen Anggota</label><br>
+                            <x-lwa::autocomplete class="form-control" name="listDosenHonorAnggota" wire:model-text="namaDosenHonorAnggota" wire:model-id="idDosenHonorAnggota" wire:model-results="listDosenHonorAnggota" :options="[
+                                'text'=> 'nama_dosen',
+                                'id'=> 'kode_dosen',
+                                'allow-new'=> 'false',
+                            ]" />
+                        </div>
+                        <div class="flex">
+                            @foreach ($listDosenHonorAnggotaTerpilih as $idDosenHonorAnggota => $namaDosenHonorAnggota)
+                            <p>{{ $namaDosenHonorAnggota }}</p>
+                            <button wire:click="removeFromMultiHonor({{$idDosenHonorAnggota}})" class="btn btn-danger">Hapus</button>
+                            @endforeach
+                        </div>
+
+                        @else
+
+                        @endif
+
+
                         @endif
 
                         <div class="form-group">

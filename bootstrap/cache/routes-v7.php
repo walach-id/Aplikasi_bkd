@@ -24,7 +24,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::HpksFTQcnV1m7x9F',
+            '_route' => 'generated::tOr0k3aEZOlZobru',
           ),
           1 => NULL,
           2 => 
@@ -63,7 +63,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::BAfdtBFmpYJixnQj',
+            '_route' => 'generated::UJkUAeg2IZwD08ok',
           ),
           1 => NULL,
           2 => 
@@ -83,7 +83,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::yuq0BFawcCUtMyzW',
+            '_route' => 'generated::9IFtGwucWGoP1kAB',
           ),
           1 => NULL,
           2 => 
@@ -103,205 +103,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::FyCaz8eZWbuUZrDS',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::hBaFl37l8zaRV68k',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/dosen/json' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::ip3OlGCu2M061eoc',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::cGfwW36KsoeCRKAP',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/dosen' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::it55SLQq9btuav1F',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/form' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::KIgBUp8QV0bh115H',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/form/add' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::GCMmLoXxNeezNpig',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/form/import' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::wDAnk2eOjyZIV0MX',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/data' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::MeeJ9Dx1pKuG8vZ2',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/pengajaran' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::numxKmOktqr82LxA',
-          ),
-          1 => NULL,
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      '/pddikti/pengajaran/cetak' => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::sXIJVcQcc6J5i8uw',
+            '_route' => 'generated::IzKMsVfpJmcg89RP',
           ),
           1 => NULL,
           2 => 
@@ -338,7 +140,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::8S8PuKTFMwnI5ajT',
+            '_route' => 'generated::P3fu7eSavC9cvUcm',
           ),
           1 => NULL,
           2 => 
@@ -374,7 +176,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::bARHfD4lEBBtGDev',
+            '_route' => 'generated::itGuMr66h38sTzhw',
           ),
           1 => NULL,
           2 => 
@@ -504,7 +306,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::K4l77IFTiDwZ5aCO',
+            '_route' => 'generated::NoRyMBANKbQ2Ta6K',
           ),
           1 => NULL,
           2 => 
@@ -529,6 +331,204 @@ app('router')->setCompiledRoutes(
           2 => 
           array (
             'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::3OwrlugweIIUOYcT',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/dosen/json' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::syxSFPPxczLjncO7',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::UQYcJMegdpH0YSli',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/dosen' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::MGt7hGKVE0tQYHeF',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/form' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::f04kEuUeBvpSCpI1',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/form/add' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::tZSY5Y8yDkDGv9ju',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/form/import' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::sbyXAOF6fZ5uz9fj',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/data' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::AYRrCZVYv1hLWl0b',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/pengajaran' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::cfNXrq3vdsfBK9X4',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      '/pddikti/pengajaran/cetak' => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::9mBl9yj5slciWcAn',
+          ),
+          1 => NULL,
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
           ),
           3 => NULL,
           4 => false,
@@ -562,7 +562,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::UZjTwyDLxTK9JXqW',
+            '_route' => 'generated::d1aYdYNCkr6OH8wk',
           ),
           1 => NULL,
           2 => 
@@ -582,7 +582,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::IufmNu4k9UVJaMVm',
+            '_route' => 'generated::eM8NcokOy9kqxWTf',
           ),
           1 => NULL,
           2 => 
@@ -601,7 +601,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::vyq8K60YowM8ynyr',
+            '_route' => 'generated::0ZDd0tyGAxDsGHdo',
           ),
           1 => NULL,
           2 => 
@@ -620,7 +620,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::UdxkyklPgrmpzkEO',
+            '_route' => 'generated::wUywbxvCfNVtjRbH',
           ),
           1 => NULL,
           2 => 
@@ -639,7 +639,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::NCY8D2ZwZvcQUTSa',
+            '_route' => 'generated::iPDqhyOOmxW0lYVf',
           ),
           1 => NULL,
           2 => 
@@ -658,7 +658,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::zT5wApYRSWkVGi2N',
+            '_route' => 'generated::NchNxDPk7ImLLQmA',
           ),
           1 => NULL,
           2 => 
@@ -678,7 +678,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::QWNstwts26Zmtw08',
+            '_route' => 'generated::w8LcUY272KRCgZnS',
           ),
           1 => NULL,
           2 => 
@@ -698,7 +698,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::eM5d0LQfJz2kfBHh',
+            '_route' => 'generated::8kytr1zdK10JzhIR',
           ),
           1 => NULL,
           2 => 
@@ -718,7 +718,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::Irp2R0D1V6DDSbGO',
+            '_route' => 'generated::cqnN8ZaX4qucZqad',
           ),
           1 => NULL,
           2 => 
@@ -735,7 +735,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::3eWfldDs6bB8MOi2',
+            '_route' => 'generated::qRuXWLkEhSeI0T7x',
           ),
           1 => NULL,
           2 => 
@@ -754,7 +754,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 
           array (
-            '_route' => 'generated::5aKeTyxdka5GPRXF',
+            '_route' => 'generated::ULa3HdOmtLNA4VGg',
           ),
           1 => NULL,
           2 => 
@@ -771,7 +771,7 @@ app('router')->setCompiledRoutes(
     ),
     2 => 
     array (
-      0 => '{^(?|/livewire/(?|message/([^/]++)(*:36)|preview\\-file/([^/]++)(*:65))|/pddikti/(?|dosen/detail/([^/]++)(?|/alihkan(?|(*:120)|/add(*:132))|(*:141))|pengajaran/cetak/([^/]++)(*:175))|/reset\\-password/([^/]++)(*:209)|/verify\\-email/([^/]++)/([^/]++)(*:249)|/delete/profil/([^/]++)/([^/]++)/([^/]++)(*:298)|/change/(?|p(?|hoto/profile/([^/]++)(*:342)|rofil/([^/]++)(*:364))|kepe(?|gawaian/profil/([^/]++)(*:403)|ndudukan/profil/([^/]++)(*:435)))|/bkd/detail/([^/]++)(*:465))/?$}sDu',
+      0 => '{^(?|/livewire/(?|message/([^/]++)(*:36)|preview\\-file/([^/]++)(*:65))|/reset\\-password/([^/]++)(*:98)|/verify\\-email/([^/]++)/([^/]++)(*:137)|/pddikti/(?|dosen/detail/([^/]++)(?|/alihkan(?|(*:192)|/add(*:204))|(*:213))|pengajaran/cetak/([^/]++)(*:247))|/delete/profil/([^/]++)/([^/]++)/([^/]++)(*:297)|/change/(?|p(?|hoto/profile/([^/]++)(*:341)|rofil/([^/]++)(*:363))|kepe(?|gawaian/profil/([^/]++)(*:402)|ndudukan/profil/([^/]++)(*:434)))|/bkd/detail/([^/]++)(*:464))/?$}sDu',
     ),
     3 => 
     array (
@@ -820,98 +820,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      120 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::5qgXXX9dPEA0ICZs',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      132 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::KDbtXjBnuQ3nIta3',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'POST' => 0,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => false,
-          6 => NULL,
-        ),
-      ),
-      141 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::3ADuAqJ7PKwaUMV1',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      175 => 
-      array (
-        0 => 
-        array (
-          0 => 
-          array (
-            '_route' => 'generated::2Y9wKSg5ksvcL5zB',
-          ),
-          1 => 
-          array (
-            0 => 'id',
-          ),
-          2 => 
-          array (
-            'GET' => 0,
-            'HEAD' => 1,
-          ),
-          3 => NULL,
-          4 => false,
-          5 => true,
-          6 => NULL,
-        ),
-      ),
-      209 => 
+      98 => 
       array (
         0 => 
         array (
@@ -934,7 +843,7 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      249 => 
+      137 => 
       array (
         0 => 
         array (
@@ -958,13 +867,104 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      298 => 
+      192 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::mr1v67Q6Gi2sZ0MY',
+            '_route' => 'generated::c84pS3mKstmwSPc7',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      204 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::XvzZx2b75pGkFlor',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'POST' => 0,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => false,
+          6 => NULL,
+        ),
+      ),
+      213 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::w2wYBtFvUt2djom4',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      247 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::H67c9UnlqOBSmiUi',
+          ),
+          1 => 
+          array (
+            0 => 'id',
+          ),
+          2 => 
+          array (
+            'GET' => 0,
+            'HEAD' => 1,
+          ),
+          3 => NULL,
+          4 => false,
+          5 => true,
+          6 => NULL,
+        ),
+      ),
+      297 => 
+      array (
+        0 => 
+        array (
+          0 => 
+          array (
+            '_route' => 'generated::JF6002xcNcOrUQ1M',
           ),
           1 => 
           array (
@@ -983,13 +983,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      342 => 
+      341 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::dM9c3MjGHVmWv24I',
+            '_route' => 'generated::5DqZIU4czGpnBrsu',
           ),
           1 => 
           array (
@@ -1005,13 +1005,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      364 => 
+      363 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::J8AOHmExxx6gSlcp',
+            '_route' => 'generated::nkzcLS8HZDZWrotl',
           ),
           1 => 
           array (
@@ -1028,13 +1028,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      403 => 
+      402 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::Kk4Ps1kH0ZwJFVz7',
+            '_route' => 'generated::jTFsOncSeyJQRi2S',
           ),
           1 => 
           array (
@@ -1051,13 +1051,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      435 => 
+      434 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::oPJ4VNQu2wDxCu19',
+            '_route' => 'generated::ESFXgTmqj8tBt772',
           ),
           1 => 
           array (
@@ -1074,13 +1074,13 @@ app('router')->setCompiledRoutes(
           6 => NULL,
         ),
       ),
-      465 => 
+      464 => 
       array (
         0 => 
         array (
           0 => 
           array (
-            '_route' => 'generated::cyc6UdS5UCWskmm7',
+            '_route' => 'generated::lLeAKBFih9NSPvPf',
           ),
           1 => 
           array (
@@ -1112,7 +1112,7 @@ app('router')->setCompiledRoutes(
   ),
   'attributes' => 
   array (
-    'generated::HpksFTQcnV1m7x9F' => 
+    'generated::tOr0k3aEZOlZobru' => 
     array (
       'methods' => 
       array (
@@ -1133,7 +1133,7 @@ app('router')->setCompiledRoutes(
         array (
           0 => 'web',
         ),
-        'as' => 'generated::HpksFTQcnV1m7x9F',
+        'as' => 'generated::tOr0k3aEZOlZobru',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1243,7 +1243,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::BAfdtBFmpYJixnQj' => 
+    'generated::UJkUAeg2IZwD08ok' => 
     array (
       'methods' => 
       array (
@@ -1255,7 +1255,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@source',
         'controller' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@source',
-        'as' => 'generated::BAfdtBFmpYJixnQj',
+        'as' => 'generated::UJkUAeg2IZwD08ok',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1271,7 +1271,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::yuq0BFawcCUtMyzW' => 
+    'generated::9IFtGwucWGoP1kAB' => 
     array (
       'methods' => 
       array (
@@ -1283,7 +1283,7 @@ app('router')->setCompiledRoutes(
       array (
         'uses' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@maps',
         'controller' => 'Livewire\\Controllers\\LivewireJavaScriptAssets@maps',
-        'as' => 'generated::yuq0BFawcCUtMyzW',
+        'as' => 'generated::9IFtGwucWGoP1kAB',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1299,7 +1299,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::FyCaz8eZWbuUZrDS' => 
+    'generated::IzKMsVfpJmcg89RP' => 
     array (
       'methods' => 
       array (
@@ -1316,532 +1316,13 @@ app('router')->setCompiledRoutes(
         ),
         'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:297:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:79:"function (\\Illuminate\\Http\\Request $request) {
     return $request->user();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000032d40f000000002aa2d9cf";}";s:4:"hash";s:44:"KowaxkS9jvHeA4sRfvZRtD2D8l0U2bK5b8ogbooRVNc=";}}',
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004e4ef047000000001a595531";}";s:4:"hash";s:44:"zkxyABjv0DuWp0iFRt3SAN9EUtx4QuD6+G2GugwHO94=";}}',
         'namespace' => NULL,
         'prefix' => 'api',
         'where' => 
         array (
         ),
-        'as' => 'generated::FyCaz8eZWbuUZrDS',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::hBaFl37l8zaRV68k' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => '/',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:264:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
-    return \\view(\'welcome\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000032d40d000000002aa2d9cf";}";s:4:"hash";s:44:"BUmrIpuL5EDFyhaiHcb9yCBYe1lFJL966KxT2r8mkFI=";}}',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::hBaFl37l8zaRV68k',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::ip3OlGCu2M061eoc' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/dosen/json',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@dataAjax',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@dataAjax',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::ip3OlGCu2M061eoc',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::cGfwW36KsoeCRKAP' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@tampilFormTambah',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@tampilFormTambah',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::cGfwW36KsoeCRKAP',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::it55SLQq9btuav1F' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/dosen',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:283:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:65:"function () {
-    return \\view(\'pddikti.data_dosen_pddikti\');
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000032d409000000002aa2d9cf";}";s:4:"hash";s:44:"KlnulJ9QPtrJHZ1IpD25MoVvXTnJe8yDG6WOBB+lyR4=";}}',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::it55SLQq9btuav1F',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::5qgXXX9dPEA0ICZs' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/dosen/detail/{id}/alihkan',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@edit',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@edit',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::5qgXXX9dPEA0ICZs',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::KDbtXjBnuQ3nIta3' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'pddikti/dosen/detail/{id}/alihkan/add',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@store',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@store',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::KDbtXjBnuQ3nIta3',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::3ADuAqJ7PKwaUMV1' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/dosen/detail/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@index',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@index',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::3ADuAqJ7PKwaUMV1',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::KIgBUp8QV0bh115H' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/form',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PpengajaranController@formAddPpengajaran',
-        'controller' => 'App\\Http\\Controllers\\PpengajaranController@formAddPpengajaran',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::KIgBUp8QV0bh115H',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::GCMmLoXxNeezNpig' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'pddikti/form/add',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PpengajaranController@storePpengajaran',
-        'controller' => 'App\\Http\\Controllers\\PpengajaranController@storePpengajaran',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::GCMmLoXxNeezNpig',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::wDAnk2eOjyZIV0MX' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'pddikti/form/import',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:364:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:145:"function () {
-    \\Maatwebsite\\Excel\\Facades\\Excel::import(new \\App\\Imports\\PengajaranImport, \\request()->file(\'file\'));
-    return \\back();
-}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000000032d4f0000000002aa2d9cf";}";s:4:"hash";s:44:"qb2pzvwzkL8wPXnQQoq49HY47bizEXUKG9oWWnvPAPE=";}}',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::wDAnk2eOjyZIV0MX',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::MeeJ9Dx1pKuG8vZ2' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/data',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PpengajaranController@index',
-        'controller' => 'App\\Http\\Controllers\\PpengajaranController@index',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::MeeJ9Dx1pKuG8vZ2',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::numxKmOktqr82LxA' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/pengajaran',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PpengajaranController@tampil_pengajaran',
-        'controller' => 'App\\Http\\Controllers\\PpengajaranController@tampil_pengajaran',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::numxKmOktqr82LxA',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::sXIJVcQcc6J5i8uw' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/pengajaran/cetak',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PpengajaranController@cetakpddikti',
-        'controller' => 'App\\Http\\Controllers\\PpengajaranController@cetakpddikti',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::sXIJVcQcc6J5i8uw',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::2Y9wKSg5ksvcL5zB' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'GET',
-        1 => 'HEAD',
-      ),
-      'uri' => 'pddikti/pengajaran/cetak/{id}',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PddiktiController@cetakDetailPddikti',
-        'controller' => 'App\\Http\\Controllers\\PddiktiController@cetakDetailPddikti',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::2Y9wKSg5ksvcL5zB',
+        'as' => 'generated::IzKMsVfpJmcg89RP',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1895,7 +1376,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::8S8PuKTFMwnI5ajT' => 
+    'generated::P3fu7eSavC9cvUcm' => 
     array (
       'methods' => 
       array (
@@ -1916,7 +1397,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::8S8PuKTFMwnI5ajT',
+        'as' => 'generated::P3fu7eSavC9cvUcm',
       ),
       'fallback' => false,
       'defaults' => 
@@ -1970,7 +1451,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::bARHfD4lEBBtGDev' => 
+    'generated::itGuMr66h38sTzhw' => 
     array (
       'methods' => 
       array (
@@ -1991,7 +1472,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::bARHfD4lEBBtGDev',
+        'as' => 'generated::itGuMr66h38sTzhw',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2311,7 +1792,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::K4l77IFTiDwZ5aCO' => 
+    'generated::NoRyMBANKbQ2Ta6K' => 
     array (
       'methods' => 
       array (
@@ -2332,7 +1813,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::K4l77IFTiDwZ5aCO',
+        'as' => 'generated::NoRyMBANKbQ2Ta6K',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2370,6 +1851,525 @@ app('router')->setCompiledRoutes(
         array (
         ),
         'as' => 'logout',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::3OwrlugweIIUOYcT' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => '/',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:264:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:46:"function () {
+    return \\view(\'welcome\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004e4ef057000000001a595531";}";s:4:"hash";s:44:"bR+g2riiqRTblKSTdSRLsn2q1LVimNkHEDSGZN/cywc=";}}',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::3OwrlugweIIUOYcT',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::syxSFPPxczLjncO7' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/dosen/json',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@dataAjax',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@dataAjax',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::syxSFPPxczLjncO7',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::UQYcJMegdpH0YSli' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@tampilFormTambah',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@tampilFormTambah',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::UQYcJMegdpH0YSli',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::MGt7hGKVE0tQYHeF' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/dosen',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:283:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:65:"function () {
+    return \\view(\'pddikti.data_dosen_pddikti\');
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004e4ef05b000000001a595531";}";s:4:"hash";s:44:"+Ca1s1O9nJzI+7SmvWWh1p+Vg+bD5yudTNRJCVcLGtc=";}}',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::MGt7hGKVE0tQYHeF',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::c84pS3mKstmwSPc7' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/dosen/detail/{id}/alihkan',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@edit',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@edit',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::c84pS3mKstmwSPc7',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::XvzZx2b75pGkFlor' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'pddikti/dosen/detail/{id}/alihkan/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@store',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@store',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::XvzZx2b75pGkFlor',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::w2wYBtFvUt2djom4' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/dosen/detail/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@index',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@index',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::w2wYBtFvUt2djom4',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::f04kEuUeBvpSCpI1' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/form',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PpengajaranController@formAddPpengajaran',
+        'controller' => 'App\\Http\\Controllers\\PpengajaranController@formAddPpengajaran',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::f04kEuUeBvpSCpI1',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::tZSY5Y8yDkDGv9ju' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'pddikti/form/add',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PpengajaranController@storePpengajaran',
+        'controller' => 'App\\Http\\Controllers\\PpengajaranController@storePpengajaran',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::tZSY5Y8yDkDGv9ju',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::sbyXAOF6fZ5uz9fj' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'pddikti/form/import',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'O:47:"Laravel\\SerializableClosure\\SerializableClosure":1:{s:12:"serializable";O:46:"Laravel\\SerializableClosure\\Serializers\\Signed":2:{s:12:"serializable";s:364:"O:46:"Laravel\\SerializableClosure\\Serializers\\Native":5:{s:3:"use";a:0:{}s:8:"function";s:145:"function () {
+    \\Maatwebsite\\Excel\\Facades\\Excel::import(new \\App\\Imports\\PengajaranImport, \\request()->file(\'file\'));
+    return \\back();
+}";s:5:"scope";s:37:"Illuminate\\Routing\\RouteFileRegistrar";s:4:"this";N;s:4:"self";s:32:"000000004e4ef062000000001a595531";}";s:4:"hash";s:44:"FmucZwqy4TCeUBk6iJUzPkPj+IZd3+xRGMzoDL/6KSg=";}}',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::sbyXAOF6fZ5uz9fj',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::AYRrCZVYv1hLWl0b' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/data',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PpengajaranController@index',
+        'controller' => 'App\\Http\\Controllers\\PpengajaranController@index',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::AYRrCZVYv1hLWl0b',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::cfNXrq3vdsfBK9X4' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/pengajaran',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PpengajaranController@tampil_pengajaran',
+        'controller' => 'App\\Http\\Controllers\\PpengajaranController@tampil_pengajaran',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::cfNXrq3vdsfBK9X4',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::9mBl9yj5slciWcAn' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/pengajaran/cetak',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PpengajaranController@cetakpddikti',
+        'controller' => 'App\\Http\\Controllers\\PpengajaranController@cetakpddikti',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::9mBl9yj5slciWcAn',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::H67c9UnlqOBSmiUi' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'GET',
+        1 => 'HEAD',
+      ),
+      'uri' => 'pddikti/pengajaran/cetak/{id}',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PddiktiController@cetakDetailPddikti',
+        'controller' => 'App\\Http\\Controllers\\PddiktiController@cetakDetailPddikti',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::H67c9UnlqOBSmiUi',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2423,7 +2423,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::UZjTwyDLxTK9JXqW' => 
+    'generated::d1aYdYNCkr6OH8wk' => 
     array (
       'methods' => 
       array (
@@ -2445,7 +2445,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::UZjTwyDLxTK9JXqW',
+        'as' => 'generated::d1aYdYNCkr6OH8wk',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2461,7 +2461,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::IufmNu4k9UVJaMVm' => 
+    'generated::eM8NcokOy9kqxWTf' => 
     array (
       'methods' => 
       array (
@@ -2482,7 +2482,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::IufmNu4k9UVJaMVm',
+        'as' => 'generated::eM8NcokOy9kqxWTf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2498,7 +2498,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::mr1v67Q6Gi2sZ0MY' => 
+    'generated::JF6002xcNcOrUQ1M' => 
     array (
       'methods' => 
       array (
@@ -2520,7 +2520,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::mr1v67Q6Gi2sZ0MY',
+        'as' => 'generated::JF6002xcNcOrUQ1M',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2536,7 +2536,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::dM9c3MjGHVmWv24I' => 
+    'generated::5DqZIU4czGpnBrsu' => 
     array (
       'methods' => 
       array (
@@ -2557,7 +2557,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::dM9c3MjGHVmWv24I',
+        'as' => 'generated::5DqZIU4czGpnBrsu',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2573,7 +2573,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Kk4Ps1kH0ZwJFVz7' => 
+    'generated::jTFsOncSeyJQRi2S' => 
     array (
       'methods' => 
       array (
@@ -2595,7 +2595,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Kk4Ps1kH0ZwJFVz7',
+        'as' => 'generated::jTFsOncSeyJQRi2S',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2611,7 +2611,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::vyq8K60YowM8ynyr' => 
+    'generated::0ZDd0tyGAxDsGHdo' => 
     array (
       'methods' => 
       array (
@@ -2632,7 +2632,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::vyq8K60YowM8ynyr',
+        'as' => 'generated::0ZDd0tyGAxDsGHdo',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2648,7 +2648,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::oPJ4VNQu2wDxCu19' => 
+    'generated::ESFXgTmqj8tBt772' => 
     array (
       'methods' => 
       array (
@@ -2670,7 +2670,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::oPJ4VNQu2wDxCu19',
+        'as' => 'generated::ESFXgTmqj8tBt772',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2686,7 +2686,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::UdxkyklPgrmpzkEO' => 
+    'generated::wUywbxvCfNVtjRbH' => 
     array (
       'methods' => 
       array (
@@ -2707,7 +2707,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::UdxkyklPgrmpzkEO',
+        'as' => 'generated::wUywbxvCfNVtjRbH',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2723,7 +2723,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::J8AOHmExxx6gSlcp' => 
+    'generated::nkzcLS8HZDZWrotl' => 
     array (
       'methods' => 
       array (
@@ -2745,7 +2745,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::J8AOHmExxx6gSlcp',
+        'as' => 'generated::nkzcLS8HZDZWrotl',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2761,7 +2761,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::NCY8D2ZwZvcQUTSa' => 
+    'generated::iPDqhyOOmxW0lYVf' => 
     array (
       'methods' => 
       array (
@@ -2782,7 +2782,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::NCY8D2ZwZvcQUTSa',
+        'as' => 'generated::iPDqhyOOmxW0lYVf',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2798,7 +2798,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::zT5wApYRSWkVGi2N' => 
+    'generated::NchNxDPk7ImLLQmA' => 
     array (
       'methods' => 
       array (
@@ -2820,7 +2820,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::zT5wApYRSWkVGi2N',
+        'as' => 'generated::NchNxDPk7ImLLQmA',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2836,7 +2836,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::QWNstwts26Zmtw08' => 
+    'generated::w8LcUY272KRCgZnS' => 
     array (
       'methods' => 
       array (
@@ -2858,7 +2858,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::QWNstwts26Zmtw08',
+        'as' => 'generated::w8LcUY272KRCgZnS',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2874,7 +2874,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::eM5d0LQfJz2kfBHh' => 
+    'generated::8kytr1zdK10JzhIR' => 
     array (
       'methods' => 
       array (
@@ -2896,7 +2896,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::eM5d0LQfJz2kfBHh',
+        'as' => 'generated::8kytr1zdK10JzhIR',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2912,7 +2912,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::Irp2R0D1V6DDSbGO' => 
+    'generated::cqnN8ZaX4qucZqad' => 
     array (
       'methods' => 
       array (
@@ -2933,7 +2933,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::Irp2R0D1V6DDSbGO',
+        'as' => 'generated::cqnN8ZaX4qucZqad',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2949,7 +2949,43 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::5aKeTyxdka5GPRXF' => 
+    'generated::qRuXWLkEhSeI0T7x' => 
+    array (
+      'methods' => 
+      array (
+        0 => 'POST',
+      ),
+      'uri' => 'bkd',
+      'action' => 
+      array (
+        'middleware' => 
+        array (
+          0 => 'web',
+        ),
+        'uses' => 'App\\Http\\Controllers\\PengajaranController@storePengajaran',
+        'controller' => 'App\\Http\\Controllers\\PengajaranController@storePengajaran',
+        'namespace' => NULL,
+        'prefix' => '',
+        'where' => 
+        array (
+        ),
+        'as' => 'generated::qRuXWLkEhSeI0T7x',
+      ),
+      'fallback' => false,
+      'defaults' => 
+      array (
+      ),
+      'wheres' => 
+      array (
+      ),
+      'bindingFields' => 
+      array (
+      ),
+      'lockSeconds' => NULL,
+      'waitSeconds' => NULL,
+      'withTrashed' => false,
+    ),
+    'generated::ULa3HdOmtLNA4VGg' => 
     array (
       'methods' => 
       array (
@@ -2970,7 +3006,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::5aKeTyxdka5GPRXF',
+        'as' => 'generated::ULa3HdOmtLNA4VGg',
       ),
       'fallback' => false,
       'defaults' => 
@@ -2986,43 +3022,7 @@ app('router')->setCompiledRoutes(
       'waitSeconds' => NULL,
       'withTrashed' => false,
     ),
-    'generated::3eWfldDs6bB8MOi2' => 
-    array (
-      'methods' => 
-      array (
-        0 => 'POST',
-      ),
-      'uri' => 'bkd',
-      'action' => 
-      array (
-        'middleware' => 
-        array (
-          0 => 'web',
-        ),
-        'uses' => 'App\\Http\\Controllers\\PengajaranController@storePengajaran',
-        'controller' => 'App\\Http\\Controllers\\PengajaranController@storePengajaran',
-        'namespace' => NULL,
-        'prefix' => '',
-        'where' => 
-        array (
-        ),
-        'as' => 'generated::3eWfldDs6bB8MOi2',
-      ),
-      'fallback' => false,
-      'defaults' => 
-      array (
-      ),
-      'wheres' => 
-      array (
-      ),
-      'bindingFields' => 
-      array (
-      ),
-      'lockSeconds' => NULL,
-      'waitSeconds' => NULL,
-      'withTrashed' => false,
-    ),
-    'generated::cyc6UdS5UCWskmm7' => 
+    'generated::lLeAKBFih9NSPvPf' => 
     array (
       'methods' => 
       array (
@@ -3043,7 +3043,7 @@ app('router')->setCompiledRoutes(
         'where' => 
         array (
         ),
-        'as' => 'generated::cyc6UdS5UCWskmm7',
+        'as' => 'generated::lLeAKBFih9NSPvPf',
       ),
       'fallback' => false,
       'defaults' => 

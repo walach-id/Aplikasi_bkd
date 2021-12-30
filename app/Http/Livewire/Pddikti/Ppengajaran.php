@@ -22,38 +22,114 @@ class Ppengajaran extends Component
 {
 
     public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio;
-    public $no_induk, $bio_dosen, $listDosen = [];
-    public $namaDosen, $idDosen, $matkul_jenis;
+    public $no_induk, $bio_dosen;
 
+    //variable list for autocomplete
+    public $listDosen = [],
+        $listDosenAnggota = [],
+        $listDosenHonor = [],
+        $listDosenHonorAnggota = [],
+        $listDosenAnggotaTerpilih = [],
+        $listDosenHonorAnggotaTerpilih = [];
+
+    //dosen utama
+    public $namaDosen, $idDosen;
+
+    //dosen anggota
+    public $namaDosenAnggota, $idDosenAnggota;
+
+    //dosen honor
+    public $namaDosenHonor, $idDosenHonor;
+
+    //dosen Honor anggota
+    public $namaDosenHonorAnggota, $idDosenHonorAnggota;
+
+    public $matkul_jenis, $jenis_dosen_honor, $matkul_jenis_honor;
+
+    // rules buat data yang didapet, harus ada, gak tau dari package liveware autocompletenya ini 😞
     protected $rules = [
+        // DOSEN UNTUK PDDIKTI
         'listDosen.*.nama_dosen' => '',
         'listDosen.*.kode_dosen' => '',
+        'listDosenAnggota.*.nama_dosen' => '',
+        'listDosenAnggota.*.kode_dosen' => '',
+
+        // DOSEN UNTUK HONOR
+        'listDosenHonor.*.nama_dosen' => '',
+        'listDosenHonor.*.kode_dosen' => '',
+        'listDosenHonorAnggota.*.nama_dosen' => '',
+        'listDosenHonorAnggota.*.kode_dosen' => '',
     ];
 
 
-    public function mount()
-    {
-        $this->getDosen();
-    }
-
+    //Hook lifecycle livewire, respond to variable value change updated[VarName] 
     public function updatedNamaDosen()
     {
-        $this->getDosen();
+        $this->getDosen($this->listDosen, $this->namaDosen);
+    }
+
+    public function updatedNamaDosenAnggota()
+    {
+        $this->getDosen($this->listDosenAnggota, $this->namaDosenAnggota);
+    }
+
+    public function updatedNamaDosenHonor()
+    {
+        $this->getDosen($this->listDosenHonor, $this->namaDosenHonor);
+    }
+
+    public function updatedNamaDosenHonorAnggota()
+    {
+        $this->getDosen($this->listDosenHonorAnggota, $this->namaDosenHonorAnggota);
+    }
+
+    public function updatedIdDosenAnggota()
+    {
+        $this->listDosenAnggotaTerpilih += [$this->idDosenAnggota => $this->namaDosenAnggota];
+        $this->idDosenAnggota = null;
+        $this->namaDosenAnggota = null;
+    }
+
+    public function updatedIdDosenHonorAnggota()
+    {
+        $this->listDosenHonorAnggotaTerpilih += [$this->idDosenHonorAnggota => $this->namaDosenHonorAnggota];
+        $this->idDosenHonorAnggota = null;
+        $this->namaDosenHonorAnggota = null;
+    }
+
+    public function updatedIdDosenHonor()
+    {
+        $this->listDosenAnggotaTerpilih += [$this->idDosenAnggota => $this->namaDosenAnggota];
+        $this->idDosenAnggota = null;
+        $this->namaDosenAnggota = null;
+    }
+    //Hook lifecycle livewire end
+
+    public function removeFromMulti($id)
+    {
+        unset($this->listDosenAnggotaTerpilih[$id]);
+    }
+
+    public function removeFromMultiHonor($id)
+    {
+        unset($this->listDosenHonorAnggotaTerpilih[$id]);
     }
 
 
-    public function getDosen()
+
+
+    public function getDosen(&$arrayList, &$name)
     {
-        if (!empty($this->namaDosen) || $this->namaDosen !== null) {
-            $this->listDosen = DosenJson::query()
-                ->when($this->namaDosen, function ($query, $name) {
+        if (!empty($name) || $name !== null) {
+            $arrayList = DosenJson::query()
+                ->when($name, function ($query, $name) {
                     return $query->where('nama_dosen', 'LIKE', '%' . $name . '%');
                 })
                 ->orderBy('nama_dosen')
                 ->limit(10)
                 ->get();
         } else {
-            $this->listDosen = [];
+            $arrayList = [];
         }
     }
 
@@ -145,29 +221,30 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
-        if (($this->sks * $this->jumkelas) >= 16) {
-            Alert::warning('Peringatan', 'Jumlah tugas diberikan melebihi batas');
-            return back();
-        } else {
+        // dd(implode(' - ', $this->multi));
+        // if (($this->sks * $this->jumkelas) >= 16) {
+        //     Alert::warning('Peringatan', 'Jumlah tugas diberikan melebihi batas');
+        //     return back();
+        // } else {
 
 
-            PddiktiPengajaran::create([
-                'nik' => $this->idDosen,
-                'nama_dosen' => $this->namaDosen,
-                'matkul_id' => $this->matkul,
-                'prodi_id' => Auth::user()->prodi_id,
-                'sks' => $this->sks * $this->jumkelas,
-                'akademik_tahun' => $this->tahun_ajaran . $this->sms,
-                'jum_kelas' => $this->jumkelas,
-                'kelas_penyesuaian' => $this->jumkelasp,
-                'sks_penyesuaian' => $this->sks_penyesuaian,
-                'tipe_mengajar' => $this->tipe_mengajar,
-            ]);
-            // dd($this->jumkelasp);
-            // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
-            // return redirect('/pddikti/data');
-            Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
-            return redirect('/pddikti/dosen');
-        }
+        //     PddiktiPengajaran::create([
+        //         'nik' => $this->idDosen,
+        //         'nama_dosen' => $this->namaDosen,
+        //         'matkul_id' => $this->matkul,
+        //         'prodi_id' => Auth::user()->prodi_id,
+        //         'sks' => $this->sks * $this->jumkelas,
+        //         'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+        //         'jum_kelas' => $this->jumkelas,
+        //         'kelas_penyesuaian' => $this->jumkelasp,
+        //         'sks_penyesuaian' => $this->sks_penyesuaian,
+        //         'tipe_mengajar' => $this->tipe_mengajar,
+        //     ]);
+        //     // dd($this->jumkelasp);
+        //     // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
+        //     // return redirect('/pddikti/data');
+        //     Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
+        //     return redirect('/pddikti/dosen');
+        // }
     }
 }

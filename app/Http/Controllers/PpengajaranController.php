@@ -46,24 +46,31 @@ class PpengajaranController extends Controller
 
     public function storePpengajaran(Request $request)
     {
-        $panggil_nama = User::where('nik', $request->dosen)
-            ->first();
+        /*
+            tahun_ajaran
 
-        // dd($panggil_nama->name);
-        $pengajaran = new Ppengajaran();
-        $pengajaran->id = null;
-        $pengajaran->nik = $request->dosen;
-        $pengajaran->nama_dosen = $panggil_nama->name;
-        $pengajaran->matkul_id = $request->matkul;
-        $pengajaran->prodi_id = $request->prodi;
-        $pengajaran->sks = $request->sks;
-        $pengajaran->semester = $request->semester;
-        $pengajaran->jum_kelas = $request->jumkelas;
+        */
+        dd($request->namaDosen);
 
-        $pengajaran->save();
+        // $panggil_nama = User::where('nik', $request->dosen)
+        //     ->first();
 
-        // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
-        return redirect('/pddikti/data');
+        // // dd($panggil_nama->name);
+        // $pengajaran = new Ppengajaran();
+        // $pengajaran->id = null;
+        // $pengajaran->nik = $request->dosen;
+        // $pengajaran->nama_dosen = $panggil_nama->name;
+        // $pengajaran->matkul_id = $request->matkul;
+        // $pengajaran->prodi_id = $request->prodi;
+        // $pengajaran->sks = $request->sks;
+        // $pengajaran->semester = $request->semester;
+        // $pengajaran->jum_kelas = $request->jumkelas;
+
+        // $pengajaran->save();
+
+        // // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
+        // return redirect('/pddikti/data');
+
     }
 
     public function import_excel(Request $request)
