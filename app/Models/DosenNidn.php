@@ -9,6 +9,5 @@ class DosenNidn extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'kode_dosen';
-    protected $table = 'data_dosen';
+    protected $table = 'daftar_dosen_nidn';
 }

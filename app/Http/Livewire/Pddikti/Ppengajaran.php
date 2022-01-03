@@ -44,15 +44,15 @@ class Ppengajaran extends Component
     //dosen Honor anggota
     public $namaDosenHonorAnggota, $idDosenHonorAnggota;
 
-    public $matkul_jenis, $jenis_dosen_honor, $matkul_jenis_honor;
+    public $matkul_jenis, $jenis_dosen_honor, $matkul_jenis_honor, $jenis_dosen;
 
     // rules buat data yang didapet, harus ada, gak tau dari package liveware autocompletenya ini 😞
     protected $rules = [
         // DOSEN UNTUK PDDIKTI
-        'listDosen.*.nama_dosen' => '',
-        'listDosen.*.kode_dosen' => '',
-        'listDosenAnggota.*.nama_dosen' => '',
-        'listDosenAnggota.*.kode_dosen' => '',
+        'listDosen.*.nama' => '',
+        'listDosen.*.no_registrasi' => '',
+        'listDosenAnggota.*.nama' => '',
+        'listDosenAnggota.*.no_registrasi' => '',
 
         // DOSEN UNTUK HONOR
         'listDosenHonor.*.nama_dosen' => '',
@@ -63,6 +63,8 @@ class Ppengajaran extends Component
 
 
     //Hook lifecycle livewire, respond to variable value change updated[VarName] 
+
+    //pakai getDosen
     public function updatedNamaDosen()
     {
         $this->getDosen($this->listDosen, $this->namaDosen);
@@ -73,14 +75,17 @@ class Ppengajaran extends Component
         $this->getDosen($this->listDosenAnggota, $this->namaDosenAnggota);
     }
 
+    //pakai getDosen end
+
+    //pakai getDosenHonor end   
     public function updatedNamaDosenHonor()
     {
-        $this->getDosen($this->listDosenHonor, $this->namaDosenHonor);
+        $this->getDosenHonor($this->listDosenHonor, $this->namaDosenHonor);
     }
 
     public function updatedNamaDosenHonorAnggota()
     {
-        $this->getDosen($this->listDosenHonorAnggota, $this->namaDosenHonorAnggota);
+        $this->getDosenHonor($this->listDosenHonorAnggota, $this->namaDosenHonorAnggota);
     }
 
     public function updatedIdDosenAnggota()
@@ -99,15 +104,15 @@ class Ppengajaran extends Component
 
     public function updatedIdDosenHonor()
     {
-        $this->listDosenAnggotaTerpilih += [$this->idDosenAnggota => $this->namaDosenAnggota];
-        $this->idDosenAnggota = null;
-        $this->namaDosenAnggota = null;
+        $this->listDosenHonorAnggotaTerpilih += [$this->idDosenHonorAnggota => $this->namaDosenHonorAnggota];
+        $this->idDosenHonorAnggota = null;
+        $this->namaDosenHonorAnggota = null;
     }
     //Hook lifecycle livewire end
 
-    public function removeFromMulti($id)
+    public function removeFromMulti($idp)
     {
-        unset($this->listDosenAnggotaTerpilih[$id]);
+        unset($this->listDosenAnggotaTerpilih[$idp]);
     }
 
     public function removeFromMultiHonor($id)
@@ -119,6 +124,22 @@ class Ppengajaran extends Component
 
 
     public function getDosen(&$arrayList, &$name)
+    {
+        if (!empty($name) || $name !== null) {
+            $arrayList = DosenNidn::query()
+                ->when($name, function ($query, $name) {
+                    return $query->where('nama', 'LIKE', '%' . $name . '%');
+                })
+                ->orderBy('nama')
+                ->limit(10)
+                ->get();
+        } else {
+            $arrayList = [];
+        }
+    }
+
+
+    public function getDosenHonor(&$arrayList, &$name)
     {
         if (!empty($name) || $name !== null) {
             $arrayList = DosenJson::query()
@@ -221,7 +242,13 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
-        // dd(implode(' - ', $this->multi));
+
+        //dd($this->listDosenHonor);
+        //dd($this->listDosenHonorAnggotaTerpilih);
+        //dd($this->listDosen);
+        //dd($this->listDosenAnggotaTerpilih);
+
+
         // if (($this->sks * $this->jumkelas) >= 16) {
         //     Alert::warning('Peringatan', 'Jumlah tugas diberikan melebihi batas');
         //     return back();
