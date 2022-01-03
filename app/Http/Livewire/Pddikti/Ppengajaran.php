@@ -8,8 +8,11 @@ use App\Models\Profil;
 use App\Models\MataKuliah;
 use App\Models\Krs;
 use App\Models\DosenNidn;
+use App\Models\DaftarDosenDikti;
+use App\Models\DaftarDosenHonor;
 use App\Models\DosenJson;
 use App\Models\PddiktiPengajaran;
+use App\Models\HonorPengajaran;
 use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\Auth;
 use App\Imports\PengajaranImport;
@@ -21,8 +24,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 class Ppengajaran extends Component
 {
 
-    public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio;
-    public $no_induk, $bio_dosen;
+    public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio, $tipe_dosen_pengajaran;
+    public $no_induk, $bio_dosen, $tipe_mengajar;
 
     //variable list for autocomplete
     public $listDosen = [],
@@ -182,20 +185,6 @@ class Ppengajaran extends Component
             ->where('kode_mk', '=', $this->matkul)
             ->first();
 
-        // dosen utama
-        // $biodata_dosen = DosenJson::where('kode_dosen', '=', $this->idDosen)
-        //     ->first();
-
-        // if ($biodata_dosen == null || $biodata_dosen == "") {
-        //     $this->bio_dosen = "-";
-        //     $this->no_induk = "-";
-        // } else {
-        //     $this->bio_dosen = $biodata_dosen->jabfung;
-        //     $this->no_induk = $biodata_dosen->no_registrasi;
-        // }
-
-        // dosen yang dialihkan
-
 
         if ($this->matkul == "" || ($this->tahun_ajaran == "" && $this->sms == "")) {
             $this->sks = "";
@@ -243,10 +232,132 @@ class Ppengajaran extends Component
     public function storePpengajaran()
     {
 
-        //dd($this->listDosenHonor);
-        //dd($this->listDosenHonorAnggotaTerpilih);
-        //dd($this->listDosen);
-        //dd($this->listDosenAnggotaTerpilih);
+
+
+
+        $id_pengajaran_dikti_honor = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
+
+        // Menyimpan ke tabel pengajaran_honor
+
+        foreach ($this->listDosenHonor as $dosen) {
+            $nik_dosen_pj_honor = $dosen->kode_dosen;
+        }
+        HonorPengajaran::create([
+            'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
+            'matkul_id' => $this->matkul,
+            'prodi_id' => Auth::user()->prodi_id,
+            'sks' => $this->sks * $this->jumkelas,
+            'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+            'jum_kelas' => $this->jumkelasp,
+            'jum_mengajar' => 14,
+            'tipe_mengajar' => $this->matkul_jenis_honor,
+        ]);
+
+        if ($this->matkul_jenis_honor === "Kelompok") {
+            foreach ($this->listDosenAnggotaTerpilih as $nik => $nama) {
+                // dd($nama);
+                DaftarDosenHonor::create([
+                    'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
+                    'dosen' => $nik_dosen_pj_honor,
+                    'dosen_anggota' =>  $nik,
+                ]);
+            }
+        } else {
+            DaftarDosenHonor::create([
+                'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
+                'dosen' => $nik_dosen_pj_honor,
+                'dosen_anggota' =>  "-",
+            ]);
+        }
+        // Menyimpan ke tabel pengajaran_pddikti
+
+        PddiktiPengajaran::create([
+            'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+            'matkul_id' => $this->matkul,
+            'prodi_id' => Auth::user()->prodi_id,
+            'sks' => $this->sks * $this->jumkelas,
+            'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+            'jum_kelas' => $this->jumkelas,
+            'jum_mengajar' => 14,
+            'tipe_mengajar' => $this->matkul_jenis,
+        ]);
+
+        if ($this->tipe_dosen_pengajaran == 1) { // JIKA ISIAN DOSEN DI SAMAKAN
+
+            PddiktiPengajaran::create([
+                'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                'matkul_id' => $this->matkul,
+                'prodi_id' => Auth::user()->prodi_id,
+                'sks' => $this->sks * $this->jumkelas,
+                'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+                'jum_kelas' => $this->jumkelas,
+                'jum_mengajar' => 14,
+                'tipe_mengajar' => $this->matkul_jenis_honor,
+            ]);
+
+            if ($this->matkul_jenis_honor === "Kelompok") {
+                foreach ($this->listDosenHonorAnggotaTerpilih as $nik => $nama) {
+                    // dd($nama);
+                    DaftarDosenDikti::create([
+                        'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                        'dosen' => $nik_dosen_pj_honor,
+                        'dosen_anggota' =>  $nik,
+                    ]);
+                }
+            } else {
+                DaftarDosenDikti::create([
+                    'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                    'dosen' => $nik_dosen_pj_honor,
+                    'dosen_anggota' =>  "-",
+                ]);
+            }
+        } else {
+
+            PddiktiPengajaran::create([
+                'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                'matkul_id' => $this->matkul,
+                'prodi_id' => Auth::user()->prodi_id,
+                'sks' => $this->sks * $this->jumkelas,
+                'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+                'jum_kelas' => $this->jumkelas,
+                'jum_mengajar' => 14,
+                'tipe_mengajar' => $this->matkul_jenis,
+            ]);
+
+            foreach ($this->listDosen as $dosen) {
+                $nik_dosen_pj_pddikti = $dosen->no_registrasi;
+            }
+            if ($this->matkul_jenis === "Kelompok") {
+                foreach ($this->listDosenAnggotaTerpilih as $nik => $nama) {
+                    // dd($nama);
+                    DaftarDosenDikti::create([
+                        'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                        'dosen' => $nik_dosen_pj_pddikti,
+                        'dosen_anggota' =>  $nik,
+                    ]);
+                }
+            } else {
+                DaftarDosenDikti::create([
+                    'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
+                    'dosen' => $nik_dosen_pj_pddikti,
+                    'dosen_anggota' =>  "-",
+                ]);
+            }
+        }
+
+
+
+
+
+
+
+        Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
+
+
+        // dd($this->listDosenHonor);
+        // dd($this->listDosenHonorAnggotaTerpilih);
+        // dd($this->listDosen);
+        // dd($this->listDosenAnggotaTerpilih);
 
 
         // if (($this->sks * $this->jumkelas) >= 16) {

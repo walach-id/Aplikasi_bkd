@@ -90,11 +90,11 @@
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                             <div>
                                 <!-- wire:model="matkul_jenis" -->
-                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="1"><label class="mr-3" for="">Kelompok</label>
-                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="2"><label for="">Individu</label>
+                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="Kelompok"><label class="mr-3" for="">Kelompok</label>
+                                <input wire:model="matkul_jenis_honor" class="mr-1" type="radio" name="j_matkul_honor" id="" value="Individu"><label for="">Individu</label>
                             </div>
                         </div>
-                        @if($matkul_jenis_honor == 1)
+                        @if($matkul_jenis_honor === "Kelompok")
                         <div class="form-group">
                             <label for="">Dosen Anggota</label><br>
                             <x-lwa::autocomplete class="form-control" name="listDosenHonorAnggota" wire:model-text="namaDosenHonorAnggota" wire:model-id="idDosenHonorAnggota" wire:model-results="listDosenHonorAnggota" :options="[
@@ -119,12 +119,12 @@
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                             <div>
                                 <!-- wire:model="matkul_jenis" -->
-                                <input wire:model="jenis_dosen" class="mr-1" type="radio" name="dosen_pddikti" id="" value="1"><label class="mr-3" for="">Samakan</label>
-                                <input wire:model="jenis_dosen" class="mr-1" type="radio" name="dosen_pddikti" id="" value="2"><label for="">Bedakan</label>
+                                <input wire:model="tipe_dosen_pengajaran" class="mr-1" type="radio" id="" value="1"><label class="mr-3" for="">Samakan</label>
+                                <input wire:model="tipe_dosen_pengajaran" class="mr-1" type="radio" id="" value="2"><label for="">Bedakan</label>
                             </div>
                         </div>
-                        @if($jenis_dosen == 1)
-                        @elseif($jenis_dosen == 2)
+                        @if($tipe_dosen_pengajaran == 1)
+                        @elseif($tipe_dosen_pengajaran == 2)
                         <div class="form-group">
                             <label for="">Pilih Dosen | Untuk Keperluan Pelaporan PDDIKTI</label><br>
                             <label style="color:red; font-weight:bold;" for="">Jika dipilih berkelompok, dosen ini akan menjadi PJ</label>
@@ -139,11 +139,11 @@
                             {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
                             <div>
                                 <!-- wire:model="matkul_jenis" -->
-                                <input wire:model="matkul_jenis" class="mr-1" type="radio" name="j_matkul" id="" value="1"><label class="mr-3" for="">Kelompok</label>
-                                <input wire:model="matkul_jenis" class="mr-1" type="radio" name="j_matkul" id="" value="2"><label for="">Individu</label>
+                                <input wire:model="matkul_jenis" class="mr-1" type="radio" name="j_matkul" id="" value="Kelompok"><label class="mr-3" for="">Kelompok</label>
+                                <input wire:model="matkul_jenis" class="mr-1" type="radio" name="j_matkul" id="" value="Individu"><label for="">Individu</label>
                             </div>
                         </div>
-                        @if($matkul_jenis == 1)
+                        @if($matkul_jenis === "Kelompok")
                         <div class="form-group">
                             <label for="">Dosen Anggota</label><br>
                             <x-lwa::autocomplete class="form-control" name="listDosenAnggota" wire:model-text="namaDosenAnggota" wire:model-id="idDosenAnggota" wire:model-results="listDosenAnggota" :options="[
