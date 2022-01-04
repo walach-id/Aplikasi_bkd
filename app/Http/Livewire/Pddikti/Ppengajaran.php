@@ -24,31 +24,47 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class Ppengajaran extends Component
 {
-
-    public $matkul, $prodi, $sks, $jumkelas, $jumkelasp, $tahun_ajaran, $sms, $rasio, $tipe_dosen_pengajaran;
-    public $no_induk, $bio_dosen, $tipe_mengajar;
+    public $matkul;
+    public $prodi;
+    public $sks;
+    public $jumkelas;
+    public $jumkelasp;
+    public $tahun_ajaran;
+    public $sms;
+    public $rasio;
+    public $tipe_dosen_pengajaran;
+    public $no_induk;
+    public $bio_dosen;
+    public $tipe_mengajar;
 
     //variable list for autocomplete
-    public $listDosen = [],
-        $listDosenAnggota = [],
-        $listDosenHonor = [],
-        $listDosenHonorAnggota = [],
-        $listDosenAnggotaTerpilih = [],
-        $listDosenHonorAnggotaTerpilih = [];
+    public $listDosen = [];
+    public $listDosenAnggota = [];
+    public $listDosenHonor = [];
+    public $listDosenHonorAnggota = [];
+    public $listDosenAnggotaTerpilih = [];
+    public $listDosenHonorAnggotaTerpilih = [];
 
     //dosen utama
-    public $namaDosen, $idDosen;
+    public $namaDosen;
+    public $idDosen;
 
     //dosen anggota
-    public $namaDosenAnggota, $idDosenAnggota;
+    public $namaDosenAnggota;
+    public $idDosenAnggota;
 
     //dosen honor
-    public $namaDosenHonor, $idDosenHonor;
+    public $namaDosenHonor;
+    public $idDosenHonor;
 
     //dosen Honor anggota
-    public $namaDosenHonorAnggota, $idDosenHonorAnggota;
+    public $namaDosenHonorAnggota;
+    public $idDosenHonorAnggota;
 
-    public $matkul_jenis, $jenis_dosen_honor, $matkul_jenis_honor, $jenis_dosen;
+    public $matkul_jenis;
+    public $jenis_dosen_honor;
+    public $matkul_jenis_honor;
+    public $jenis_dosen;
 
     // rules buat data yang didapet, harus ada, gak tau dari package liveware autocompletenya ini 😞
     protected $rules = [
@@ -66,7 +82,7 @@ class Ppengajaran extends Component
     ];
 
 
-    //Hook lifecycle livewire, respond to variable value change updated[VarName] 
+    //Hook lifecycle livewire, respond to variable value change updated[VarName]
 
     //pakai getDosen
     public function updatedNamaDosen()
@@ -81,7 +97,7 @@ class Ppengajaran extends Component
 
     //pakai getDosen end
 
-    //pakai getDosenHonor end   
+    //pakai getDosenHonor end
     public function updatedNamaDosenHonor()
     {
         $this->getDosenHonor($this->listDosenHonor, $this->namaDosenHonor);
@@ -94,37 +110,36 @@ class Ppengajaran extends Component
 
     public function updatedIdDosenAnggota()
     {
-        $this->listDosenAnggotaTerpilih += [$this->idDosenAnggota => $this->namaDosenAnggota];
+        $this->listDosenAnggotaTerpilih += ['"'. $this->idDosenAnggota .'"' => $this->namaDosenAnggota];
         $this->idDosenAnggota = null;
         $this->namaDosenAnggota = null;
     }
 
     public function updatedIdDosenHonorAnggota()
     {
-        $this->listDosenHonorAnggotaTerpilih += [$this->idDosenHonorAnggota => $this->namaDosenHonorAnggota];
+        $this->listDosenHonorAnggotaTerpilih += ['"' . $this->idDosenHonorAnggota .'"' => $this->namaDosenHonorAnggota];
         $this->idDosenHonorAnggota = null;
         $this->namaDosenHonorAnggota = null;
     }
 
-    public function updatedIdDosenHonor()
-    {
-        $this->listDosenHonorAnggotaTerpilih += [$this->idDosenHonorAnggota => $this->namaDosenHonorAnggota];
-        $this->idDosenHonorAnggota = null;
-        $this->namaDosenHonorAnggota = null;
-    }
+    // public function updatedIdDosenHonor()
+    // {
+    //     $this->listDosenHonorAnggotaTerpilih += [$this->idDosenHonorAnggota => $this->namaDosenHonorAnggota];
+    //     $this->idDosenHonorAnggota = null;
+    //     $this->namaDosenHonorAnggota = null;
+    // }
+
     //Hook lifecycle livewire end
 
     public function removeFromMulti($idp)
     {
-        unset($this->listDosenAnggotaTerpilih[$idp]);
+        unset($this->listDosenAnggotaTerpilih['"' . $idp . '"']);
     }
 
     public function removeFromMultiHonor($id)
     {
-        unset($this->listDosenHonorAnggotaTerpilih[$id]);
+        unset($this->listDosenHonorAnggotaTerpilih['"' . $id .'"']);
     }
-
-
 
 
     public function getDosen(&$arrayList, &$name)
@@ -231,8 +246,6 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
-
-
         $id_pengajaran_dikti_honor = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
 
         // Menyimpan ke tabel pengajaran_honor
@@ -310,7 +323,6 @@ class Ppengajaran extends Component
                 ]);
             }
         } else {
-
             PddiktiPengajaran::create([
                 'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
                 'matkul_id' => $this->matkul,

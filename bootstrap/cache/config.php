@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:ORv6jrTSbMKEoaTKKS74XW2rNRlk7jQ6yWuMk6egP0k=',
+    'key' => 'base64:ie15zL8KaCKG6mIBFgzlyX9LKFnBviNembs0D3SPJBs=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\framework/cache/data',
+        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -272,7 +272,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'db_aplikasi_bkd',
+        'database' => 'bkd',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -282,7 +282,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'db_aplikasi_bkd',
+        'database' => 'bkd',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -302,7 +302,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'db_aplikasi_bkd',
+        'database' => 'bkd',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -317,7 +317,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'db_aplikasi_bkd',
+        'database' => 'bkd',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -360,12 +360,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\app',
+        'root' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\app/public',
+        'root' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -383,7 +383,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\public\\storage' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\app/public',
+      'D:\\PROJECT\\Aplikasi_bkd\\public\\storage' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -418,13 +418,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -475,7 +475,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -541,7 +541,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\resources\\views/vendor/mail',
+        0 => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -642,7 +642,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\framework/sessions',
+    'files' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -704,9 +704,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\resources\\views',
+      0 => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\framework\\views',
+    'compiled' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework\\views',
   ),
   'dompdf' => 
   array (
@@ -714,10 +714,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\fonts/',
-      'font_cache' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\POSEID~1\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd',
+      'font_dir' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\fonts/',
+      'font_cache' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\bumpy\\AppData\\Local\\Temp',
+      'chroot' => 'D:\\PROJECT\\Aplikasi_bkd',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -806,7 +806,7 @@
   'livewire' => 
   array (
     'class_namespace' => 'App\\Http\\Livewire',
-    'view_path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\resources\\views/livewire',
+    'view_path' => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views/livewire',
     'layout' => 'layouts.app',
     'asset_url' => NULL,
     'app_url' => NULL,
@@ -942,7 +942,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'C:\\Users\\Poseidon98\\Documents\\Backup F Bikri\\project web\\Aplikasi_bkd\\storage\\framework/laravel-excel',
+      'local_path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,
