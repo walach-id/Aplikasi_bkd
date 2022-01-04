@@ -8,22 +8,12 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Tahun Ajaran</label>
                                 {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                                <select class="form-control" wire:model="tahun_ajaran" id="sel1">
+                                <select class="form-control" wire:model="tahun_ajaran" wire:change="change" id="sel1">
                                     <option value=""></option>
-                                    <option value="2021">2021</option>
-                                    <option value="2020">2020</option>
-                                    <option value="2019">2019</option>
-                                    <option value="2018">2018</option>
+                                    @foreach ($tahun as $data)
+                                        <option value="{{ $data->thn_akademik }}">{{ $data->thn_akademik }}</option>
+                                    @endforeach
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Semester Tahun Ajaran</label>
-                                {{-- <input type="text" class="form-control" id="exampleInputEmail1" name="matkul" required> --}}
-                                <div>
-                                    <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="2"><label class="mr-3" for="">Genap</label>
-                                    <input class="mr-1" type="radio" wire:change="change" name="sms" wire:model="sms" id="" value="1"><label for="">Ganjil</label>
-                                </div>
                             </div>
 
                             <div class="form-group">

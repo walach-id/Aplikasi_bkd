@@ -8,6 +8,7 @@ use App\Models\Profil;
 use App\Models\MataKuliah;
 use App\Models\Krs;
 use App\Models\DosenNidn;
+use App\Models\tahun_akademiks;
 use App\Models\DaftarDosenDikti;
 use App\Models\DaftarDosenHonor;
 use App\Models\DosenJson;
@@ -159,13 +160,11 @@ class Ppengajaran extends Component
 
     public function render()
     {
-
+        $tahun_akademik = tahun_akademiks::get();
         $data_prodi = ProgramStudi::get();
-
         //Ambil seluruh data matkul
-        $tahun_akademik = $this->tahun_ajaran . $this->sms;
         $listMatkul = MataKuliah::where('id_prodi', '=', Auth::user()->prodi_id)
-            ->where('thn_akademik', '=', $tahun_akademik)
+            ->where('thn_akademik', '=', $this->tahun_ajaran)
             ->OrderBy('nama_mk', 'ASC')->get();
 
         //$this->sks_penyesuaian = $this->sks * $this->jumkelasp;
@@ -177,16 +176,16 @@ class Ppengajaran extends Component
 
         $banyak_mahasiswa = krs::where('id_prodi', '=', Auth::user()->prodi_id)
             ->where('kode_mk', '=', $this->matkul)
-            ->where('thn_akademik', '=', $tahun_akademik)
+            ->where('thn_akademik', '=', $this->tahun_ajaran)
             ->count();
 
         $select_sks = MataKuliah::where('id_prodi', '=', Auth::user()->prodi_id)
-            ->where('thn_akademik', '=', $tahun_akademik)
+            ->where('thn_akademik', '=', $this->tahun_ajaran)
             ->where('kode_mk', '=', $this->matkul)
             ->first();
 
 
-        if ($this->matkul == "" || ($this->tahun_ajaran == "" && $this->sms == "")) {
+        if ($this->matkul == "" || ($this->tahun_ajaran == "")) {
             $this->sks = "";
         } else {
             $this->sks = $select_sks->jml_sks;
@@ -198,10 +197,12 @@ class Ppengajaran extends Component
             $this->jumkelas = ceil($banyak_mahasiswa / $this->rasio);
         }
 
+
         return view('livewire.pddikti.ppengajaran', [
             'data_matkul' => $listMatkul,
             'data_prodi' => $data_prodi,
             'mahasiswa' => $banyak_mahasiswa,
+            'tahun' => $tahun_akademik,
         ]);
     }
 
@@ -222,7 +223,6 @@ class Ppengajaran extends Component
         $this->prodi = "";
         $this->semester = "";
         $this->tahun_ajaran = "";
-        $this->sms = "";
         $this->matkul = "";
         $this->sks = "";
         $this->jumkelas = "";
@@ -231,8 +231,6 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
-
-
 
 
         $id_pengajaran_dikti_honor = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
@@ -247,7 +245,7 @@ class Ppengajaran extends Component
             'matkul_id' => $this->matkul,
             'prodi_id' => Auth::user()->prodi_id,
             'sks' => $this->sks * $this->jumkelas,
-            'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+            'akademik_tahun' => $this->tahun_ajaran,
             'jum_kelas' => $this->jumkelasp,
             'jum_mengajar' => 14,
             'tipe_mengajar' => $this->matkul_jenis_honor,
@@ -276,7 +274,7 @@ class Ppengajaran extends Component
             'matkul_id' => $this->matkul,
             'prodi_id' => Auth::user()->prodi_id,
             'sks' => $this->sks * $this->jumkelas,
-            'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+            'akademik_tahun' => $this->tahun_ajaran,
             'jum_kelas' => $this->jumkelas,
             'jum_mengajar' => 14,
             'tipe_mengajar' => $this->matkul_jenis,
@@ -289,7 +287,7 @@ class Ppengajaran extends Component
                 'matkul_id' => $this->matkul,
                 'prodi_id' => Auth::user()->prodi_id,
                 'sks' => $this->sks * $this->jumkelas,
-                'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+                'akademik_tahun' => $this->tahun_ajaran,
                 'jum_kelas' => $this->jumkelas,
                 'jum_mengajar' => 14,
                 'tipe_mengajar' => $this->matkul_jenis_honor,
@@ -318,7 +316,7 @@ class Ppengajaran extends Component
                 'matkul_id' => $this->matkul,
                 'prodi_id' => Auth::user()->prodi_id,
                 'sks' => $this->sks * $this->jumkelas,
-                'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+                'akademik_tahun' => $this->tahun_ajaran,
                 'jum_kelas' => $this->jumkelas,
                 'jum_mengajar' => 14,
                 'tipe_mengajar' => $this->matkul_jenis,
@@ -372,7 +370,7 @@ class Ppengajaran extends Component
         //         'matkul_id' => $this->matkul,
         //         'prodi_id' => Auth::user()->prodi_id,
         //         'sks' => $this->sks * $this->jumkelas,
-        //         'akademik_tahun' => $this->tahun_ajaran . $this->sms,
+        //         'akademik_tahun' => $this->tahun_ajaran,
         //         'jum_kelas' => $this->jumkelas,
         //         'kelas_penyesuaian' => $this->jumkelasp,
         //         'sks_penyesuaian' => $this->sks_penyesuaian,
