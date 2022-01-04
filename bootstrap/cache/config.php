@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:ie15zL8KaCKG6mIBFgzlyX9LKFnBviNembs0D3SPJBs=',
+    'key' => 'base64:hnAJUsTxylQC5Vqm56ZfV6CZAfgDjj8VvdQb6QKHo94=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -189,7 +189,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -272,7 +272,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'bkd',
+        'database' => 'db_aplikasi_bkd',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -282,7 +282,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'bkd',
+        'database' => 'db_aplikasi_bkd',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -302,7 +302,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'bkd',
+        'database' => 'db_aplikasi_bkd',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -317,7 +317,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'bkd',
+        'database' => 'db_aplikasi_bkd',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -360,12 +360,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app',
+        'root' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app/public',
+        'root' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -383,7 +383,7 @@
     ),
     'links' => 
     array (
-      'D:\\PROJECT\\Aplikasi_bkd\\public\\storage' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\app/public',
+      'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\public\\storage' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -418,13 +418,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -475,7 +475,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -541,7 +541,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -642,7 +642,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -704,9 +704,9 @@
   array (
     'paths' => 
     array (
-      0 => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views',
+      0 => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\resources\\views',
     ),
-    'compiled' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\framework\\views',
   ),
   'dompdf' => 
   array (
@@ -714,10 +714,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\fonts/',
-      'font_cache' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\bumpy\\AppData\\Local\\Temp',
-      'chroot' => 'D:\\PROJECT\\Aplikasi_bkd',
+      'font_dir' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\fonts/',
+      'font_cache' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\fonts/',
+      'temp_dir' => 'C:\\Users\\Pink_Key\\AppData\\Local\\Temp',
+      'chroot' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
@@ -806,7 +806,7 @@
   'livewire' => 
   array (
     'class_namespace' => 'App\\Http\\Livewire',
-    'view_path' => 'D:\\PROJECT\\Aplikasi_bkd\\resources\\views/livewire',
+    'view_path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\resources\\views/livewire',
     'layout' => 'layouts.app',
     'asset_url' => NULL,
     'app_url' => NULL,
@@ -942,7 +942,7 @@
     ),
     'temporary_files' => 
     array (
-      'local_path' => 'D:\\PROJECT\\Aplikasi_bkd\\storage\\framework/laravel-excel',
+      'local_path' => 'C:\\Users\\Pink_Key\\Documents\\Kerjaan\\Aplikasi_bkd\\storage\\framework/laravel-excel',
       'remote_disk' => NULL,
       'remote_prefix' => NULL,
       'force_resync_remote' => NULL,

@@ -110,14 +110,14 @@ class Ppengajaran extends Component
 
     public function updatedIdDosenAnggota()
     {
-        $this->listDosenAnggotaTerpilih += ['"'. $this->idDosenAnggota .'"' => $this->namaDosenAnggota];
+        $this->listDosenAnggotaTerpilih += ['"' . $this->idDosenAnggota . '"' => $this->namaDosenAnggota];
         $this->idDosenAnggota = null;
         $this->namaDosenAnggota = null;
     }
 
     public function updatedIdDosenHonorAnggota()
     {
-        $this->listDosenHonorAnggotaTerpilih += ['"' . $this->idDosenHonorAnggota .'"' => $this->namaDosenHonorAnggota];
+        $this->listDosenHonorAnggotaTerpilih += ['"' . $this->idDosenHonorAnggota . '"' => $this->namaDosenHonorAnggota];
         $this->idDosenHonorAnggota = null;
         $this->namaDosenHonorAnggota = null;
     }
@@ -138,7 +138,7 @@ class Ppengajaran extends Component
 
     public function removeFromMultiHonor($id)
     {
-        unset($this->listDosenHonorAnggotaTerpilih['"' . $id .'"']);
+        unset($this->listDosenHonorAnggotaTerpilih['"' . $id . '"']);
     }
 
 
@@ -246,6 +246,7 @@ class Ppengajaran extends Component
 
     public function storePpengajaran()
     {
+
         $id_pengajaran_dikti_honor = substr(str_shuffle(str_repeat($x = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', ceil(10 / strlen($x)))), 1, 10);
 
         // Menyimpan ke tabel pengajaran_honor
@@ -253,6 +254,7 @@ class Ppengajaran extends Component
         foreach ($this->listDosenHonor as $dosen) {
             $nik_dosen_pj_honor = $dosen->kode_dosen;
         }
+
         HonorPengajaran::create([
             'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
             'matkul_id' => $this->matkul,
@@ -265,12 +267,12 @@ class Ppengajaran extends Component
         ]);
 
         if ($this->matkul_jenis_honor === "Kelompok") {
-            foreach ($this->listDosenAnggotaTerpilih as $nik => $nama) {
-                // dd($nama);
+            foreach ($this->listDosenHonorAnggotaTerpilih as $kodeDosen => $nama) {
+
                 DaftarDosenHonor::create([
                     'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
                     'dosen' => $nik_dosen_pj_honor,
-                    'dosen_anggota' =>  $nik,
+                    'dosen_anggota' =>  str_replace('"', "", $kodeDosen),
                 ]);
             }
         } else {
@@ -295,24 +297,14 @@ class Ppengajaran extends Component
 
         if ($this->tipe_dosen_pengajaran == 1) { // JIKA ISIAN DOSEN DI SAMAKAN
 
-            PddiktiPengajaran::create([
-                'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
-                'matkul_id' => $this->matkul,
-                'prodi_id' => Auth::user()->prodi_id,
-                'sks' => $this->sks * $this->jumkelas,
-                'akademik_tahun' => $this->tahun_ajaran,
-                'jum_kelas' => $this->jumkelas,
-                'jum_mengajar' => 14,
-                'tipe_mengajar' => $this->matkul_jenis_honor,
-            ]);
 
             if ($this->matkul_jenis_honor === "Kelompok") {
-                foreach ($this->listDosenHonorAnggotaTerpilih as $nik => $nama) {
+                foreach ($this->listDosenHonorAnggotaTerpilih as $kodeDosen => $nama) {
                     // dd($nama);
                     DaftarDosenDikti::create([
                         'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
                         'dosen' => $nik_dosen_pj_honor,
-                        'dosen_anggota' =>  $nik,
+                        'dosen_anggota' => str_replace('"', "", $kodeDosen),
                     ]);
                 }
             } else {
@@ -323,16 +315,6 @@ class Ppengajaran extends Component
                 ]);
             }
         } else {
-            PddiktiPengajaran::create([
-                'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
-                'matkul_id' => $this->matkul,
-                'prodi_id' => Auth::user()->prodi_id,
-                'sks' => $this->sks * $this->jumkelas,
-                'akademik_tahun' => $this->tahun_ajaran,
-                'jum_kelas' => $this->jumkelas,
-                'jum_mengajar' => 14,
-                'tipe_mengajar' => $this->matkul_jenis,
-            ]);
 
             foreach ($this->listDosen as $dosen) {
                 $nik_dosen_pj_pddikti = $dosen->no_registrasi;
@@ -343,7 +325,7 @@ class Ppengajaran extends Component
                     DaftarDosenDikti::create([
                         'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
                         'dosen' => $nik_dosen_pj_pddikti,
-                        'dosen_anggota' =>  $nik,
+                        'dosen_anggota' =>  str_replace('"', "", $nik),
                     ]);
                 }
             } else {
@@ -355,44 +337,6 @@ class Ppengajaran extends Component
             }
         }
 
-
-
-
-
-
-
         Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
-
-
-        // dd($this->listDosenHonor);
-        // dd($this->listDosenHonorAnggotaTerpilih);
-        // dd($this->listDosen);
-        // dd($this->listDosenAnggotaTerpilih);
-
-
-        // if (($this->sks * $this->jumkelas) >= 16) {
-        //     Alert::warning('Peringatan', 'Jumlah tugas diberikan melebihi batas');
-        //     return back();
-        // } else {
-
-
-        //     PddiktiPengajaran::create([
-        //         'nik' => $this->idDosen,
-        //         'nama_dosen' => $this->namaDosen,
-        //         'matkul_id' => $this->matkul,
-        //         'prodi_id' => Auth::user()->prodi_id,
-        //         'sks' => $this->sks * $this->jumkelas,
-        //         'akademik_tahun' => $this->tahun_ajaran,
-        //         'jum_kelas' => $this->jumkelas,
-        //         'kelas_penyesuaian' => $this->jumkelasp,
-        //         'sks_penyesuaian' => $this->sks_penyesuaian,
-        //         'tipe_mengajar' => $this->tipe_mengajar,
-        //     ]);
-        //     // dd($this->jumkelasp);
-        //     // Alert::success('Sukses', 'Data BKD Berhasil di Tambahkan');
-        //     // return redirect('/pddikti/data');
-        //     Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
-        //     return redirect('/pddikti/dosen');
-        // }
     }
 }
