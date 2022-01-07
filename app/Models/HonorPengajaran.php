@@ -12,10 +12,10 @@ class HonorPengajaran extends Model
     protected $fillable = [
         'id_pengajaran_honor',
         'prodi_id',
-        'matkul_id',
-        'sks',
+        'nama_matkul',
+        'sks_pengajaran',
+        'sks_asli',
         'akademik_tahun',
-        'semester',
         'jum_kelas',
         'jum_mengajar',
         'tipe_mengajar'

@@ -36,6 +36,7 @@ class Ppengajaran extends Component
     public $no_induk;
     public $bio_dosen;
     public $tipe_mengajar;
+    public $nama_matkul;
 
     //variable list for autocomplete
     public $listDosen = [];
@@ -199,11 +200,12 @@ class Ppengajaran extends Component
             ->where('kode_mk', '=', $this->matkul)
             ->first();
 
-
         if ($this->matkul == "" || ($this->tahun_ajaran == "")) {
             $this->sks = "";
+            $this->nama_matkul = "";
         } else {
             $this->sks = $select_sks->jml_sks;
+            $this->nama_matkul = $select_sks->nama_mk;
         }
 
         if ($this->rasio == 0) {
@@ -257,9 +259,10 @@ class Ppengajaran extends Component
 
         HonorPengajaran::create([
             'id_pengajaran_honor' => $id_pengajaran_dikti_honor,
-            'matkul_id' => $this->matkul,
+            'nama_matkul' => $this->nama_matkul,
             'prodi_id' => Auth::user()->prodi_id,
-            'sks' => $this->sks * $this->jumkelas,
+            'sks_pengajaran' => $this->sks * $this->jumkelas,
+            'sks_asli' => $this->sks,
             'akademik_tahun' => $this->tahun_ajaran,
             'jum_kelas' => $this->jumkelasp,
             'jum_mengajar' => 14,
@@ -286,9 +289,10 @@ class Ppengajaran extends Component
 
         PddiktiPengajaran::create([
             'id_pengajaran_pddikti' => $id_pengajaran_dikti_honor,
-            'matkul_id' => $this->matkul,
+            'nama_matkul' => $this->nama_matkul,
             'prodi_id' => Auth::user()->prodi_id,
-            'sks' => $this->sks * $this->jumkelas,
+            'sks_pengajaran' => $this->sks * $this->jumkelas,
+            'sks_asli' => $this->sks,
             'akademik_tahun' => $this->tahun_ajaran,
             'jum_kelas' => $this->jumkelas,
             'jum_mengajar' => 14,
