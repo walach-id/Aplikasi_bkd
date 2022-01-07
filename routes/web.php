@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\PengajaranController;
 use App\Http\Controllers\PpengajaranController;
+use App\Http\Controllers\DosenHonorController;
+use App\Http\Controllers\DosenPddiktiController;
 use App\Imports\PengajaranImport;
+use App\Models\HonorPengajaran;
 use Maatwebsite\Excel\Facades\Excel;
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +31,20 @@ Route::get('/pddikti/dosen/json', [PddiktiController::class, 'dataAjax']);
 
 Route::get('/pddikti', [PddiktiController::class, 'tampilFormTambah']);
 
-Route::get('/pddikti/dosen', function () {
-    return view('pddikti.data_dosen_pddikti');
-});
+// Route::get('/pddikti/dosen', function () {
+//     return view('pddikti.data_dosen_pddikti');
+// });
 // Route::get('/pddikti/dosen/detail/{id}/alihkan', function () {
 //     return view('pddikti.update_pengajaran_pddikti');
 // });
 
+Route::get('/contoh', function () {
+    return view('pddikti.detail_dosen_pddikti');
+});
+Route::get('/pddikti/dosen', [DosenPddiktiController::class, 'index']);
+Route::get('/pddikti/dosen/detail/{id}', [DosenPddiktiController::class, 'detail']);
 
-Route::get('/pddikti/dosen/detail/{id}/alihkan', [PddiktiController::class, 'edit']);
-Route::post('/pddikti/dosen/detail/{id}/alihkan/add', [PddiktiController::class, 'store']);
-
-Route::get('/pddikti/dosen/detail/{id}', [PddiktiController::class, 'index']);
+// Route::get('/pddikti/dosen/detail/{id}', [PddiktiController::class, 'index']);
 
 //pddikti
 Route::get('/pddikti/form', [PpengajaranController::class, 'formAddPpengajaran']);
@@ -48,11 +53,14 @@ Route::post('/pddikti/form/import', function () {
     Excel::import(new PengajaranImport, request()->file('file'));
     return back();
 });
-Route::get('/pddikti/data', [PpengajaranController::class, 'index']);
+// Route::get('/pddikti/data', [PpengajaranController::class, 'index']);
 Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengajaran']);
 Route::get('/pddikti/pengajaran/cetak', [PpengajaranController::class, 'cetakpddikti']);
 Route::get('/pddikti/pengajaran/cetak/{id}', [PddiktiController::class, 'cetakDetailPddikti']);
 
+
+Route::get('/honor/data', [DosenHonorController::class, 'index']);
+Route::get('/honor/data/detail/{id}', [DosenHonorController::class, 'detail']);
 // Route::get('/dashboard/{id}', function () {
 //     return view('profile.data_pribadi');
 // });

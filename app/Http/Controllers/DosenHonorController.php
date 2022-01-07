@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Livewire\Pddikti;
+namespace App\Http\Controllers;
 
-use Livewire\Component;
-use App\Models\Ppengajaran;
+use Illuminate\Http\Request;
 use App\Models\HonorPengajaran;
+use App\Models\DaftarDosenHonor;
 
-
-class ViewDosen extends Component
+class DosenHonorController extends Controller
 {
-    public function render()
+    public function index()
     {
         $AmbilData = HonorPengajaran::join('daftar_dosen_honors', 'daftar_dosen_honors.id_pengajaran_honor', '=', 'pengajaran_honors.id_pengajaran_honor')
             ->join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_honors.dosen')
@@ -34,8 +33,26 @@ class ViewDosen extends Component
         //     ->groupBy('nama_dosen')
         //     ->selectRaw('sum(sks_asli) as sum, nik, nama_dosen')
         //     ->get();
-        return view('livewire.pddikti.view-dosen', [
+        return view('pddikti.data_dosen_honor', [
             'data_dosen' => $AmbilData,
+            // 'alih_ajar' => $Alih_ajar,
+        ]);
+    }
+
+    public function detail($id)
+    {
+        $detail_data = HonorPengajaran::join('daftar_dosen_honors', 'daftar_dosen_honors.id_pengajaran_honor', '=', 'pengajaran_honors.id_pengajaran_honor')
+            ->join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_honors.dosen')
+            ->where('pengajaran_honors.id_pengajaran_honor', $id)
+            ->first();
+
+        $anggota = DaftarDosenHonor::join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_honors.dosen_anggota')
+            ->where('id_pengajaran_honor', $id)
+            ->get();
+
+        return view('pddikti.detail_dosen_honor', [
+            'detail_dosen' => $detail_data,
+            'anggota' => $anggota
             // 'alih_ajar' => $Alih_ajar,
         ]);
     }

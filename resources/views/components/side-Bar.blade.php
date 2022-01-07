@@ -26,7 +26,8 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+              aria-controls="collapseTwo">
               <i class="fas fa-fw fa-cog"></i>
               <span>Profil</span>
           </a>
@@ -39,11 +40,13 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+              aria-expanded="true" aria-controls="collapseUtilities">
               <i class="fas fa-fw fa-wrench"></i>
               <span>Pelaks.Pendidikan</span>
           </a>
-          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+              data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
                   <a class="collapse-item" href="{{ url('/pddikti/pengajaran') }}">Pengajaran</a>
               </div>
@@ -52,17 +55,19 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>PDDIKTI</span>
-        </a>
-        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/pddikti') }}">Pengajaran</a>
-                <a class="collapse-item" href="{{ url('/pddikti/dosen') }}">Dosen</a>
-            </div>
-        </div>
-    </li>
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+              aria-controls="collapseUtilities">
+              <i class="fas fa-fw fa-wrench"></i>
+              <span>PDDIKTI</span>
+          </a>
+          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
+              <div class="bg-white py-2 collapse-inner rounded">
+                  <a class="collapse-item" href="{{ url('/pddikti') }}">Olah Pengajaran</a>
+                  <a class="collapse-item" href="{{ url('/pddikti/dosen') }}">Pengajaran PDDIKTI</a>
+                  <a class="collapse-item" href="{{ url('/honor/data') }}">Pengajaran Honor</a>
+              </div>
+          </div>
+      </li>
 
       <!-- Divider -->
       <!-- <hr class="sidebar-divider"> -->
