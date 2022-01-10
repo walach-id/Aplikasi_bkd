@@ -21,7 +21,7 @@
                 <tr>
                     <th>Nama Dosen</th>
                     <td>: </td>
-                    <td>{{ $detail_dosen->nama_dosen }}</td>
+                    <td>{{ $detail_dosen->nama }}</td>
                 </tr>
                 <tr>
                     <th>Mata Kuliah</th>
@@ -43,10 +43,10 @@
                     <td valign="top">: </td>
                     <td valign="top">
                         @foreach ($anggota as $item)
-                            @if ($item->nama_dosen == null)
+                            @if ($item->nama == null)
                                 -
                             @else
-                                {{ $item->nama_dosen }} <br />
+                                {{ $item->nama }} <br />
                             @endif
                         @endforeach
                     </td>

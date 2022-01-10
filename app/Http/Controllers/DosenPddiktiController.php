@@ -49,7 +49,7 @@ class DosenPddiktiController extends Controller
             ->where('pengajaran_pddikti.id_pengajaran_pddikti', $id)
             ->first();
 
-        $anggota = DaftarDosenDikti::join('daftar_dosen_nidn', 'daftar_dosen_nidn.no_registrasi', '=', 'daftar_dosen_diktis.dosen')
+        $anggota = DaftarDosenDikti::join('daftar_dosen_nidn', 'daftar_dosen_nidn.no_registrasi', '=', 'daftar_dosen_diktis.dosen_anggota')
             ->where('id_pengajaran_pddikti', $id)
             ->get();
 
