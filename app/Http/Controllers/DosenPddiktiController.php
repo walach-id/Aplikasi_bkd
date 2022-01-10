@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PddiktiPengajaran;
 use App\Models\DaftarDosenDikti;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class DosenPddiktiController extends Controller
@@ -18,6 +19,7 @@ class DosenPddiktiController extends Controller
             ->groupBy('pengajaran_pddikti.akademik_tahun')
             ->groupBy('data_dosen.nama_dosen')
             ->selectRaw('pengajaran_pddikti.id_pengajaran_pddikti, pengajaran_pddikti.nama_matkul, pengajaran_pddikti.sks_asli, pengajaran_pddikti.akademik_tahun, data_dosen.nama_dosen')
+            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
             ->get();
 
         // dd($AmbilData);
@@ -43,10 +45,12 @@ class DosenPddiktiController extends Controller
     {
         $detail_data = PddiktiPengajaran::join('daftar_dosen_diktis', 'daftar_dosen_diktis.id_pengajaran_pddikti', '=', 'pengajaran_pddikti.id_pengajaran_pddikti')
             ->join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_diktis.dosen')
+            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
             ->where('pengajaran_pddikti.id_pengajaran_pddikti', $id)
             ->first();
 
         $anggota = DaftarDosenDikti::join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_diktis.dosen_anggota')
+            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
             ->where('id_pengajaran_pddikti', $id)
             ->get();
 
