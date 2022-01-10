@@ -50,7 +50,6 @@ class DosenPddiktiController extends Controller
             ->first();
 
         $anggota = DaftarDosenDikti::join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_diktis.dosen_anggota')
-            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
             ->where('id_pengajaran_pddikti', $id)
             ->get();
 

@@ -51,7 +51,6 @@ class DosenHonorController extends Controller
 
         $anggota = DaftarDosenHonor::join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_honors.dosen_anggota')
             ->where('id_pengajaran_honor', $id)
-            ->where('pengajaran_honors.prodi_id', Auth::user()->prodi_id)
             ->get();
 
         return view('pddikti.detail_dosen_honor', [
