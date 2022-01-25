@@ -28,19 +28,32 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-              aria-controls="collapseUtilities">
-              <i class="fas fa-fw fa-wrench"></i>
-              <span>PDDIKTI</span>
+          <a class="nav-link collapsed" href="{{ url('/pddikti') }}">
+              Olah Pengajaran
           </a>
-          <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{ url('/pddikti') }}">Olah Pengajaran</a>
-                  <a class="collapse-item" href="{{ url('/pddikti/dosen') }}">Pengajaran PDDIKTI</a>
-                  <a class="collapse-item" href="{{ url('/honor/data') }}">Pengajaran Honor</a>
-              </div>
-          </div>
       </li>
+
+
+
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/pddikti/dosen') }}">
+              Pengajaran PDDIKTI
+          </a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/honor/data') }}">
+              Pengajaran Honor
+          </a>
+      </li>
+
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/konfirmasi/pengajaran') }}">
+              Konfirmasi Pengajaran
+          </a>
+      </li>
+
+
 
       <!-- Divider -->
       <!-- <hr class="sidebar-divider"> -->

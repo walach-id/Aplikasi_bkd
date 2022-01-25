@@ -22,19 +22,6 @@ class DosenPddiktiController extends Controller
             ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
             ->get();
 
-        // dd($AmbilData);
-
-        // $data_dikti = Ppengajaran::join('daftar_dosen_diktis', 'daftar_dosen_diktis.id_pengajaran_pddikti', '=', 'pengajaran_pddikti.id_pengajaran_pddikti')
-        //     ->join('data_dosen', 'data_dosen.kode_dosen', '=', 'daftar_dosen_diktis.dosen')
-        //     ->groupBy('pengajaran_pddikti.id_pengajaran_pddikti')
-        //     ->groupBy('data_dosen.nama_dosen')
-        //     ->selectRaw('pengajaran_pddikti.id_pengajaran_pddikti, data_dosen.nama_dosen, sum(sks) as jum')
-        //     ->get();
-
-        // $Alih_ajar = AlihAjarPddikti::groupBy('nik')
-        //     ->groupBy('nama_dosen')
-        //     ->selectRaw('sum(sks_asli) as sum, nik, nama_dosen')
-        //     ->get();
         return view('pddikti.data_dosen_pddikti', [
             'data_dosen' => $AmbilData,
             // 'alih_ajar' => $Alih_ajar,

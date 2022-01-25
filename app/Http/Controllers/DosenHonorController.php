@@ -53,6 +53,8 @@ class DosenHonorController extends Controller
             ->where('id_pengajaran_honor', $id)
             ->get();
 
+
+
         return view('pddikti.detail_dosen_honor', [
             'detail_dosen' => $detail_data,
             'anggota' => $anggota

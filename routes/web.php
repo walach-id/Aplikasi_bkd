@@ -57,6 +57,10 @@ Route::post('/pddikti/form/import', function () {
 Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengajaran']);
 Route::get('/pddikti/pengajaran/cetak', [PpengajaranController::class, 'cetakpddikti']);
 Route::get('/pddikti/pengajaran/cetak/{id}', [PddiktiController::class, 'cetakDetailPddikti']);
+Route::get('/konfirmasi/pengajaran', [PddiktiController::class, 'konfirmasiPengajaran']);
+Route::get('/detail/konfirmasi/pengajaran/{id_asal}/{id_pemberian}', [PddiktiController::class, 'DetailKonfirmasiPengajaran']);
+Route::get('/form/persetujuan/{id_asal}/{id_pemberian}', [PddiktiController::class, 'formPersetujuan']);
+Route::post('/update/persetujuan', [PddiktiController::class, 'updatePersetujuan']);
 
 
 Route::get('/honor/data', [DosenHonorController::class, 'index']);

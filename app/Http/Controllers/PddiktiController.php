@@ -10,6 +10,7 @@ use App\Models\MataKuliah;
 use App\Models\Krs;
 use App\Models\DosenNidn;
 use App\Models\DosenJson;
+use App\Models\PengalihanPengajaranPddikti;
 
 use App\Models\PddiktiPengajaran;
 use App\Models\AlihAjarPddikti;
@@ -224,5 +225,70 @@ class PddiktiController extends Controller
 
         $pdf = PDF::loadview('pddikti.laporan_detail_pengajaran', $data)->setPaper('a4', 'landscape');;
         return $pdf->stream();
+    }
+
+    public function konfirmasiPengajaran()
+    {
+        //data table pengalihan_pengajaran_pddikti join table pengajaran_pddikti dan daftar_dosen_nidn
+        $konfirmasi_pengajaran = PengalihanPengajaranPddikti::join('pengajaran_pddikti', 'pengajaran_pddikti.id_pengajaran_pddikti', '=', 'pengalihan_pengajaran_pddiktis.id_pengajaran_asal')
+            ->join('daftar_dosen_nidn', 'daftar_dosen_nidn.no_registrasi', '=', 'pengalihan_pengajaran_pddiktis.id_dosen_pemberi')
+            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
+            ->where('pengalihan_pengajaran_pddiktis.status', '=', "menunggu")
+            ->get();
+
+        $dosen_anggota = PengalihanPengajaranPddikti::join('pengajaran_pddikti', 'pengajaran_pddikti.id_pengajaran_pddikti', '=', 'pengalihan_pengajaran_pddiktis.id_pengajaran_asal')
+            ->join('daftar_dosen_nidn', 'daftar_dosen_nidn.no_registrasi', '=', 'pengalihan_pengajaran_pddiktis.id_dosen_penerima')
+            ->where('pengajaran_pddikti.prodi_id', Auth::user()->prodi_id)
+
+            ->get();
+
+
+        return view('pddikti.konfirmasi_pengajaran', [
+            'alih_ajar_pddikti' => $konfirmasi_pengajaran,
+            'dosen_anggota' => $dosen_anggota,
+
+        ]);
+    }
+
+    public function DetailKonfirmasiPengajaran($id_asal, $id_pemberian)
+    {
+        $pengalihan_pddikti = PengalihanPengajaranPddikti::join('daftar_dosen_nidn', 'daftar_dosen_nidn.no_registrasi', '=', 'pengalihan_pengajaran_pddiktis.id_dosen_penerima')
+            ->where('pengalihan_pengajaran_pddiktis.id_pengajaran_asal', '=', $id_asal)
+            ->where('pengalihan_pengajaran_pddiktis.id_pemberian', '=', $id_pemberian)
+
+            ->get();
+
+        return view('pddikti.detail_konfirmasi_pengajaran', [
+            'pengalihan' => $pengalihan_pddikti,
+        ]);
+    }
+
+    public function formPersetujuan($id_asal, $id_pemberian)
+    {
+        return view('pddikti.form_persetujuan', [
+            'id_asal' => $id_asal,
+            'id_pemberian' => $id_pemberian,
+        ]);
+    }
+
+    public function updatePersetujuan(Request $request)
+    {
+        if (!$request->catatan == null) {
+            PengalihanPengajaranPddikti::where('id_pengajaran_asal', $request->id_asal)
+                ->where('id_pemberian', $request->id_pemberian)
+                ->update([
+                    'status' => "disetujui",
+                    'catatan_prodi' => $request->catatan
+                ]);
+        } else {
+            PengalihanPengajaranPddikti::where('id_pengajaran_asal', $request->id_asal)
+                ->where('id_pemberian', $request->id_pemberian)
+                ->update([
+                    'status' => "disetujui",
+                    'catatan_prodi' => "-"
+                ]);
+        }
+        alert()->success('Sukses', 'Pengajuan Pengajaran Telah Di Setujui');
+        return redirect('/konfirmasi/pengajaran');
     }
 }
