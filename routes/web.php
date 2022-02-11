@@ -58,6 +58,11 @@ Route::get('/pddikti/pengajaran', [PpengajaranController::class, 'tampil_pengaja
 Route::get('/pddikti/pengajaran/cetak', [PpengajaranController::class, 'cetakpddikti']);
 Route::get('/pddikti/pengajaran/cetak/{id}', [PddiktiController::class, 'cetakDetailPddikti']);
 Route::get('/konfirmasi/pengajaran', [PddiktiController::class, 'konfirmasiPengajaran']);
+Route::get('/konfirmasi/pembagian/beban/ajar', [PddiktiController::class, 'pengajuanBebanAjarDosen']);
+
+Route::get('/konfirmasi/beban/ajar/{idPengalihan}/{idPengajaran}/{idDosen}', [PddiktiController::class, 'konfirmasiPembagianBebanAjar']);
+
+
 Route::get('/detail/konfirmasi/pengajaran/{id_asal}/{id_pemberian}', [PddiktiController::class, 'DetailKonfirmasiPengajaran']);
 Route::get('/form/persetujuan/{id_asal}/{id_pemberian}', [PddiktiController::class, 'formPersetujuan']);
 Route::post('/update/persetujuan', [PddiktiController::class, 'updatePersetujuan']);

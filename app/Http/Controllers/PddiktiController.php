@@ -11,9 +11,11 @@ use App\Models\Krs;
 use App\Models\DosenNidn;
 use App\Models\DosenJson;
 use App\Models\PengalihanPengajaranPddikti;
-
+use App\Models\PembagianBebanAjar;
 use App\Models\PddiktiPengajaran;
 use App\Models\AlihAjarPddikti;
+use App\Models\DaftarDosenHonor;
+use App\Models\HonorPengajaran;
 use App\Models\Ppengajaran;
 use App\Models\ProgramStudi;
 use Illuminate\Support\Facades\Auth;
@@ -290,5 +292,34 @@ class PddiktiController extends Controller
         }
         alert()->success('Sukses', 'Pengajuan Pengajaran Telah Di Setujui');
         return redirect('/konfirmasi/pengajaran');
+    }
+
+    public function pengajuanBebanAjarDosen()
+    {
+        $pembagian_dosen = PembagianBebanAjar::join('data_dosen', 'data_dosen.kode_dosen', '=', 'penampung_pengalihans.dosen')
+            ->get();
+        return view('pddikti.konfirmasi_pembagian_beban_ajar', [
+            'pembagian_dosen' => $pembagian_dosen
+        ]);
+    }
+
+    public function konfirmasiPembagianBebanAjar($idPengalihan, $idPengajaran, $idDosen)
+    {
+        PembagianBebanAjar::where('id_pengalihan', $idPengalihan)
+            ->where('id_pengajaran_asal', $idPengajaran)
+            ->where('dosen', $idDosen)
+            ->update(['status' => "disetujui"]);
+
+        $getData = DaftarDosenHonor::where('id_pengajaran_honor', $idPengajaran)->first();
+
+        $simpan = new DaftarDosenHonor();
+
+        $simpan->id_pengajaran_honor = $idPengajaran;
+        $simpan->dosen = $getData->dosen;
+        $simpan->dosen_anggota = $idDosen;
+        $simpan->save();
+
+        alert()->success('Sukses', 'Pembagian Beban Ajar Berhasil');
+        return redirect('/konfirmasi/pembagian/beban/ajar');
     }
 }

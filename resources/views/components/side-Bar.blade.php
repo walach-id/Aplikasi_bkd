@@ -53,6 +53,12 @@
           </a>
       </li>
 
+      <li class="nav-item">
+          <a class="nav-link collapsed" href="{{ url('/konfirmasi/pembagian/beban/ajar') }}">
+              Konfirmasi Pembagian Pengajaran
+          </a>
+      </li>
+
 
 
       <!-- Divider -->
