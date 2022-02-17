@@ -341,6 +341,10 @@ class Ppengajaran extends Component
             }
         }
 
-        Alert::success('Sukses', 'Jumlah tugas diberikan harus kurang dari jumlah pertemuan');
+        $this->dispatchBrowserEvent('swal:modal', [
+            'type' => 'success',
+            'message' => 'Berhasil!',
+            'text' => 'Data Berhasil Ditambahkan'
+        ]);
     }
 }
