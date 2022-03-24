@@ -2,7 +2,7 @@
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://drive.google.com/file/d/1V47cC_snaMtVm7-iihWSvZ0rRlRgtnpR/view?uc=sharing" width="400"></a></p>
 
-
+<img class="alignnone" src="https://www.googledrive.com/host/1V47cC_snaMtVm7-iihWSvZ0rRlRgtnpR" alt="" width="640" height="970" />
 
 
 <p align="center">
