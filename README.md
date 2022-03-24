@@ -1,8 +1,7 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://drive.google.com/file/d/1V47cC_snaMtVm7-iihWSvZ0rRlRgtnpR/view?uc=sharing" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/poseidon98/test-bmg/main/Screenshot%20(254).png" width="400"></a></p>
 
-<img class="alignnone" src="https://www.googledrive.com/host/1V47cC_snaMtVm7-iihWSvZ0rRlRgtnpR" alt="" width="640" height="970" />
 
 
 <p align="center">
